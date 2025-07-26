@@ -3,52 +3,77 @@
 <head>
   <meta charset="UTF-8" />
   <title>Event Media – Markel Media</title>
-  <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glider-js@1/glider.min.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <style>
+    body {
+      background-color: #111;
+      color: #fff;
+      font-family: 'Segoe UI', sans-serif;
+    }
+    .navbar {
+      background-color: #000;
+    }
+    .nav-link {
+      color: #fff !important;
+    }
+    .nav-link.active {
+      border-bottom: 2px solid #00bcd4;
+    }
+    .carousel-inner img {
+      max-height: 500px;
+      object-fit: cover;
+    }
+    h1, h2 {
+      text-align: center;
+      margin-top: 40px;
+      margin-bottom: 20px;
+    }
+  </style>
 </head>
 <body>
-  <nav>
-    <div class="logo">Markel Media</div>
-    <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="real-estate.html">Real Estate</a></li>
-      <li><a href="event-media.html" class="active">Events</a></li>
-      <li><a href="videography.html">Videography</a></li>
-      <li><a href="about.html">About</a></li>
-    </ul>
+  <nav class="navbar navbar-expand-lg">
+    <div class="container">
+      <a class="navbar-brand text-white" href="index.html">Markel Media</a>
+      <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon text-white"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="real-estate.html">Real Estate</a></li>
+          <li class="nav-item"><a class="nav-link active" href="event-media.html">Event Media</a></li>
+          <li class="nav-item"><a class="nav-link" href="videography.html">Videography</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About Me</a></li>
+        </ul>
+      </div>
+    </div>
   </nav>
 
   <main>
-    <section class="hero">
-      <h1>Event Media</h1>
-      <p>Weddings, Brand Activations, and Special Moments</p>
-    </section>
+    <h1>Event Media</h1>
+    <h2>Capturing Your Special Moments</h2>
 
-    <section class="carousel-section">
-      <h2>Photo Highlights</h2>
-      <div class="glider-contain">
-        <div class="glider">
-          <img src="images/event1.jpg" alt="Event 1" />
-          <img src="images/event2.jpg" alt="Event 2" />
-          <img src="images/event3.jpg" alt="Event 3" />
+    <div id="eventCarousel" class="carousel slide container" data-bs-ride="carousel" style="max-width:900px;">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="assets/images/event1.jpg" class="d-block w-100" alt="Event 1" />
         </div>
-        <button class="glider-prev">«</button>
-        <button class="glider-next">»</button>
-        <div role="tablist" class="dots"></div>
+        <div class="carousel-item">
+          <img src="assets/images/event2.jpg" class="d-block w-100" alt="Event 2" />
+        </div>
+        <div class="carousel-item">
+          <img src="assets/images/event3.jpg" class="d-block w-100" alt="Event 3" />
+        </div>
       </div>
-    </section>
+      <button class="carousel-control-prev" type="button" data-bs-target="#eventCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#eventCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      </button>
+    </div>
   </main>
 
-  <script src="https://cdn.jsdelivr.net/npm/glider-js@1/glider.min.js"></script>
-  <script>
-    new Glider(document.querySelector('.glider'), {
-      slidesToShow: 1,
-      dots: '.dots',
-      arrows: {
-        prev: '.glider-prev',
-        next: '.glider-next'
-      }
-    });
-  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
