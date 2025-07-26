@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Event Media – Markel Media</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glider-js@1/glider.min.css" />
+</head>
+<body>
+  <nav>
+    <div class="logo">Markel Media</div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="real-estate.html">Real Estate</a></li>
+      <li><a href="event-media.html" class="active">Events</a></li>
+      <li><a href="videography.html">Videography</a></li>
+      <li><a href="about.html">About</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <section class="hero">
+      <h1>Event Media</h1>
+      <p>Weddings, Brand Activations, and Special Moments</p>
+    </section>
+
+    <section class="carousel-section">
+      <h2>Photo Highlights</h2>
+      <div class="glider-contain">
+        <div class="glider">
+          <img src="images/event1.jpg" alt="Event 1" />
+          <img src="images/event2.jpg" alt="Event 2" />
+          <img src="images/event3.jpg" alt="Event 3" />
+        </div>
+        <button class="glider-prev">«</button>
+        <button class="glider-next">»</button>
+        <div role="tablist" class="dots"></div>
+      </div>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/glider-js@1/glider.min.js"></script>
+  <script>
+    new Glider(document.querySelector('.glider'), {
+      slidesToShow: 1,
+      dots: '.dots',
+      arrows: {
+        prev: '.glider-prev',
+        next: '.glider-next'
+      }
+    });
+  </script>
+</body>
+</html>
