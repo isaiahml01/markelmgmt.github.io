@@ -1,26 +1,95 @@
-<<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Markel Media</title>
-  <link rel="stylesheet" href="style.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <style>
+    body {
+      background-color: #111;
+      color: #fff;
+      font-family: 'Segoe UI', sans-serif;
+    }
+    .navbar {
+      background-color: #000;
+    }
+    .nav-link {
+      color: #fff !important;
+    }
+    .hero {
+      height: 90vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('your-hero-image.jpg') no-repeat center center;
+      background-size: cover;
+    }
+    .hero h1 {
+      font-size: 3rem;
+    }
+    .form-section {
+      padding: 60px 20px;
+      background-color: #1a1a1a;
+    }
+    footer {
+      padding: 20px;
+      text-align: center;
+      background-color: #000;
+    }
+  </style>
 </head>
 <body>
-  <nav>
-    <div class="logo">Markel Media</div>
-    <ul class="nav-links">
-      <li><a href="real-estate.html">Real Estate</a></li>
-      <li><a href="event-media.html">Events</a></li>
-      <li><a href="videography.html">Videography</a></li>
-      <li><a href="about.html">About Me</a></li>
-    </ul>
+
+  <nav class="navbar navbar-expand-lg">
+    <div class="container">
+      <a class="navbar-brand text-white" href="#">Markel Media</a>
+      <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon text-white"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="real-estate.html">Real Estate</a></li>
+          <li class="nav-item"><a class="nav-link" href="event-media.html">Event Media</a></li>
+          <li class="nav-item"><a class="nav-link" href="videography.html">Videography</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About Me</a></li>
+        </ul>
+      </div>
+    </div>
   </nav>
 
-  <header class="hero">
-    <h1>Capture Moments. Create Impact.</h1>
-    <p>Real estate visuals, event coverage, and cinematic storytelling.</p>
-    <a href="about.html#contact" class="cta-button">Work With Me</a>
-  </header>
+  <section class="hero">
+    <div class="container">
+      <h1>Upscale Visuals. Chicago Chic. Storytelling That Sells.</h1>
+      <p class="lead">Real estate, events, and creative visuals for brands that move the Midwest.</p>
+    </div>
+  </section>
+
+  <section class="form-section">
+    <div class="container">
+      <h2 class="text-center mb-4">Book a Consultation</h2>
+      <form action="https://formspree.io/f/your-form-id" method="POST" class="row g-3">
+        <div class="col-md-6">
+          <input type="text" name="name" class="form-control" placeholder="Your Name" required />
+        </div>
+        <div class="col-md-6">
+          <input type="email" name="email" class="form-control" placeholder="Your Email" required />
+        </div>
+        <div class="col-12">
+          <textarea name="message" class="form-control" placeholder="Tell us what you need..." rows="4" required></textarea>
+        </div>
+        <div class="col-12 text-center">
+          <button type="submit" class="btn btn-light">Submit</button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Markel Media. All rights reserved.</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
