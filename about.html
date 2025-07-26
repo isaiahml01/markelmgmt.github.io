@@ -1,9 +1,37 @@
-<section id="contact" style="padding: 50px;">
-  <h2>Contact Me</h2>
-  <form action="https://formspree.io/f/yourFormID" method="POST">
-    <input type="text" name="name" placeholder="Name" required />
-    <input type="email" name="email" placeholder="Email" required />
-    <textarea name="message" placeholder="Tell me about your project..." required></textarea>
-    <button type="submit">Send</button>
-  </form>
-</section>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>About Me – Markel Media</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <nav>
+    <div class="logo">Markel Media</div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="real-estate.html">Real Estate</a></li>
+      <li><a href="event-media.html">Events</a></li>
+      <li><a href="videography.html">Videography</a></li>
+      <li><a href="about.html" class="active">About</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <section class="hero">
+      <h1>Meet Isaiah</h1>
+      <p>Founder of Markel Media. Chicago-based creative director & visual storyteller.</p>
+    </section>
+
+    <section id="contact" style="padding: 50px;">
+      <h2>Let's Work Together</h2>
+      <form action="https://formspree.io/f/yourID" method="POST" class="contact-form">
+        <input type="text" name="name" placeholder="Your Name" required />
+        <input type="email" name="email" placeholder="Your Email" required />
+        <textarea name="message" placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </section>
+  </main>
+</body>
+</html>
