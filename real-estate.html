@@ -3,90 +3,141 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Markel Media - Real Estate</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <title>Real Estate | Markel Management</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
   <style>
+    :root {
+      --bg: #0e0e10;
+      --fg: #f9f9f9;
+      --accent: #de685b;
+      --muted: #999;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
     body {
-      background-color: #111;
-      color: #fff;
-      font-family: 'Segoe UI', sans-serif;
+      background: var(--bg);
+      color: var(--fg);
+      line-height: 1.6;
     }
-    .carousel-item img,
-    .carousel-item video {
-      max-height: 600px;
-      object-fit: cover;
+    header {
+      background: #111;
+      padding: 1.5rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #222;
     }
-    .navbar {
-      background-color: #000;
+    header h1 {
+      font-size: 1.5rem;
+      font-weight: 800;
     }
-    .nav-link {
-      color: #fff !important;
+    nav a {
+      color: var(--fg);
+      margin-left: 1.5rem;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.2s;
     }
-    .section-title {
-      margin-top: 2rem;
-      margin-bottom: 1rem;
-      font-size: 2rem;
+    nav a:hover {
+      color: var(--accent);
+    }
+    .hero {
+      padding: 6rem 2rem 3rem;
       text-align: center;
+      background: linear-gradient(to bottom, #1c1c1f, #0e0e10);
+    }
+    .hero h2 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+    }
+    .hero p {
+      font-size: 1.1rem;
+      color: var(--muted);
+    }
+    .section {
+      padding: 4rem 2rem;
+      max-width: 960px;
+      margin: auto;
+    }
+    .section h3 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+    }
+    .section p {
+      color: var(--muted);
+      font-size: 1.05rem;
+      margin-bottom: 2rem;
+    }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1rem;
+    }
+    .gallery img {
+      width: 100%;
+      border-radius: 0.5rem;
+      border: 1px solid #222;
+    }
+    footer {
+      padding: 2rem;
+      text-align: center;
+      font-size: 0.9rem;
+      color: var(--muted);
+      border-top: 1px solid #222;
     }
   </style>
 </head>
 <body>
-  <nav class="navbar navbar-expand-lg navbar-dark">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">Markel Media</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="real-estate.html">Real Estate Media</a></li>
-          <li class="nav-item"><a class="nav-link" href="event.html">Event Media</a></li>
-          <li class="nav-item"><a class="nav-link" href="videography.html">Videography</a></li>
-          <li class="nav-item"><a class="nav-link" href="about.html">About Me</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+  <header>
+    <h1>Markel Management</h1>
+    <nav>
+      <a href="/index.html">Home</a>
+      <a href="/about.html">About</a>
+      <a href="/realestate.html">Real Estate</a>
+      <a href="/videography.html">Videography</a>
+      <a href="/events.html">Events</a>
+      <a href="/contact.html">Contact</a>
+    </nav>
+  </header>
 
-  <div class="container mt-5">
-    <h2 class="section-title">Real Estate Media Portfolio</h2>
-    <div id="realEstateCarousel" class="carousel slide" data-bs-ride="carousel">
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <img src="assets/real-estate/REPhoto1.jpg" class="d-block w-100" alt="RE Photo 1">
-        </div>
-        <div class="carousel-item">
-          <img src="assets/real-estate/REPhoto2.jpg" class="d-block w-100" alt="RE Photo 2">
-        </div>
-        <div class="carousel-item">
-          <img src="assets/real-estate/REPhoto3.jpg" class="d-block w-100" alt="RE Photo 3">
-        </div>
-        <div class="carousel-item">
-          <img src="assets/real-estate/REPhoto4.jpg" class="d-block w-100" alt="RE Photo 4">
-        </div>
-        <div class="carousel-item">
-          <img src="assets/real-estate/REPhoto5.jpg" class="d-block w-100" alt="RE Photo 5">
-        </div>
-        <div class="carousel-item">
-          <img src="assets/real-estate/REPhoto6.jpg" class="d-block w-100" alt="RE Photo 6">
-        </div>
-        <div class="carousel-item">
-          <video class="d-block w-100" autoplay muted loop controls>
-            <source src="assets/videos/REVideo1.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-        </div>
-      </div>
-      <button class="carousel-control-prev" type="button" data-bs-target="#realEstateCarousel" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon"></span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#realEstateCarousel" data-bs-slide="next">
-        <span class="carousel-control-next-icon"></span>
-      </button>
-    </div>
-  </div>
+  <section class="hero">
+    <h2>Real Estate Investment & Sales</h2>
+    <p>Off-market deals. Fast closes. Chicago-grown and built on results.</p>
+  </section>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <section class="section">
+    <h3>Built for Investors, By an Investor</h3>
+    <p>I work with first-time and seasoned real estate investors looking for off-market properties, high ROI flips, and solid rentals. I specialize in identifying undervalued opportunities across Chicago—especially on the West and South Sides—providing expert guidance from acquisition to close.</p>
+
+    <p>As a licensed real estate professional, I offer hands-on service, speed, and insight. My process is rooted in hustle, but backed by data. You’ll get accurate comp reports, creative deal structures, and someone who treats every investment like it’s their own.</p>
+
+    <div class="gallery">
+      <img src="assets/images/REPhoto4.jpg" alt="Chicago property" />
+      <img src="assets/images/REPhoto5.jpg" alt="Investor walkthrough" />
+      <img src="assets/images/REPhoto6.jpg" alt="Interior photo of listed home" />
+    </div>
+  </section>
+
+  <section class="section">
+    <h3>Services Include</h3>
+    <p>
+      - Off-market property sourcing<br/>
+      - Buyer-side investment agent representation<br/>
+      - Short close timelines (as little as 10 days)<br/>
+      - Market and comp analysis reports<br/>
+      - Fix & Flip and Fix & Rent strategy<br/>
+      - Support for entry-level and advanced investors
+    </p>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Isaiah Markel. Chicago, IL. | @theisaiahml</p>
+  </footer>
 </body>
 </html>
