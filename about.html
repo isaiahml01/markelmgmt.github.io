@@ -2,36 +2,143 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>About Me – Markel Media</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About | Markel Management</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0e0e10;
+      --fg: #f9f9f9;
+      --accent: #de685b;
+      --muted: #999;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+    body {
+      background: var(--bg);
+      color: var(--fg);
+      line-height: 1.6;
+    }
+    header {
+      background: #111;
+      padding: 1.5rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #222;
+    }
+    header h1 {
+      font-size: 1.5rem;
+      font-weight: 800;
+    }
+    nav a {
+      color: var(--fg);
+      margin-left: 1.5rem;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+    nav a:hover {
+      color: var(--accent);
+    }
+    .hero {
+      padding: 6rem 2rem 3rem;
+      text-align: center;
+      background: linear-gradient(to bottom, #1c1c1f, #0e0e10);
+    }
+    .hero h2 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+    }
+    .hero p {
+      font-size: 1.1rem;
+      color: var(--muted);
+    }
+    .section {
+      max-width: 900px;
+      margin: auto;
+      padding: 4rem 2rem;
+    }
+    .section h3 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+    }
+    .section p {
+      font-size: 1.05rem;
+      color: var(--muted);
+      margin-bottom: 2rem;
+    }
+    .highlight {
+      color: var(--accent);
+      font-weight: 600;
+    }
+    .photo-strip {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-top: 2rem;
+    }
+    .photo-strip img {
+      width: calc(33% - 0.66rem);
+      border-radius: 0.5rem;
+      border: 1px solid #222;
+    }
+    footer {
+      padding: 2rem;
+      text-align: center;
+      font-size: 0.9rem;
+      color: var(--muted);
+      border-top: 1px solid #222;
+    }
+    @media (max-width: 768px) {
+      .photo-strip img {
+        width: 100%;
+      }
+    }
+  </style>
 </head>
 <body>
-  <nav>
-    <div class="logo">Markel Media</div>
-    <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="real-estate.html">Real Estate</a></li>
-      <li><a href="event-media.html">Events</a></li>
-      <li><a href="videography.html">Videography</a></li>
-      <li><a href="about.html" class="active">About</a></li>
-    </ul>
-  </nav>
+  <header>
+    <h1>Markel Management</h1>
+    <nav>
+      <a href="/index.html">Home</a>
+      <a href="/about.html">About</a>
+      <a href="/realestate.html">Real Estate</a>
+      <a href="/videography.html">Videography</a>
+      <a href="/events.html">Events</a>
+      <a href="/contact.html">Contact</a>
+    </nav>
+  </header>
 
-  <main>
-    <section class="hero">
-      <h1>Meet Isaiah</h1>
-      <p>Founder of Markel Media. Chicago-based creative director & visual storyteller.</p>
-    </section>
+  <section class="hero">
+    <h2>About Isaiah Markel</h2>
+    <p>Creative. Closer. Chicago to the core.</p>
+  </section>
 
-    <section id="contact" style="padding: 50px;">
-      <h2>Let's Work Together</h2>
-      <form action="https://formspree.io/f/yourID" method="POST" class="contact-form">
-        <input type="text" name="name" placeholder="Your Name" required />
-        <input type="email" name="email" placeholder="Your Email" required />
-        <textarea name="message" placeholder="Your Message" required></textarea>
-        <button type="submit">Send Message</button>
-      </form>
-    </section>
-  </main>
+  <section class="section">
+    <h3>Who I Am</h3>
+    <p>I’m <span class="highlight">Isaiah Markel</span>—a content creator, real estate professional, and visionary from the South Side of Chicago. I earned my BFA in Television Production and Entrepreneurship from Columbia College Chicago, where I discovered how storytelling, ownership, and hustle could collide.</p>
+
+    <p>I started with real estate, helping investors close high-value deals, and quickly realized that the same business principles applied to my other love—media. Today, I run Markel Management: a company where <span class="highlight">content meets capital</span>, and where creatives and clients alike can build something real.</p>
+
+    <h3>What I Stand For</h3>
+    <p>My work is rooted in <span class="highlight">expression, ownership, and empowerment</span>. Whether it’s a real estate transaction or a film shoot, my goal is the same: help people of color—especially young Black creatives—own their vision and see it through. I'm building a bridge between two worlds, and walking across it in real time.</p>
+
+    <div class="photo-strip">
+      <img src="assets/images/REPhoto1.jpg" alt="Isaiah in a property" />
+      <img src="assets/images/REPhoto2.jpg" alt="Real estate showing" />
+      <img src="assets/images/REPhoto3.jpg" alt="Isaiah at work" />
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Isaiah Markel. Chicago, IL. | @theisaiahml</p>
+  </footer>
 </body>
 </html>
