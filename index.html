@@ -1,11 +1,107 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Markel Management | Home</title>
-  <link rel="stylesheet" href="/assets/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0e0e10;
+      --fg: #f9f9f9;
+      --accent: #de685b;
+      --muted: #999;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+    body {
+      background: var(--bg);
+      color: var(--fg);
+      line-height: 1.6;
+    }
+    header {
+      background: #111;
+      padding: 1.5rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #222;
+    }
+    header h1 {
+      font-size: 1.5rem;
+      font-weight: 800;
+    }
+    nav a {
+      color: var(--fg);
+      margin-left: 1.5rem;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+    nav a:hover {
+      color: var(--accent);
+    }
+    .hero {
+      padding: 6rem 2rem 3rem;
+      text-align: center;
+      background: linear-gradient(to bottom, #1c1c1f, #0e0e10);
+    }
+    .hero h2 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+    }
+    .hero p {
+      font-size: 1.1rem;
+      color: var(--muted);
+    }
+    .btn {
+      margin-top: 2rem;
+      padding: 0.75rem 1.5rem;
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      border-radius: 0.4rem;
+      font-weight: bold;
+      text-decoration: none;
+      display: inline-block;
+      transition: background 0.2s;
+    }
+    .btn:hover {
+      background: #c65348;
+    }
+    .intro {
+      padding: 4rem 2rem;
+      max-width: 900px;
+      margin: auto;
+    }
+    .intro h3 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+    }
+    .intro p {
+      color: var(--muted);
+      font-size: 1.05rem;
+      margin-bottom: 2rem;
+    }
+    video {
+      width: 100%;
+      border: 1px solid #222;
+      border-radius: 0.5rem;
+    }
+    footer {
+      padding: 2rem;
+      text-align: center;
+      font-size: 0.9rem;
+      color: var(--muted);
+      border-top: 1px solid #222;
+    }
+  </style>
 </head>
 <body>
   <header>
@@ -21,21 +117,21 @@
 
   <section class="hero">
     <h2>Where Hustle Meets Vision</h2>
-    <p>Real Estate. Media. Ownership. Community.</p>
+    <p>Chicago-built. Content-led. Real estate-backed.</p>
     <a href="/about.html" class="btn">Learn More</a>
   </section>
 
   <section class="intro">
     <h3>Welcome to Markel Management</h3>
-    <p>From Dallas to Chicago, Isaiah Markel merges investment and content creation into a platform that builds wealth and tells bold stories. Whether you're buying property or producing your next video—this is where your journey begins.</p>
-    <video controls width="100%">
+    <p>Markel Management is the creative house and investment engine of Chicago native Isaiah Markel. From filming bold stories to closing real estate deals, we exist where artistry meets ownership. Whether you're a creator, investor, or visionary—this is where you build legacy.</p>
+    <video controls>
       <source src="assets/videos/REVideo1.mp4" type="video/mp4">
       Your browser does not support the video tag.
     </video>
   </section>
 
   <footer>
-    <p>&copy; 2025 Isaiah Markel | Follow @theisaiahml</p>
+    <p>&copy; 2025 Isaiah Markel. Chicago, IL. | @theisaiahml</p>
   </footer>
 </body>
 </html>
