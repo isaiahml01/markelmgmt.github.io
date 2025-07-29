@@ -75,15 +75,17 @@
       margin-bottom: 2rem;
     }
     .video-gallery {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 2rem;
-      margin-bottom: 2rem;
+       display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* FIXED */
+  gap: 1rem; /* Matches .gallery spacing */
+  margin-top: 2rem;
     }
     .video-gallery video {
-      width: 100%;
-      border-radius: 0.5rem;
-      border: 1px solid #222;
+       width: 100%;
+  aspect-ratio: 4 / 5;  /* Keeps vertical video feel */
+  object-fit: cover;
+  border-radius: 0.5rem;
+  border: 1px solid #222;
     }
     .gallery {
       display: grid;
