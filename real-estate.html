@@ -79,18 +79,15 @@
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 1rem;
     }
-    .gallery img {
+    .gallery img,
+    .gallery video {
       width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
       border-radius: 0.5rem;
       border: 1px solid #222;
+      display: block;
     }
-    .gallery video {
- width: 100%;
-  aspect-ratio: 1 / 2;
-  object-fit: cover;
-  border-radius: 0.5rem;
-  border: 1px solid #222;
-}
     footer {
       padding: 2rem;
       text-align: center;
@@ -128,19 +125,19 @@
       <img src="assets/images/REPhoto1.JPG" alt="Chicago property" />
       <img src="assets/images/REPhoto2.JPG" alt="Investor walkthrough" />
       <img src="assets/images/REPhoto3.JPG" alt="Interior photo of listed home" />
+      <video controls>
+        <source src="assets/videos/REVideo2.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+      <video controls>
+        <source src="assets/videos/REVideo4.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+      <video controls>
+        <source src="assets/videos/REVideo5.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
     </div>
-     <video controls>
-    <source src="assets/videos/REVideo3.mp4" type="video/mp4" />
-    Your browser does not support the video tag.
-  </video>
-     <video controls>
-    <source src="assets/videos/REVideo4.mp4" type="video/mp4" />
-    Your browser does not support the video tag.
-  </video>
-     <video controls>
-    <source src="assets/videos/REVideo5.mp4" type="video/mp4" />
-    Your browser does not support the video tag.
-  </video>
   </section>
 
   <section class="section">
