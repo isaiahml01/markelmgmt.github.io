@@ -74,11 +74,16 @@
       font-size: 1.05rem;
       margin-bottom: 2rem;
     }
-    video {
+    .video-gallery {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+    .video-gallery video {
       width: 100%;
       border-radius: 0.5rem;
       border: 1px solid #222;
-      margin-bottom: 2rem;
     }
     .gallery {
       display: grid;
@@ -122,10 +127,16 @@
     <h3>Creative Direction with a Chicago Edge</h3>
     <p>We shoot visuals that make people feel something. Whether it’s a music video, a brand story, or a personal reel—your story deserves to be cinematic. Markel Studios blends creative vision, smooth execution, and deep cultural understanding to deliver timeless video content that elevates your message.</p>
 
-    <video controls>
-      <source src="assets/videos/EVideo1.mp4" type="video/mp4" />
-      Your browser does not support the video tag.
-    </video>
+    <div class="video-gallery">
+      <video controls>
+        <source src="assets/videos/EVideo1.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+      <video controls>
+        <source src="assets/videos/EVideo2.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+    </div>
 
     <h3>Specialties</h3>
     <p>
