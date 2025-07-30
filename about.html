@@ -100,58 +100,51 @@
       .photo-strip img {
         width: 100%;
       }
-      .contact-form {
-    max-width: 600px;
-    margin: 4rem auto;
-    padding: 2rem;
-    background-color: #1c1c1f;
-    border: 1px solid #333;
-    border-radius: 1rem;
-    box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  }
+   .mini-contact-form {
+  max-width: 500px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  background-color: #1c1c1f;
+  border: 1px solid #333;
+  border-radius: 12px;
+}
 
-  .contact-form h2 {
-    color: #f9f9f9;
-    font-size: 1.8rem;
-    margin-bottom: 1.5rem;
-    text-align: center;
-  }
+.mini-contact-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
 
-  .contact-form input,
-  .contact-form textarea {
-    width: 100%;
-    padding: 0.9rem 1rem;
-    margin-bottom: 1.2rem;
-    background: #0e0e10;
-    border: 1px solid #444;
-    color: #f9f9f9;
-    border-radius: 0.5rem;
-    font-size: 1rem;
-    transition: border 0.3s;
-  }
+.mini-contact-form input,
+.mini-contact-form textarea {
+  background-color: #0e0e10;
+  border: 1px solid #444;
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  color: #f9f9f9;
+  font-size: 1rem;
+  width: 100%;
+}
 
-  .contact-form input:focus,
-  .contact-form textarea:focus {
-    border-color: #de685b;
-    outline: none;
-  }
+.mini-contact-form textarea {
+  resize: vertical;
+  min-height: 100px;
+}
 
-  .contact-form button {
-    background: #de685b;
-    color: #fff;
-    padding: 0.9rem 1.5rem;
-    border: none;
-    border-radius: 0.5rem;
-    font-weight: bold;
-    cursor: pointer;
-    width: 100%;
-    font-size: 1rem;
-    transition: background 0.3s;
-  }
+.mini-contact-form button {
+  background-color: #de685b;
+  color: #fff;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+}
 
-  .contact-form button:hover {
-    background: #c65348;
-  }
+.mini-contact-form button:hover {
+  background-color: #c9564c;
+}
     }
   </style>
 </head>
@@ -186,12 +179,15 @@
       <img src="assets/images/ABMedia3.jpg" alt="Real estate showing" />
       <img src="assets/images/ABMedia2.JPG" alt="Isaiah at work" />
     </div>
-    <form action="https://formspree.io/f/mzzvgnvq" method="POST">
-  <input type="text" name="name" placeholder="Your Name" required />
-  <input type="email" name="email" placeholder="Your Email" required />
-  <textarea name="message" placeholder="Your Message" required></textarea>
-  <button type="submit">Send</button>
-</form>
+    <div class="mini-contact-form">
+  <form action="https://formspree.io/f/mzzvgnvq" method="POST">
+    <input type="text" name="name" placeholder="Name" required />
+    <input type="tel" name="phone" placeholder="Phone Number" required />
+    <input type="email" name="email" placeholder="Email" required />
+    <textarea name="message" placeholder="Your Message" required></textarea>
+    <button type="submit">Send</button>
+  </form>
+</div>
   </section>
 
   <footer>
