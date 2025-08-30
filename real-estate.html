@@ -3,63 +3,203 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Real Estate | Markel Media</title>
+  <title>Real Estate | Markel Management</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
   <style>
     :root {
       --bg: #0e0e10;
       --fg: #f9f9f9;
-      --accent: #888888;
+      --accent: #4a90e2; /* Updated accent color to complement your brand */
       --muted: #999;
     }
-    * { margin:0; padding:0; box-sizing:border-box; font-family:'Inter', sans-serif; }
-    body { background:var(--bg); color:var(--fg); line-height:1.6; }
-    header { background:#111; padding:1.5rem 2rem; display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid #222; position:sticky; top:0; z-index:50; }
-    header h1 { font-size:1.5rem; font-weight:800; }
-    nav a { color:var(--fg); margin-left:1.5rem; text-decoration:none; font-weight:600; transition:color 0.2s; }
-    nav a:hover { color:var(--accent); }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+    body {
+      background: var(--bg);
+      color: var(--fg);
+      line-height: 1.6;
+    }
+    header {
+      background: #111;
+      padding: 1.5rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #222;
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+    header h1 {
+      font-size: 1.5rem;
+      font-weight: 800;
+    }
+    nav a {
+      color: var(--fg);
+      margin-left: 1.5rem;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+    nav a:hover {
+      color: var(--accent);
+    }
 
     /* Hero */
     .hero {
-      position: relative;
       text-align: center;
-      color: var(--fg);
-      background: url('assets/images/heroRE.jpg') center/cover no-repeat;
-      padding: 8rem 2rem 4rem;
+      padding: 6rem 2rem 3rem;
+      background: linear-gradient(to bottom, #1c1c1f, #0e0e10);
     }
-    .hero h2 { font-size:2.5rem; font-weight:800; margin-bottom:1rem; }
-    .hero p { font-size:1.2rem; color:var(--muted); max-width:700px; margin:auto; margin-bottom:2rem; }
-    .btn { padding:0.75rem 1.5rem; background:var(--accent); color:#fff; border:none; border-radius:0.35rem; font-weight:bold; text-decoration:none; display:inline-block; transition:background 0.2s; }
-    .btn:hover { background:#6b6b6b; }
+    .hero h2 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+    }
+    .hero p {
+      font-size: 1.2rem;
+      color: var(--muted);
+      margin-bottom: 2rem;
+    }
+    .cta-button {
+      display: inline-block;
+      background-color: var(--accent);
+      color: var(--fg);
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+    .cta-button:hover {
+      background-color: #3575b5;
+    }
 
-    /* Section styling */
-    .section { padding:4rem 2rem; max-width:1000px; margin:auto; }
-    .section h3 { font-size:2rem; font-weight:700; margin-bottom:1.5rem; }
-    .section p { color:var(--muted); font-size:1.05rem; margin-bottom:2rem; }
-    .cards { display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr)); gap:1.5rem; margin-top:2rem; }
-    .card { background:#111; padding:1.5rem; border-radius:12px; border:1px solid #222; transition:transform 0.2s; }
-    .card:hover { transform:scale(1.02); }
-    .card h4 { margin-bottom:0.75rem; color:var(--fg); font-size:1.25rem; }
-    .card p, .card li { color:var(--muted); font-size:1rem; line-height:1.5; }
+    /* Sections */
+    .section {
+      padding: 4rem 2rem;
+      max-width: 960px;
+      margin: auto;
+    }
+    .section h3 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+    }
+    .section p {
+      color: var(--muted);
+      font-size: 1.05rem;
+      margin-bottom: 2rem;
+    }
+
+    /* Packages */
+    .packages {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+    .package-card {
+      background: #111;
+      padding: 1.5rem;
+      border-radius: 12px;
+      border: 1px solid #222;
+      transition: transform 0.3s;
+    }
+    .package-card:hover {
+      transform: scale(1.02);
+    }
+    .package-card h4 {
+      font-size: 1.4rem;
+      margin-bottom: 0.75rem;
+      color: var(--accent);
+    }
+    .package-card p {
+      font-size: 1rem;
+      color: var(--muted);
+      line-height: 1.4;
+    }
 
     /* Gallery */
-    .gallery { display:grid; grid-template-columns:repeat(auto-fit, minmax(300px,1fr)); gap:1rem; margin-top:2rem; }
-    .gallery img, .gallery video { width:100%; border-radius:12px; border:1px solid #222; aspect-ratio:16/9; object-fit:cover; }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1rem;
+      margin-bottom: 3rem;
+    }
+    .gallery img,
+    .gallery video {
+      width: 100%;
+      aspect-ratio: 4/5;
+      object-fit: cover;
+      border-radius: 0.5rem;
+      border: 1px solid #222;
+    }
 
-    footer { padding:2rem; text-align:center; font-size:0.9rem; color:var(--muted); border-top:1px solid #222; }
-    .socials a { color:var(--fg); text-decoration:none; margin:0 0.5rem; }
-    .socials a:hover { color:var(--accent); }
+    /* Contact Form */
+    .mini-contact-form {
+      max-width: 500px;
+      margin: 2rem auto;
+      padding: 1.5rem;
+      background-color: #1c1c1f;
+      border: 1px solid #333;
+      border-radius: 12px;
+    }
+    .mini-contact-form form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .mini-contact-form input,
+    .mini-contact-form textarea {
+      background-color: #0e0e10;
+      border: 1px solid #444;
+      border-radius: 8px;
+      padding: 0.75rem 1rem;
+      color: #f9f9f9;
+      font-size: 1rem;
+      width: 100%;
+    }
+    .mini-contact-form textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+    .mini-contact-form button {
+      background-color: var(--accent);
+      color: #fff;
+      padding: 0.75rem;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .mini-contact-form button:hover {
+      background-color: #3575b5;
+    }
 
-    .mini-contact-form { max-width:500px; margin:2rem auto; padding:1.5rem; background-color:#1c1c1f; border:1px solid #333; border-radius:12px; }
-    .mini-contact-form form { display:flex; flex-direction:column; gap:1rem; }
-    .mini-contact-form input, .mini-contact-form textarea { background-color:#0e0e10; border:1px solid #444; border-radius:8px; padding:0.75rem 1rem; color:#f9f9f9; font-size:1rem; width:100%; }
-    .mini-contact-form textarea { resize:vertical; min-height:100px; }
-    .mini-contact-form button { background-color:var(--accent); color:#fff; padding:0.75rem; border:none; border-radius:8px; font-weight:bold; cursor:pointer; transition:background 0.3s; }
-    .mini-contact-form button:hover { background-color:#6b6b6b; }
+    footer {
+      padding: 2rem;
+      text-align: center;
+      font-size: 0.9rem;
+      color: var(--muted);
+      border-top: 1px solid #222;
+    }
+    .socials a {
+      color: var(--fg);
+      text-decoration: none;
+      margin: 0 0.5rem;
+    }
+    .socials a:hover {
+      color: var(--accent);
+    }
   </style>
 </head>
 <body>
-
   <header>
     <h1>Markel Management</h1>
     <nav>
@@ -75,46 +215,31 @@
   <section class="hero">
     <h2>Real Estate Investment & Sales</h2>
     <p>Off-market deals. Fast closes. Chicago-grown and built on results.</p>
-    <a href="#contact" class="btn">Book a Consultation</a>
+    <a href="https://calendly.com/isaiah-lesley/30min" class="cta-button">Schedule a Call</a>
   </section>
 
-  <!-- Services / Plans -->
+  <!-- Packages -->
   <section class="section">
-    <h3>Real Estate Packages</h3>
-    <div class="cards">
-      <div class="card">
+    <h3>Real Estate Media Packages</h3>
+    <div class="packages">
+      <div class="package-card">
         <h4>Starter Listing Bundle – $150</h4>
-        <ul>
-          <li>20 high-res listing photos</li>
-          <li>1 vertical walkthrough video</li>
-          <li>Basic editing + branding overlay</li>
-          <li>48-hour delivery</li>
-        </ul>
+        <p>20 high-res listing photos<br>1 vertical walkthrough video<br>Basic editing + branding overlay<br>48-hour delivery</p>
       </div>
-      <div class="card">
+      <div class="package-card">
         <h4>Agent Promo Pro – $350</h4>
-        <ul>
-          <li>Everything in Starter Listing</li>
-          <li>1-minute cinematic property reel</li>
-          <li>Agent intro/outro with voiceover</li>
-          <li>Custom thumbnail + MLS-ready format</li>
-        </ul>
+        <p>Everything in Starter Listing<br>1-minute cinematic property reel<br>Agent intro/outro with voiceover<br>Custom thumbnail + MLS-ready format</p>
       </div>
-      <div class="card">
+      <div class="package-card">
         <h4>Investor Marketing Kit – $500</h4>
-        <ul>
-          <li>Up to 2 properties per shoot</li>
-          <li>Photos + walkthroughs + Drone</li>
-          <li>Branded 90-second promo</li>
-          <li>Social media strategy consult included</li>
-        </ul>
+        <p>Up to 2 properties per shoot<br>Photos + walkthroughs + Drone<br>Branded 90-second promo<br>One social media strategy consult included</p>
       </div>
     </div>
   </section>
 
   <!-- Gallery -->
   <section class="section">
-    <h3>Recent Projects</h3>
+    <h3>Gallery</h3>
     <div class="gallery">
       <img src="assets/images/REPhoto1.JPG" alt="Chicago property" />
       <img src="assets/images/REPhoto2.JPG" alt="Investor walkthrough" />
@@ -132,8 +257,7 @@
   </section>
 
   <!-- Contact Form -->
-  <section class="section" id="contact">
-    <h3>Get in Touch</h3>
+  <section class="section">
     <div class="mini-contact-form">
       <form action="https://formspree.io/f/mzzvgnvq" method="POST">
         <input type="text" name="name" placeholder="Name" required />
@@ -146,7 +270,7 @@
   </section>
 
   <footer>
-    <p>&copy; 2025 Isaiah Markel. Chicago, IL.</p>
+    <p>&copy; 2025 Isaiah Markel. Chicago, IL. | @theisaiahml</p>
     <div class="socials">
       <a href="https://www.instagram.com/isaiahmarkellesley/" target="_blank">Instagram</a> |
       <a href="https://www.tiktok.com/@isaiah.markel" target="_blank">TikTok</a> |
@@ -154,6 +278,5 @@
       <a href="https://www.youtube.com/c/Isaiahml" target="_blank">YouTube</a>
     </div>
   </footer>
-
 </body>
 </html>
