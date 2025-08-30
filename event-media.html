@@ -9,7 +9,7 @@
     :root {
       --bg: #0e0e10;
       --fg: #f9f9f9;
-      --accent: #de685b;
+      --accent: #5a97b9;
       --muted: #999;
     }
     * {
@@ -30,6 +30,9 @@
       justify-content: space-between;
       align-items: center;
       border-bottom: 1px solid #222;
+      position: sticky;
+      top: 0;
+      z-index: 50;
     }
     header h1 {
       font-size: 1.5rem;
@@ -45,6 +48,8 @@
     nav a:hover {
       color: var(--accent);
     }
+
+    /* Hero Section */
     .hero {
       padding: 6rem 2rem 3rem;
       text-align: center;
@@ -59,8 +64,10 @@
       font-size: 1.1rem;
       color: var(--muted);
     }
+
+    /* Section Styling */
     .section {
-      max-width: 960px;
+      max-width: 1000px;
       margin: auto;
       padding: 4rem 2rem;
     }
@@ -74,16 +81,73 @@
       font-size: 1.05rem;
       margin-bottom: 2rem;
     }
-    video {
+
+    /* Video Gallery */
+    .video-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    .video-gallery video {
       width: 100%;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
       border-radius: 0.5rem;
       border: 1px solid #222;
-      margin-bottom: 2rem;
     }
+
+    /* Event Gallery */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+      grid-auto-rows: 300px;
+    }
+    .gallery img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      border-radius: 0.5rem;
+      border: 1px solid #222;
+      background-color: #0e0e10;
+    }
+
+    /* Package Cards */
+    .packages {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    .package-card {
+      background-color: #1c1c1f;
+      border: 1px solid #222;
+      border-radius: 12px;
+      padding: 1.5rem;
+      transition: transform 0.3s;
+    }
+    .package-card:hover {
+      transform: scale(1.02);
+    }
+    .package-card h4 {
+      font-size: 1.25rem;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+    }
+    .package-card p {
+      color: var(--muted);
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Event Types */
     .event-types {
       background: #111;
       padding: 2rem;
       border-radius: 0.5rem;
+      margin-top: 2rem;
     }
     .event-types ul {
       list-style: none;
@@ -94,67 +158,64 @@
       font-weight: 600;
       color: var(--fg);
     }
+
+    /* Contact Form */
+    .mini-contact-form {
+      max-width: 500px;
+      margin: 3rem auto 0;
+      padding: 1.5rem;
+      background-color: #1c1c1f;
+      border: 1px solid #333;
+      border-radius: 12px;
+    }
+    .mini-contact-form form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .mini-contact-form input,
+    .mini-contact-form textarea {
+      background-color: #0e0e10;
+      border: 1px solid #444;
+      border-radius: 8px;
+      padding: 0.75rem 1rem;
+      color: #f9f9f9;
+      font-size: 1rem;
+      width: 100%;
+    }
+    .mini-contact-form textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+    .mini-contact-form button {
+      background-color: var(--accent);
+      color: #fff;
+      padding: 0.75rem;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .mini-contact-form button:hover {
+      background-color: #46749a;
+    }
+
     footer {
       padding: 2rem;
       text-align: center;
       font-size: 0.9rem;
       color: var(--muted);
       border-top: 1px solid #222;
-    }.contact-form {
-    max-width: 600px;
-    margin: 4rem auto;
-    padding: 2rem;
-    background-color: #1c1c1f;
-    border: 1px solid #333;
-    border-radius: 1rem;
-    box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  }
-
-.mini-contact-form {
-  max-width: 500px;
-  margin: 2rem auto;
-  padding: 1.5rem;
-  background-color: #1c1c1f;
-  border: 1px solid #333;
-  border-radius: 12px;
-}
-
-.mini-contact-form form {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-.mini-contact-form input,
-.mini-contact-form textarea {
-  background-color: #0e0e10;
-  border: 1px solid #444;
-  border-radius: 8px;
-  padding: 0.75rem 1rem;
-  color: #f9f9f9;
-  font-size: 1rem;
-  width: 100%;
-}
-
-.mini-contact-form textarea {
-  resize: vertical;
-  min-height: 100px;
-}
-
-.mini-contact-form button {
-  background-color: #de685b;
-  color: #fff;
-  padding: 0.75rem;
-  border: none;
-  border-radius: 8px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-
-.mini-contact-form button:hover {
-  background-color: #c9564c;
-}
+    }
+    .socials a {
+      color: var(--fg);
+      text-decoration: none;
+      margin: 0 0.5rem;
+    }
+    .socials a:hover {
+      color: var(--accent);
+    }
   </style>
 </head>
 <body>
@@ -176,31 +237,52 @@
 
   <section class="section">
     <h3>Elevate Your Events with Cinematic Coverage</h3>
-    <p>From curated panels to branded experiences and creative showcases, Markel Studios brings clarity, culture, and charisma to every shoot. Our event media captures more than moments—it documents momentum.</p>
+    <p>Markel Studios brings clarity, culture, and charisma to every shoot. Our BFA-backed expertise ensures your events are captured with cinematic precision and storytelling finesse.</p>
 
-    <video controls width="100%">
-  <source src="assets/videos/EMVideo1.mp4" type="video/mp4">
-</video>
-  <h4 style="font-size: 1.5rem; color: var(--accent); margin-bottom: 1rem;">🎉 Event Media Plans</h4>
-  <ul style="list-style: none; padding-left: 0;">
-    <li style="margin-bottom: 1.5rem;">
-      <strong>9. Highlight Recap Reel – $450</strong><br>
-      1.5–2 hour coverage<br>
-      60–90 sec edited highlight reel<br>
-      Vertical or cinematic edit<br>
-      Basic motion graphics (title/intro)
-    </li>
-    <li style="margin-bottom: 1.5rem;">
-      <strong>10. Full Event Coverage – $1,200</strong><br>
-      4–5 hour coverage<br>
-      Full recap video (3–5 min) + 3 short clips<br>
-      30+ edited photos<br>
-      Perfect for launches, community events, showcases
-    </li>
-  </ul>
-</section>
+    <h3>Event Video Portfolio</h3>
+    <div class="video-gallery">
+      <video controls>
+        <source src="assets/videos/EMVideo1.mp4" type="video/mp4">
+      </video>
+      <video controls>
+        <source src="assets/videos/EMVideo2.mp4" type="video/mp4">
+      </video>
+      <video controls>
+        <source src="assets/videos/EMVideo3.mp4" type="video/mp4">
+      </video>
+    </div>
+
+    <h3>Event Photo Gallery</h3>
+    <div class="gallery">
+      <img src="assets/images/Event1.jpg" alt="Event 1">
+      <img src="assets/images/Event2.jpg" alt="Event 2">
+      <img src="assets/images/Event3.jpg" alt="Event 3">
+      <img src="assets/images/Event4.jpg" alt="Event 4">
+      <img src="assets/images/Event5.jpg" alt="Event 5">
+    </div>
+
+    <h3>Event Packages</h3>
+    <div class="packages">
+      <div class="package-card">
+        <h4>Highlight Recap Reel</h4>
+        <p>1.5–2 hour coverage</p>
+        <p>60–90 sec edited highlight reel</p>
+        <p>Vertical or cinematic edit</p>
+        <p>Basic motion graphics included</p>
+        <p><strong>$450</strong></p>
+      </div>
+      <div class="package-card">
+        <h4>Full Event Coverage</h4>
+        <p>4–5 hour coverage</p>
+        <p>Full recap video (3–5 min) + 3 short clips</p>
+        <p>30+ edited photos</p>
+        <p>Perfect for launches, community events, showcases</p>
+        <p><strong>$1,200</strong></p>
+      </div>
+    </div>
+
     <div class="event-types">
-      <h3>Our Event Coverage Includes:</h3>
+      <h3>Event Coverage Includes:</h3>
       <ul>
         <li>Branded pop-ups & panels</li>
         <li>Music, fashion & art showcases</li>
@@ -210,25 +292,26 @@
         <li>Short-form edits for Instagram & TikTok</li>
       </ul>
     </div>
-<div class="mini-contact-form">
-  <form action="https://formspree.io/f/mzzvgnvq" method="POST">
-    <input type="text" name="name" placeholder="Name" required />
-    <input type="tel" name="phone" placeholder="Phone Number" required />
-    <input type="email" name="email" placeholder="Email" required />
-    <textarea name="message" placeholder="Your Message" required></textarea>
-    <button type="submit">Send</button>
-  </form>
-</div>
+
+    <div class="mini-contact-form">
+      <form action="https://formspree.io/f/mzzvgnvq" method="POST">
+        <input type="text" name="name" placeholder="Name" required />
+        <input type="tel" name="phone" placeholder="Phone Number" required />
+        <input type="email" name="email" placeholder="Email" required />
+        <textarea name="message" placeholder="Your Message" required></textarea>
+        <button type="submit">Send</button>
+      </form>
+    </div>
   </section>
 
   <footer>
     <p>&copy; 2025 Isaiah Markel. Chicago, IL. | @theisaiahml</p>
-     <div class="socials">
-    <a href="https://www.instagram.com/isaiahmarkellesley/" target="_blank">Instagram</a> |
-    <a href="https://www.tiktok.com/@isaiah.markel" target="_blank">tiktok</a> |
-    <a href="https://x.com/theisaiahml" target="_blank">twitter/X</a> |
-    <a href="https://www.youtube.com/c/Isaiahml" target="_blank">youtube/X</a>
-  </div>
+    <div class="socials">
+      <a href="https://www.instagram.com/isaiahmarkellesley/" target="_blank">Instagram</a> |
+      <a href="https://www.tiktok.com/@isaiah.markel" target="_blank">TikTok</a> |
+      <a href="https://x.com/theisaiahml" target="_blank">Twitter/X</a> |
+      <a href="https://www.youtube.com/c/Isaiahml" target="_blank">YouTube</a>
+    </div>
   </footer>
 </body>
 </html>
