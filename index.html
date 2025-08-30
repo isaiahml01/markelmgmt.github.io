@@ -12,17 +12,20 @@
       --accent: #6c757d; /* Slate Gray for buttons */
       --muted: #999;
     }
+
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
       font-family: 'Inter', sans-serif;
     }
+
     body {
       background: var(--bg);
       color: var(--fg);
       line-height: 1.6;
     }
+
     header {
       background: #111;
       padding: 1.5rem 2rem;
@@ -34,10 +37,12 @@
       top: 0;
       z-index: 50;
     }
+
     header h1 {
       font-size: 1.5rem;
       font-weight: 800;
     }
+
     nav a {
       color: var(--fg);
       margin-left: 1.5rem;
@@ -45,46 +50,49 @@
       font-weight: 600;
       transition: color 0.2s;
     }
+
     nav a:hover {
       color: var(--accent);
     }
 
     /* Hero Section */
     .hero {
-      position: relative;
-      text-align: center;
-      color: var(--fg);
-      height: 90vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
+      align-items: center;
+      height: 90vh;
+      text-align: center;
       padding: 0 2rem;
       background: #111;
     }
+
     .hero h2 {
       font-size: 3rem;
       font-weight: 800;
       margin-bottom: 1rem;
     }
+
     .hero p {
       font-size: 1.2rem;
       color: var(--muted);
       max-width: 650px;
-      margin: 0 auto 2rem;
+      margin-bottom: 2rem;
     }
+
     .hero .btn {
-      padding: 0.5rem 1rem !important;
-      font-size: 0.95rem !important;
-      border-radius: 0.3rem !important;
+      padding: 0.5rem 1rem;
+      font-size: 0.95rem;
       font-weight: 600;
-      display: inline-block;
+      border-radius: 0.3rem;
       background: var(--accent);
       color: #fff;
       text-decoration: none;
       transition: background 0.2s;
     }
+
     .hero .btn:hover {
-      background: #5a6268; /* Slightly darker slate on hover */
+      background: #5a6268;
     }
 
     /* Portfolio Grid */
@@ -96,15 +104,19 @@
       max-width: 1200px;
       margin: auto;
     }
+
     .portfolio-item {
       position: relative;
       border-radius: 12px;
       overflow: hidden;
-      transition: transform 0.3s;
+      transition: transform 0.3s, box-shadow 0.3s;
     }
+
     .portfolio-item:hover {
       transform: scale(1.02);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.5);
     }
+
     .portfolio-item iframe {
       width: 100%;
       height: 200px;
@@ -121,10 +133,12 @@
       margin: auto;
       text-align: center;
     }
+
     .service-card h4 {
       font-size: 1.4rem;
       margin-bottom: 0.5rem;
     }
+
     .service-card p {
       color: var(--muted);
       font-size: 1rem;
@@ -138,10 +152,12 @@
       border-top: 1px solid #222;
       border-bottom: 1px solid #222;
     }
+
     .cta-banner h3 {
       font-size: 2rem;
       margin-bottom: 1.5rem;
     }
+
     .cta-banner .btn {
       padding: 0.5rem 1rem;
       font-size: 0.95rem;
@@ -151,6 +167,7 @@
       text-decoration: none;
       transition: background 0.2s;
     }
+
     .cta-banner .btn:hover {
       background: #5a6268;
     }
@@ -162,11 +179,13 @@
       color: var(--muted);
       border-top: 1px solid #222;
     }
+
     .socials a {
       color: var(--fg);
       text-decoration: none;
       margin: 0 0.5rem;
     }
+
     .socials a:hover {
       color: var(--accent);
     }
