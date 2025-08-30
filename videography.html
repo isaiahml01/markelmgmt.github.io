@@ -9,36 +9,80 @@
     :root {
       --bg: #0e0e10;
       --fg: #f9f9f9;
-      --accent: #4a90e2;
+      --accent: #4a90e2; /* changed from red to professional blue accent */
       --muted: #999;
     }
     * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
     body { background: var(--bg); color: var(--fg); line-height: 1.6; }
-    header { background: #111; padding: 1.5rem 2rem; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #222; }
+
+    /* Header */
+    header {
+      background: #111; padding: 1.5rem 2rem; display: flex; justify-content: space-between; align-items: center;
+      border-bottom: 1px solid #222; position: sticky; top: 0; z-index: 50;
+    }
     header h1 { font-size: 1.5rem; font-weight: 800; }
     nav a { color: var(--fg); margin-left: 1.5rem; text-decoration: none; font-weight: 600; transition: color 0.2s; }
     nav a:hover { color: var(--accent); }
-    .hero { padding: 6rem 2rem 3rem; text-align: center; background: linear-gradient(to bottom, #1c1c1f, #0e0e10); }
+
+    /* Hero */
+    .hero {
+      padding: 6rem 2rem 3rem; text-align: center; background: linear-gradient(to bottom, #1c1c1f, #0e0e10);
+    }
     .hero h2 { font-size: 2.5rem; font-weight: 800; margin-bottom: 1rem; }
-    .hero p { font-size: 1.1rem; color: var(--muted); }
-    .section { max-width: 960px; margin: auto; padding: 4rem 2rem; }
+    .hero p { font-size: 1.2rem; color: var(--muted); max-width: 700px; margin: 0 auto 2rem; }
+
+    /* Button */
+    .btn {
+      display: inline-block; padding: 0.75rem 1.5rem; border-radius: 0.4rem; background: var(--accent); color: #fff;
+      font-weight: 700; text-decoration: none; transition: background 0.2s;
+    }
+    .btn:hover { background: #357ab8; }
+
+    /* Sections */
+    .section { max-width: 1200px; margin: auto; padding: 4rem 2rem; }
     .section h3 { font-size: 2rem; font-weight: 700; margin-bottom: 1.5rem; }
     .section p { color: var(--muted); font-size: 1.05rem; margin-bottom: 2rem; }
-    .video-gallery, .gallery { display: grid; gap: 1rem; margin-top: 2rem; }
-    .video-gallery { grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); }
-    .video-gallery video { width: 100%; aspect-ratio: 16/9; object-fit: cover; border-radius: 0.5rem; border: 1px solid #222; }
-    .gallery { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+
+    /* Video Grid */
+    .video-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+    .video-gallery video {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      border-radius: 0.5rem;
+      border: 1px solid #222;
+    }
+
+    /* Image Grid */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
     .gallery img { width: 100%; border-radius: 0.5rem; border: 1px solid #222; }
-    footer { padding: 2rem; text-align: center; font-size: 0.9rem; color: var(--muted); border-top: 1px solid #222; }
-    .mini-contact-form { max-width: 500px; margin: 2rem auto; padding: 1.5rem; background-color: #1c1c1f; border: 1px solid #333; border-radius: 12px; }
+
+    /* Plans & Services */
+    .plans h4 { font-size: 1.5rem; color: var(--accent); margin-bottom: 1rem; }
+    .plans ul { list-style: none; padding-left: 0; margin-bottom: 2rem; }
+    .plans li { margin-bottom: 1.5rem; }
+
+    /* Contact */
+    .mini-contact-form { max-width: 500px; margin: 3rem auto; padding: 1.5rem; background-color: #1c1c1f; border: 1px solid #333; border-radius: 12px; }
     .mini-contact-form form { display: flex; flex-direction: column; gap: 1rem; }
     .mini-contact-form input, .mini-contact-form textarea { background-color: #0e0e10; border: 1px solid #444; border-radius: 8px; padding: 0.75rem 1rem; color: #f9f9f9; font-size: 1rem; width: 100%; }
     .mini-contact-form textarea { resize: vertical; min-height: 100px; }
     .mini-contact-form button { background-color: var(--accent); color: #fff; padding: 0.75rem; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; transition: background 0.3s; }
     .mini-contact-form button:hover { background-color: #357ab8; }
-    h4.plan-title { font-size: 1.5rem; color: var(--accent); margin-bottom: 1rem; }
-    ul.plan-list { list-style: none; padding-left: 0; margin-bottom: 2rem; }
-    ul.plan-list li { margin-bottom: 1.5rem; }
+
+    /* Footer */
+    footer { padding: 2rem; text-align: center; font-size: 0.9rem; color: var(--muted); border-top: 1px solid #222; }
+    .socials a { color: var(--fg); text-decoration: none; margin: 0 0.5rem; }
+    .socials a:hover { color: var(--accent); }
   </style>
 </head>
 <body>
@@ -55,41 +99,61 @@
 
   <section class="hero">
     <h2>Videography & Visual Storytelling</h2>
-    <p>Content with clarity. Production with purpose.</p>
+    <p>Elevating your brand, capturing moments, and telling stories with cinematic precision. Professional skills honed through education and real-world creative experience.</p>
+    <a href="contact.html" class="btn">Book a Consultation</a>
   </section>
 
   <section class="section">
-    <h3>Creative Direction with a Chicago Edge</h3>
-    <p>We shoot visuals that make people feel something. Whether it’s a music video, brand story, or personal reel—your story deserves cinematic treatment. Markel Studios blends vision, smooth execution, and cultural insight to deliver timeless content.</p>
-
+    <h3>Portfolio</h3>
+    <p>Every frame reflects intentionality, craft, and the pursuit of storytelling excellence. Explore a curated selection of recent projects showcasing my range across music, brand, lifestyle, and real estate content.</p>
     <div class="video-gallery">
-      <video controls><source src="assets/videos/VIMedia1.mp4" type="video/mp4" /></video>
-      <video controls><source src="assets/videos/VIMedia2.mp4" type="video/mp4" /></video>
-      <video controls><source src="assets/videos/VIMedia3.mp4" type="video/mp4" /></video>
-      <video controls><source src="assets/videos/VIMedia4.mp4" type="video/mp4" /></video>
+      <video controls>
+        <source src="assets/videos/VIMedia1.mp4" type="video/mp4" />
+      </video>
+      <video controls>
+        <source src="assets/videos/VIMedia2.mp4" type="video/mp4" />
+      </video>
+      <video controls>
+        <source src="assets/videos/VIMedia3.mp4" type="video/mp4" />
+      </video>
+      <video controls>
+        <source src="assets/videos/VIMedia4.mp4" type="video/mp4" />
+      </video>
+      <video controls>
+        <source src="assets/videos/VIMedia5.mp4" type="video/mp4" />
+      </video>
+      <video controls>
+        <source src="assets/videos/VIMedia6.mp4" type="video/mp4" />
+      </video>
+      <video controls>
+        <source src="assets/videos/VIMedia7.mp4" type="video/mp4" />
+      </video>
+      <video controls>
+        <source src="assets/videos/VIMedia8.mp4" type="video/mp4" />
+      </video>
     </div>
 
-    <h4 class="plan-title">🎥 Videography Plans</h4>
-    <ul class="plan-list">
-      <li><strong>Reel Quick – Short Form – $300</strong><br>2 vertical videos (30 sec), Reels/TikTok/Shorts, Branded captions, 72-hour turnaround</li>
-      <li><strong>Cinematic Story – $900</strong><br>2–3 min professionally edited video, includes interviews & drone, Script & shot planning</li>
-      <li><strong>Visual Strategy Retainer – $1,500/month</strong><br>4 custom videos monthly, Content calendar, Weekly shoots, Editing & growth strategy included</li>
-    </ul>
-
-    <h4 class="plan-title">📸 Photography Plans</h4>
-    <ul class="plan-list">
-      <li><strong>Essential Headshots – $150</strong><br>30-min session, 3 edited shots, On-location/backdrop, Quick edits & rights</li>
-      <li><strong>Lifestyle Branding Shoot – $500</strong><br>1-hour session, 15 edited images, Multi-outfit/location, Social media ready</li>
-    </ul>
-
-    <h3>Specialties</h3>
-    <p>- Music videos & live performance<br>- Social media reels & promos<br>- Creative direction & branded content<br>- Lifestyle & behind-the-scenes documentation<br>- Real estate walkthroughs & agent promo films</p>
-
+    <h3>Photography & Visual Content</h3>
+    <p>High-resolution imagery that complements video content. Perfect for branding, social media, and marketing campaigns.</p>
     <div class="gallery">
-      <img src="assets/images/EMPhoto1.jpg" alt="Behind the scenes" />
-      <img src="assets/images/VIMedia9.JPG" alt="Video still" />
-      <img src="assets/images/VIMedia10.jpg" alt="Editing workspace" />
-      <img src="assets/images/VIMedia11.jpg" alt="Editing workspace" />
+      <img src="assets/images/VIMedia9.JPG" alt="Photography example" />
+      <img src="assets/images/VIMedia10.jpg" alt="Photography example" />
+      <img src="assets/images/VIMedia11.jpg" alt="Photography example" />
+      <img src="assets/images/EMPhoto1.jpg" alt="Photography example" />
+    </div>
+
+    <div class="plans">
+      <h4>🎥 Videography Plans</h4>
+      <ul>
+        <li><strong>Reel Quick – $300</strong> – 2 vertical videos, branded captions, 72-hour turnaround for social media reels/shorts.</li>
+        <li><strong>Cinematic Story – $900</strong> – 2–3 min professionally edited video including b-roll, drone, and interviews.</li>
+        <li><strong>Visual Strategy Retainer – $1,500/month</strong> – 4 videos monthly, content calendar planning, weekly shoots, editing, growth guidance.</li>
+      </ul>
+      <h4>📸 Photography Plans</h4>
+      <ul>
+        <li><strong>Essential Headshots – $150</strong> – 30-min session, 3 edited shots, quick edits and usage rights included.</li>
+        <li><strong>Lifestyle Branding Shoot – $500</strong> – 1-hour session, 15 edited images, multiple outfits/locations, social media-ready.</li>
+      </ul>
     </div>
 
     <div class="mini-contact-form">
@@ -108,7 +172,7 @@
     <div class="socials">
       <a href="https://www.instagram.com/isaiahmarkellesley/" target="_blank">Instagram</a> |
       <a href="https://www.tiktok.com/@isaiah.markel" target="_blank">TikTok</a> |
-      <a href="https://x.com/theisaiahml" target="_blank">Twitter/X</a> |
+      <a href="https://x.com/theisaiahml" target="_blank">X/Twitter</a> |
       <a href="https://www.youtube.com/c/Isaiahml" target="_blank">YouTube</a>
     </div>
   </footer>
