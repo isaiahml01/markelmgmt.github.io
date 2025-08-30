@@ -56,16 +56,17 @@
     }
 
     /* Hero Section */
-    .hero {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      height: 90vh;
-      text-align: center;
-      padding: 0 2rem;
-      background: #111;
-    }
+.hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 4rem 2rem; /* adjust spacing */
+  background: #111;
+  height: auto; /* remove fixed 90vh */
+  min-height: 60vh; /* optional: keep some visual height */
+}
 
     .hero h2 {
       font-size: 3rem;
