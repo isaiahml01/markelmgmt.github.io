@@ -9,194 +9,32 @@
     :root {
       --bg: #0e0e10;
       --fg: #f9f9f9;
-      --accent: #4a90e2; /* Updated accent color to complement your brand */
+      --accent: #de685b;
       --muted: #999;
     }
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Inter', sans-serif;
-    }
-    body {
-      background: var(--bg);
-      color: var(--fg);
-      line-height: 1.6;
-    }
-    header {
-      background: #111;
-      padding: 1.5rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 1px solid #222;
-      position: sticky;
-      top: 0;
-      z-index: 50;
-    }
-    header h1 {
-      font-size: 1.5rem;
-      font-weight: 800;
-    }
-    nav a {
-      color: var(--fg);
-      margin-left: 1.5rem;
-      text-decoration: none;
-      font-weight: 600;
-      transition: color 0.2s;
-    }
-    nav a:hover {
-      color: var(--accent);
-    }
+    * { margin:0; padding:0; box-sizing:border-box; font-family:'Inter',sans-serif; }
+    body { background:var(--bg); color:var(--fg); line-height:1.6; }
+    header { background:#111; padding:1.5rem 2rem; display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid #222; position:sticky; top:0; z-index:50;}
+    header h1 { font-size:1.5rem; font-weight:800; }
+    nav a { color:var(--fg); margin-left:1.5rem; text-decoration:none; font-weight:600; transition:color 0.2s;}
+    nav a:hover { color:var(--accent); }
 
-    /* Hero */
-    .hero {
-      text-align: center;
-      padding: 6rem 2rem 3rem;
-      background: linear-gradient(to bottom, #1c1c1f, #0e0e10);
-    }
-    .hero h2 {
-      font-size: 2.5rem;
-      font-weight: 800;
-      margin-bottom: 1rem;
-    }
-    .hero p {
-      font-size: 1.2rem;
-      color: var(--muted);
-      margin-bottom: 2rem;
-    }
-    .cta-button {
-      display: inline-block;
-      background-color: var(--accent);
-      color: var(--fg);
-      padding: 0.75rem 1.5rem;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: background-color 0.3s;
-    }
-    .cta-button:hover {
-      background-color: #3575b5;
-    }
+    .hero { padding:6rem 2rem 3rem; text-align:center; background: linear-gradient(to bottom,#1c1c1f,#0e0e10);}
+    .hero h2 { font-size:2.5rem; font-weight:800; margin-bottom:1rem;}
+    .hero p { font-size:1.1rem; color:var(--muted);}
 
-    /* Sections */
-    .section {
-      padding: 4rem 2rem;
-      max-width: 960px;
-      margin: auto;
-    }
-    .section h3 {
-      font-size: 2rem;
-      font-weight: 700;
-      margin-bottom: 1.5rem;
-    }
-    .section p {
-      color: var(--muted);
-      font-size: 1.05rem;
-      margin-bottom: 2rem;
-    }
+    .section { max-width:1000px; margin:auto; padding:4rem 2rem;}
+    .section h3 { font-size:2rem; font-weight:700; margin-bottom:1.5rem;}
+    .section p { font-size:1.05rem; color:var(--muted); margin-bottom:2rem; }
 
-    /* Packages */
-    .packages {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2rem;
-      margin-bottom: 3rem;
-    }
-    .package-card {
-      background: #111;
-      padding: 1.5rem;
-      border-radius: 12px;
-      border: 1px solid #222;
-      transition: transform 0.3s;
-    }
-    .package-card:hover {
-      transform: scale(1.02);
-    }
-    .package-card h4 {
-      font-size: 1.4rem;
-      margin-bottom: 0.75rem;
-      color: var(--accent);
-    }
-    .package-card p {
-      font-size: 1rem;
-      color: var(--muted);
-      line-height: 1.4;
-    }
+    .photo-strip { display:flex; gap:1rem; flex-wrap:wrap; margin-top:2rem;}
+    .photo-strip img { width: calc(33% - 0.66rem); border-radius:0.5rem; border:1px solid #222; }
 
-    /* Gallery */
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1rem;
-      margin-bottom: 3rem;
-    }
-    .gallery img,
-    .gallery video {
-      width: 100%;
-      aspect-ratio: 4/5;
-      object-fit: cover;
-      border-radius: 0.5rem;
-      border: 1px solid #222;
-    }
+    footer { padding:2rem; text-align:center; font-size:0.9rem; color:var(--muted); border-top:1px solid #222;}
+    .socials a { color: var(--fg); text-decoration:none; margin:0 0.5rem;}
+    .socials a:hover { color:var(--accent); }
 
-    /* Contact Form */
-    .mini-contact-form {
-      max-width: 500px;
-      margin: 2rem auto;
-      padding: 1.5rem;
-      background-color: #1c1c1f;
-      border: 1px solid #333;
-      border-radius: 12px;
-    }
-    .mini-contact-form form {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
-    .mini-contact-form input,
-    .mini-contact-form textarea {
-      background-color: #0e0e10;
-      border: 1px solid #444;
-      border-radius: 8px;
-      padding: 0.75rem 1rem;
-      color: #f9f9f9;
-      font-size: 1rem;
-      width: 100%;
-    }
-    .mini-contact-form textarea {
-      resize: vertical;
-      min-height: 100px;
-    }
-    .mini-contact-form button {
-      background-color: var(--accent);
-      color: #fff;
-      padding: 0.75rem;
-      border: none;
-      border-radius: 8px;
-      font-weight: bold;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-    .mini-contact-form button:hover {
-      background-color: #3575b5;
-    }
-
-    footer {
-      padding: 2rem;
-      text-align: center;
-      font-size: 0.9rem;
-      color: var(--muted);
-      border-top: 1px solid #222;
-    }
-    .socials a {
-      color: var(--fg);
-      text-decoration: none;
-      margin: 0 0.5rem;
-    }
-    .socials a:hover {
-      color: var(--accent);
-    }
+    @media(max-width:768px){.photo-strip img{width:100%;}}
   </style>
 </head>
 <body>
@@ -207,65 +45,24 @@
       <a href="real-estate.html">Real Estate</a>
       <a href="videography.html">Videography</a>
       <a href="event-media.html">Events</a>
+      <a href="workshops.html">Workshops</a>
       <a href="contact.html">Contact</a>
     </nav>
   </header>
 
-  <!-- Hero -->
   <section class="hero">
-    <h2>Real Estate Investment & Sales</h2>
-    <p>Off-market deals. Fast closes. Chicago-grown and built on results.</p>
-    <a href="https://calendly.com/isaiah-lesley/30min" class="cta-button">Schedule a Call</a>
+    <h2>Real Estate Media & Marketing</h2>
+    <p>High-quality visuals to showcase properties and elevate your real estate brand.</p>
   </section>
 
-  <!-- Packages -->
   <section class="section">
-    <h3>Real Estate Media Packages</h3>
-    <div class="packages">
-      <div class="package-card">
-        <h4>Starter Listing Bundle – $150</h4>
-        <p>20 high-res listing photos<br>1 vertical walkthrough video<br>Basic editing + branding overlay<br>48-hour delivery</p>
-      </div>
-      <div class="package-card">
-        <h4>Agent Promo Pro – $350</h4>
-        <p>Everything in Starter Listing<br>1-minute cinematic property reel<br>Agent intro/outro with voiceover<br>Custom thumbnail + MLS-ready format</p>
-      </div>
-      <div class="package-card">
-        <h4>Investor Marketing Kit – $500</h4>
-        <p>Up to 2 properties per shoot<br>Photos + walkthroughs + Drone<br>Branded 90-second promo<br>One social media strategy consult included</p>
-      </div>
-    </div>
-  </section>
+    <h3>Our Real Estate Services</h3>
+    <p>We help agents, investors, and brokers capture properties in a cinematic way, including photography, videography, and social media-ready content.</p>
 
-  <!-- Gallery -->
-  <section class="section">
-    <h3>Gallery</h3>
-    <div class="gallery">
-      <img src="assets/images/REPhoto1.JPG" alt="Chicago property" />
-      <img src="assets/images/REPhoto2.JPG" alt="Investor walkthrough" />
-      <img src="assets/images/REPhoto3.JPG" alt="Interior photo of listed home" />
-      <video controls>
-        <source src="assets/videos/REVideo3.mp4" type="video/mp4" />
-      </video>
-      <video controls>
-        <source src="assets/videos/REVideo4.mp4" type="video/mp4" />
-      </video>
-      <video controls>
-        <source src="assets/videos/REVideo5.mp4" type="video/mp4" />
-      </video>
-    </div>
-  </section>
-
-  <!-- Contact Form -->
-  <section class="section">
-    <div class="mini-contact-form">
-      <form action="https://formspree.io/f/mzzvgnvq" method="POST">
-        <input type="text" name="name" placeholder="Name" required />
-        <input type="tel" name="phone" placeholder="Phone Number" required />
-        <input type="email" name="email" placeholder="Email" required />
-        <textarea name="message" placeholder="Your Message" required></textarea>
-        <button type="submit">Send</button>
-      </form>
+    <div class="photo-strip">
+      <img src="assets/images/RE1.jpg" alt="Property 1" />
+      <img src="assets/images/RE2.jpg" alt="Property 2" />
+      <img src="assets/images/RE3.jpg" alt="Property 3" />
     </div>
   </section>
 
@@ -274,7 +71,7 @@
     <div class="socials">
       <a href="https://www.instagram.com/isaiahmarkellesley/" target="_blank">Instagram</a> |
       <a href="https://www.tiktok.com/@isaiah.markel" target="_blank">TikTok</a> |
-      <a href="https://x.com/theisaiahml" target="_blank">X/Twitter</a> |
+      <a href="https://x.com/theisaiahml" target="_blank">Twitter/X</a> |
       <a href="https://www.youtube.com/c/Isaiahml" target="_blank">YouTube</a>
     </div>
   </footer>
