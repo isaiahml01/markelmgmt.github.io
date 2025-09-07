@@ -1,48 +1,187 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Videography | Markel Management</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --bg:#0e0e10; --fg:#f9f9f9; --accent:#5a97b9; --muted:#999;
+      --bg: #0e0e10;
+      --fg: #f9f9f9;
+      --accent: #5a97b9;
+      --muted: #999;
     }
-    *{margin:0; padding:0; box-sizing:border-box; font-family:'Inter',sans-serif;}
-    body{background:var(--bg); color:var(--fg); line-height:1.6;}
-    header{background:#111; padding:1.5rem 2rem; display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid #222;}
-    header h1{font-size:1.5rem; font-weight:800;}
-    nav a{color:var(--fg); margin-left:1.5rem; text-decoration:none; font-weight:600; transition:color 0.2s;}
-    nav a:hover{color:var(--accent);}
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+    body {
+      background: var(--bg);
+      color: var(--fg);
+      line-height: 1.6;
+    }
+    header {
+      background: #111;
+      padding: 1.5rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #222;
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+    header h1 {
+      font-size: 1.5rem;
+      font-weight: 800;
+    }
+    nav a {
+      color: var(--fg);
+      margin-left: 1.5rem;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+    nav a:hover {
+      color: var(--accent);
+    }
 
-    .hero{padding:6rem 2rem 3rem; text-align:center; background: linear-gradient(to bottom,#1c1c1f,#0e0e10);}
-    .hero h2{font-size:2.5rem; font-weight:800; margin-bottom:1rem;}
-    .hero p{font-size:1.1rem; color:var(--muted);}
+    /* Hero Section */
+    .hero {
+      padding: 6rem 2rem 3rem;
+      text-align: center;
+      background: linear-gradient(to bottom, #1c1c1f, #0e0e10);
+    }
+    .hero h2 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+    }
+    .hero p {
+      font-size: 1.1rem;
+      color: var(--muted);
+    }
 
-    .section{max-width:1000px; margin:auto; padding:4rem 2rem;}
-    .section h3{font-size:2rem; font-weight:700; margin-bottom:1.5rem;}
-    .section p{font-size:1.05rem; color:var(--muted); margin-bottom:2rem;}
+    /* Section Styling */
+    .section {
+      max-width: 1000px;
+      margin: auto;
+      padding: 4rem 2rem;
+    }
+    .section h3 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+    }
+    .section p {
+      color: var(--muted);
+      font-size: 1.05rem;
+      margin-bottom: 2rem;
+    }
 
-    .video-gallery{display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:1.5rem; margin-top:2rem;}
-    .video-gallery video{width:100%; aspect-ratio:16/9; object-fit:cover; border-radius:0.5rem; border:1px solid #222;}
+    /* Video Gallery */
+    .video-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    .video-gallery video {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      border-radius: 0.5rem;
+      border: 1px solid #222;
+    }
 
-    .packages{display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:1.5rem; margin-top:2rem;}
-    .package-card{background-color:#1c1c1f; border:1px solid #222; border-radius:12px; padding:1.5rem; transition: transform 0.3s;}
-    .package-card:hover{transform:scale(1.02);}
-    .package-card h4{font-size:1.25rem; color:var(--accent); margin-bottom:0.75rem;}
-    .package-card p{color:var(--muted); font-size:1rem; margin-bottom:0.5rem;}
+    /* Packages */
+    .packages {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    .package-card {
+      background-color: #1c1c1f;
+      border: 1px solid #222;
+      border-radius: 12px;
+      padding: 1.5rem;
+      transition: transform 0.3s;
+    }
+    .package-card:hover {
+      transform: scale(1.02);
+    }
+    .package-card h4 {
+      font-size: 1.25rem;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+    }
+    .package-card p {
+      color: var(--muted);
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+    }
 
-    .mini-contact-form{max-width:500px; margin:3rem auto 0; padding:1.5rem; background-color:#1c1c1f; border:1px solid #333; border-radius:12px;}
-    .mini-contact-form form{display:flex; flex-direction:column; gap:1rem;}
-    .mini-contact-form input,.mini-contact-form textarea{background-color:#0e0e10; border:1px solid #444; border-radius:8px; padding:0.75rem 1rem; color:#f9f9f9; font-size:1rem; width:100%;}
-    .mini-contact-form textarea{resize:vertical; min-height:100px;}
-    .mini-contact-form button{background-color:var(--accent); color:#fff; padding:0.75rem; border:none; border-radius:8px; font-weight:bold; cursor:pointer; transition:background 0.3s;}
-    .mini-contact-form button:hover{background-color:#46749a;}
+    /* Contact Form */
+    .mini-contact-form {
+      max-width: 500px;
+      margin: 3rem auto 0;
+      padding: 1.5rem;
+      background-color: #1c1c1f;
+      border: 1px solid #333;
+      border-radius: 12px;
+    }
+    .mini-contact-form form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .mini-contact-form input,
+    .mini-contact-form textarea {
+      background-color: #0e0e10;
+      border: 1px solid #444;
+      border-radius: 8px;
+      padding: 0.75rem 1rem;
+      color: #f9f9f9;
+      font-size: 1rem;
+      width: 100%;
+    }
+    .mini-contact-form textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+    .mini-contact-form button {
+      background-color: var(--accent);
+      color: #fff;
+      padding: 0.75rem;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .mini-contact-form button:hover {
+      background-color: #46749a;
+    }
 
-    footer{padding:2rem; text-align:center; font-size:0.9rem; color:var(--muted); border-top:1px solid #222;}
-    .socials a{color:var(--fg); text-decoration:none; margin:0 0.5rem;}
-    .socials a:hover{color:var(--accent);}
+    footer {
+      padding: 2rem;
+      text-align: center;
+      font-size: 0.9rem;
+      color: var(--muted);
+      border-top: 1px solid #222;
+    }
+    .socials a {
+      color: var(--fg);
+      text-decoration: none;
+      margin: 0 0.5rem;
+    }
+    .socials a:hover {
+      color: var(--accent);
+    }
   </style>
 </head>
 <body>
@@ -59,38 +198,38 @@
   </header>
 
   <section class="hero">
-    <h2>Videography Services</h2>
-    <p>From cinematic storytelling to dynamic highlight reels, we capture your vision perfectly.</p>
+    <h2>Professional Videography</h2>
+    <p>Storytelling that elevates your brand, listings, and events.</p>
   </section>
 
   <section class="section">
-    <h3>Video Portfolio</h3>
+    <h3>Portfolio</h3>
     <div class="video-gallery">
       <video controls>
-        <source src="assets/videos/VIMedia1.mp4" type="video/mp4">
+        <source src="assets/videos/Videography1.mp4" type="video/mp4">
       </video>
       <video controls>
-        <source src="assets/videos/VIMedia2.mp4" type="video/mp4">
+        <source src="assets/videos/Videography2.mp4" type="video/mp4">
       </video>
       <video controls>
-        <source src="assets/videos/VIMedia3.mp4" type="video/mp4">
+        <source src="assets/videos/Videography3.mp4" type="video/mp4">
       </video>
     </div>
 
-    <h3>Videography Packages</h3>
+    <h3>Packages</h3>
     <div class="packages">
       <div class="package-card">
         <h4>Highlight Reel</h4>
-        <p>Up to 2 hours coverage</p>
-        <p>60–90 sec edited highlight video</p>
-        <p>Social media ready</p>
+        <p>1–2 hours coverage</p>
+        <p>60–90 sec edited video</p>
+        <p>Includes motion graphics & color grading</p>
         <p><strong>$450</strong></p>
       </div>
       <div class="package-card">
-        <h4>Full Event Coverage</h4>
-        <p>4–5 hours coverage</p>
-        <p>3–5 min recap video + 3 short clips</p>
-        <p>Professional photos included</p>
+        <h4>Full Coverage</h4>
+        <p>3–5 hours coverage</p>
+        <p>Full recap video (3–5 min) + short clips</p>
+        <p>Perfect for corporate & personal events</p>
         <p><strong>$1,200</strong></p>
       </div>
     </div>
@@ -107,11 +246,11 @@
   </section>
 
   <footer>
-    <p>&copy; 2025 Isaiah Markel. Chicago, IL.</p>
+    <p>&copy; 2025 Isaiah Markel. Chicago, IL. | @theisaiahml</p>
     <div class="socials">
       <a href="https://www.instagram.com/isaiahmarkellesley/" target="_blank">Instagram</a> |
       <a href="https://www.tiktok.com/@isaiah.markel" target="_blank">TikTok</a> |
-      <a href="https://x.com/theisaiahml" target="_blank">X/Twitter</a> |
+      <a href="https://x.com/theisaiahml" target="_blank">Twitter/X</a> |
       <a href="https://www.youtube.com/c/Isaiahml" target="_blank">YouTube</a>
     </div>
   </footer>
