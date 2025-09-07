@@ -9,7 +9,7 @@
     :root {
       --bg: #0e0e10;
       --fg: #f9f9f9;
-      --accent: #5a97b9;
+      --accent: #4a90e2; /* Updated accent color to complement your brand */
       --muted: #999;
     }
     * {
@@ -49,10 +49,10 @@
       color: var(--accent);
     }
 
-    /* Hero Section */
+    /* Hero */
     .hero {
-      padding: 6rem 2rem 3rem;
       text-align: center;
+      padding: 6rem 2rem 3rem;
       background: linear-gradient(to bottom, #1c1c1f, #0e0e10);
     }
     .hero h2 {
@@ -61,15 +61,29 @@
       margin-bottom: 1rem;
     }
     .hero p {
-      font-size: 1.1rem;
+      font-size: 1.2rem;
       color: var(--muted);
+      margin-bottom: 2rem;
+    }
+    .cta-button {
+      display: inline-block;
+      background-color: var(--accent);
+      color: var(--fg);
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+    .cta-button:hover {
+      background-color: #3575b5;
     }
 
-    /* Section Styling */
+    /* Sections */
     .section {
-      max-width: 1000px;
-      margin: auto;
       padding: 4rem 2rem;
+      max-width: 960px;
+      margin: auto;
     }
     .section h3 {
       font-size: 2rem;
@@ -82,55 +96,54 @@
       margin-bottom: 2rem;
     }
 
-    /* Property Gallery */
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
-      margin-top: 2rem;
-      grid-auto-rows: 300px;
-    }
-    .gallery img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      border-radius: 0.5rem;
-      border: 1px solid #222;
-      background-color: #0e0e10;
-    }
-
-    /* Package Cards */
+    /* Packages */
     .packages {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
-      margin-top: 2rem;
+      gap: 2rem;
+      margin-bottom: 3rem;
     }
     .package-card {
-      background-color: #1c1c1f;
-      border: 1px solid #222;
-      border-radius: 12px;
+      background: #111;
       padding: 1.5rem;
+      border-radius: 12px;
+      border: 1px solid #222;
       transition: transform 0.3s;
     }
     .package-card:hover {
       transform: scale(1.02);
     }
     .package-card h4 {
-      font-size: 1.25rem;
-      color: var(--accent);
+      font-size: 1.4rem;
       margin-bottom: 0.75rem;
+      color: var(--accent);
     }
     .package-card p {
-      color: var(--muted);
       font-size: 1rem;
-      margin-bottom: 0.5rem;
+      color: var(--muted);
+      line-height: 1.4;
+    }
+
+    /* Gallery */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1rem;
+      margin-bottom: 3rem;
+    }
+    .gallery img,
+    .gallery video {
+      width: 100%;
+      aspect-ratio: 4/5;
+      object-fit: cover;
+      border-radius: 0.5rem;
+      border: 1px solid #222;
     }
 
     /* Contact Form */
     .mini-contact-form {
       max-width: 500px;
-      margin: 3rem auto 0;
+      margin: 2rem auto;
       padding: 1.5rem;
       background-color: #1c1c1f;
       border: 1px solid #333;
@@ -166,7 +179,7 @@
       transition: background 0.3s;
     }
     .mini-contact-form button:hover {
-      background-color: #46749a;
+      background-color: #3575b5;
     }
 
     footer {
@@ -194,42 +207,57 @@
       <a href="real-estate.html">Real Estate</a>
       <a href="videography.html">Videography</a>
       <a href="event-media.html">Events</a>
-      <a href="workshops.html">Workshops</a>
       <a href="contact.html">Contact</a>
     </nav>
   </header>
 
+  <!-- Hero -->
   <section class="hero">
-    <h2>Real Estate Media & Services</h2>
-    <p>Bringing cinematic clarity to property listings and investor presentations.</p>
+    <h2>Real Estate Investment & Sales</h2>
+    <p>Off-market deals. Fast closes. Chicago-grown and built on results.</p>
+    <a href="https://calendly.com/isaiah-lesley/30min" class="cta-button">Schedule a Call</a>
   </section>
 
+  <!-- Packages -->
   <section class="section">
-    <h3>Featured Properties</h3>
-    <div class="gallery">
-      <img src="assets/videos/REVideo4.mp4" alt="Property 1">
-      <img src="assets/videos/REVideo3.mp4" alt="Property 2">
-      <img src="assets/videos/REVideo2.mp4" alt="Property 3">
-    </div>
-
-    <h3>Services & Packages</h3>
+    <h3>Real Estate Media Packages</h3>
     <div class="packages">
       <div class="package-card">
-        <h4>Photo & Video Listing</h4>
-        <p>High-quality photos and cinematic video walkthroughs</p>
-        <p>Drone aerials included if needed</p>
-        <p>Perfect for marketing properties quickly</p>
-        <p><strong>$650</strong></p>
+        <h4>Starter Listing Bundle – $150</h4>
+        <p>20 high-res listing photos<br>1 vertical walkthrough video<br>Basic editing + branding overlay<br>48-hour delivery</p>
       </div>
       <div class="package-card">
-        <h4>Investor & Brokerage Promo</h4>
-        <p>Custom promo videos for your listings or team</p>
-        <p>Professional editing with branding and call-to-action</p>
-        <p>3–5 min recap videos + short social clips</p>
-        <p><strong>$1,200</strong></p>
+        <h4>Agent Promo Pro – $350</h4>
+        <p>Everything in Starter Listing<br>1-minute cinematic property reel<br>Agent intro/outro with voiceover<br>Custom thumbnail + MLS-ready format</p>
+      </div>
+      <div class="package-card">
+        <h4>Investor Marketing Kit – $500</h4>
+        <p>Up to 2 properties per shoot<br>Photos + walkthroughs + Drone<br>Branded 90-second promo<br>One social media strategy consult included</p>
       </div>
     </div>
+  </section>
 
+  <!-- Gallery -->
+  <section class="section">
+    <h3>Gallery</h3>
+    <div class="gallery">
+      <img src="assets/images/REPhoto1.JPG" alt="Chicago property" />
+      <img src="assets/images/REPhoto2.JPG" alt="Investor walkthrough" />
+      <img src="assets/images/REPhoto3.JPG" alt="Interior photo of listed home" />
+      <video controls>
+        <source src="assets/videos/REVideo3.mp4" type="video/mp4" />
+      </video>
+      <video controls>
+        <source src="assets/videos/REVideo4.mp4" type="video/mp4" />
+      </video>
+      <video controls>
+        <source src="assets/videos/REVideo5.mp4" type="video/mp4" />
+      </video>
+    </div>
+  </section>
+
+  <!-- Contact Form -->
+  <section class="section">
     <div class="mini-contact-form">
       <form action="https://formspree.io/f/mzzvgnvq" method="POST">
         <input type="text" name="name" placeholder="Name" required />
@@ -246,7 +274,7 @@
     <div class="socials">
       <a href="https://www.instagram.com/isaiahmarkellesley/" target="_blank">Instagram</a> |
       <a href="https://www.tiktok.com/@isaiah.markel" target="_blank">TikTok</a> |
-      <a href="https://x.com/theisaiahml" target="_blank">Twitter/X</a> |
+      <a href="https://x.com/theisaiahml" target="_blank">X/Twitter</a> |
       <a href="https://www.youtube.com/c/Isaiahml" target="_blank">YouTube</a>
     </div>
   </footer>
