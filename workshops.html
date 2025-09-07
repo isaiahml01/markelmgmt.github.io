@@ -12,161 +12,35 @@
       --accent: #5a97b9;
       --muted: #999;
     }
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Inter', sans-serif;
-    }
-    body {
-      background: var(--bg);
-      color: var(--fg);
-      line-height: 1.6;
-    }
-    header {
-      background: #111;
-      padding: 1.5rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 1px solid #222;
-      position: sticky;
-      top: 0;
-      z-index: 50;
-    }
-    header h1 {
-      font-size: 1.5rem;
-      font-weight: 800;
-    }
-    nav a {
-      color: var(--fg);
-      margin-left: 1.5rem;
-      text-decoration: none;
-      font-weight: 600;
-      transition: color 0.2s;
-    }
-    nav a:hover {
-      color: var(--accent);
-    }
+    * { margin:0; padding:0; box-sizing:border-box; font-family:'Inter', sans-serif; }
+    body { background: var(--bg); color: var(--fg); line-height:1.6; }
+    header { background:#111; padding:1.5rem 2rem; display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid #222; position:sticky; top:0; z-index:50; }
+    header h1 { font-size:1.5rem; font-weight:800; }
+    nav a { color: var(--fg); margin-left:1.5rem; text-decoration:none; font-weight:600; transition:color 0.2s; }
+    nav a:hover { color: var(--accent); }
 
-    /* Hero Section */
-    .hero {
-      padding: 6rem 2rem 3rem;
-      text-align: center;
-      background: linear-gradient(to bottom, #1c1c1f, #0e0e10);
-    }
-    .hero h2 {
-      font-size: 2.5rem;
-      font-weight: 800;
-      margin-bottom: 1rem;
-    }
-    .hero p {
-      font-size: 1.1rem;
-      color: var(--muted);
-    }
+    .hero { padding:6rem 2rem 3rem; text-align:center; background: linear-gradient(to bottom, #1c1c1f, #0e0e10); }
+    .hero h2 { font-size:2.5rem; font-weight:800; margin-bottom:1rem; }
+    .hero p { font-size:1.1rem; color: var(--muted); }
 
-    /* Section Styling */
-    .section {
-      max-width: 900px;
-      margin: auto;
-      padding: 4rem 2rem;
-    }
-    .section h3 {
-      font-size: 2rem;
-      font-weight: 700;
-      margin-bottom: 1.5rem;
-    }
-    .section p {
-      color: var(--muted);
-      font-size: 1.05rem;
-      margin-bottom: 2rem;
-    }
+    .section { max-width:900px; margin:auto; padding:4rem 2rem; }
+    .section h3 { font-size:2rem; font-weight:700; margin-bottom:1.5rem; }
+    .section h4 { font-size:1.25rem; color: var(--accent); margin-bottom:0.5rem; }
+    .section p, li { color: var(--muted); font-size:1.05rem; margin-bottom:1rem; }
 
-    /* Workshop Cards */
-    .workshops {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
-      margin-top: 2rem;
-    }
-    .workshop-card {
-      background-color: #1c1c1f;
-      border: 1px solid #222;
-      border-radius: 12px;
-      padding: 1.5rem;
-      transition: transform 0.3s;
-    }
-    .workshop-card:hover {
-      transform: scale(1.02);
-    }
-    .workshop-card h4 {
-      font-size: 1.25rem;
-      color: var(--accent);
-      margin-bottom: 0.75rem;
-    }
-    .workshop-card p {
-      color: var(--muted);
-      font-size: 1rem;
-      margin-bottom: 0.5rem;
-    }
+    .workshop-card { background:#1c1c1f; border:1px solid #222; border-radius:12px; padding:1.5rem; margin-bottom:2rem; }
+    .workshop-card ul { margin-left:1.5rem; list-style: disc; }
 
-    /* Contact Form */
-    .mini-contact-form {
-      max-width: 500px;
-      margin: 3rem auto 0;
-      padding: 1.5rem;
-      background-color: #1c1c1f;
-      border: 1px solid #333;
-      border-radius: 12px;
-    }
-    .mini-contact-form form {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
-    .mini-contact-form input,
-    .mini-contact-form textarea {
-      background-color: #0e0e10;
-      border: 1px solid #444;
-      border-radius: 8px;
-      padding: 0.75rem 1rem;
-      color: #f9f9f9;
-      font-size: 1rem;
-      width: 100%;
-    }
-    .mini-contact-form textarea {
-      resize: vertical;
-      min-height: 100px;
-    }
-    .mini-contact-form button {
-      background-color: var(--accent);
-      color: #fff;
-      padding: 0.75rem;
-      border: none;
-      border-radius: 8px;
-      font-weight: bold;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-    .mini-contact-form button:hover {
-      background-color: #46749a;
-    }
+    .mini-contact-form { max-width:500px; margin:3rem auto 0; padding:1.5rem; background:#1c1c1f; border:1px solid #333; border-radius:12px; }
+    .mini-contact-form form { display:flex; flex-direction:column; gap:1rem; }
+    .mini-contact-form input, .mini-contact-form textarea { background:#0e0e10; border:1px solid #444; border-radius:8px; padding:0.75rem 1rem; color:#f9f9f9; font-size:1rem; width:100%; }
+    .mini-contact-form textarea { resize:vertical; min-height:100px; }
+    .mini-contact-form button { background-color: var(--accent); color:#fff; padding:0.75rem; border:none; border-radius:8px; font-weight:bold; cursor:pointer; transition:background 0.3s; }
+    .mini-contact-form button:hover { background:#46749a; }
 
-    footer {
-      padding: 2rem;
-      text-align: center;
-      font-size: 0.9rem;
-      color: var(--muted);
-      border-top: 1px solid #222;
-    }
-    .socials a {
-      color: var(--fg);
-      text-decoration: none;
-      margin: 0 0.5rem;
-    }
-    .socials a:hover {
-      color: var(--accent);
-    }
+    footer { padding:2rem; text-align:center; font-size:0.9rem; color: var(--muted); border-top:1px solid #222; }
+    .socials a { color: var(--fg); text-decoration:none; margin:0 0.5rem; }
+    .socials a:hover { color: var(--accent); }
   </style>
 </head>
 <body>
@@ -183,36 +57,62 @@
   </header>
 
   <section class="hero">
-    <h2>Brokerage Training Workshops</h2>
-    <p>Empowering brokers with skills, systems, and strategies for success.</p>
+    <h2>Real Estate Video Workshop</h2>
+    <p>Hands-on training to empower agents to capture listings and personal brand content with ease.</p>
   </section>
 
   <section class="section">
-    <h3>Workshop Offerings</h3>
-    <p>Our training workshops are designed for managing brokers, corporate teams, and agents who want to level up. Each session combines practical business strategies with media-savvy techniques to maximize growth and client impact.</p>
+    <h3>Learning Outcomes</h3>
+    <ul>
+      <li>Confidently shoot high-quality video content with their phone.</li>
+      <li>Film listing tours, reels, and client updates that build trust & attract leads.</li>
+      <li>Edit & post quickly using simple, free/low-cost apps.</li>
+      <li>Re-purpose one video across multiple platforms (Instagram, TikTok, YouTube Shorts, LinkedIn).</li>
+      <li>Develop a consistent on-camera presence that boosts personal brand.</li>
+    </ul>
 
-    <div class="workshops">
-      <div class="workshop-card">
-        <h4>Brokerage Growth Masterclass</h4>
-        <p>Strategies for scaling your team and operations.</p>
-        <p>Includes leadership frameworks and KPI tracking.</p>
-        <p>Ideal for managing brokers.</p>
-        <p><strong>$850 / session</strong></p>
-      </div>
-      <div class="workshop-card">
-        <h4>Corporate Agent Accelerator</h4>
-        <p>High-impact tools for agents to improve conversions.</p>
-        <p>Media, marketing, and client engagement strategies.</p>
-        <p>Corporate or team-focused sessions.</p>
-        <p><strong>$650 / session</strong></p>
-      </div>
-      <div class="workshop-card">
-        <h4>Listing Presentation Intensive</h4>
-        <p>Perfect your pitch and branding for high-value listings.</p>
-        <p>Includes media coaching and storytelling techniques.</p>
-        <p><strong>$500 / session</strong></p>
-      </div>
+    <h3>Agenda</h3>
+    <div class="workshop-card">
+      <h4>Hour 1 – Phone Video Basics</h4>
+      <ul>
+        <li>Why video sells in real estate.</li>
+        <li>Best phone settings for quality.</li>
+        <li>Using natural daylight, angles, and steady shots.</li>
+      </ul>
     </div>
+    <div class="workshop-card">
+      <h4>Hour 2 – Hands-On at a Listing</h4>
+      <ul>
+        <li>Live demo: capturing exteriors, interiors, and agent intros.</li>
+        <li>Each agent films clips with guided coaching.</li>
+        <li>Instant playback + feedback.</li>
+      </ul>
+    </div>
+    <div class="workshop-card">
+      <h4>Hour 3 – Quick Editing & Posting</h4>
+      <ul>
+        <li>Fast editing on phone (CapCut / InShot).</li>
+        <li>Adding captions & music.</li>
+        <li>Posting workflow: IG, TikTok, YouTube Shorts.</li>
+      </ul>
+    </div>
+    <div class="workshop-card">
+      <h4>Hour 4 – Multiply Your Content</h4>
+      <ul>
+        <li>Turn one listing video into 5+ posts.</li>
+        <li>Personal branding tips for consistency.</li>
+        <li>Q&A + wrap-up.</li>
+      </ul>
+    </div>
+
+    <h3>Additional Info</h3>
+    <ul>
+      <li>3–4 hour, hands-on training session.</li>
+      <li>No need for reserved office space or catering; lunch included.</li>
+      <li>Hosted at one of your current listings so agents walk away with promotional material same-day.</li>
+      <li>Quarterly packages starting at $12,000/year (customizable based on brokerage size).</li>
+      <li>Optional add-ons: editing support, social content templates, recruitment video package, gear kit setup, one-on-one coaching.</li>
+    </ul>
 
     <div class="mini-contact-form">
       <form action="https://formspree.io/f/mzzvgnvq" method="POST">
