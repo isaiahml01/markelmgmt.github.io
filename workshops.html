@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Workshops | Markel Management</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
     :root {
       --bg: #0e0e10;
       --fg: #f9f9f9;
       --accent: #5a97b9;
       --muted: #999;
+      --card-bg: #1c1c1f;
     }
+
     * { margin:0; padding:0; box-sizing:border-box; font-family:'Inter', sans-serif; }
     body { background: var(--bg); color: var(--fg); line-height:1.6; }
     header { background:#111; padding:1.5rem 2rem; display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid #222; position:sticky; top:0; z-index:50; }
@@ -19,19 +21,29 @@
     nav a { color: var(--fg); margin-left:1.5rem; text-decoration:none; font-weight:600; transition:color 0.2s; }
     nav a:hover { color: var(--accent); }
 
-    .hero { padding:6rem 2rem 3rem; text-align:center; background: linear-gradient(to bottom, #1c1c1f, #0e0e10); }
+    .hero {
+      padding:6rem 2rem 3rem;
+      text-align:center;
+      background: linear-gradient(to bottom, rgba(14,14,16,0.85), rgba(14,14,16,0.85)), url('assets/images/WSPFlyer.jpg') center/cover no-repeat;
+      border-bottom:1px solid #222;
+    }
     .hero h2 { font-size:2.5rem; font-weight:800; margin-bottom:1rem; }
     .hero p { font-size:1.1rem; color: var(--muted); }
 
-    .section { max-width:900px; margin:auto; padding:4rem 2rem; }
+    .section { max-width:1000px; margin:auto; padding:4rem 2rem; }
     .section h3 { font-size:2rem; font-weight:700; margin-bottom:1.5rem; }
-    .section h4 { font-size:1.25rem; color: var(--accent); margin-bottom:0.5rem; }
     .section p, li { color: var(--muted); font-size:1.05rem; margin-bottom:1rem; }
 
-    .workshop-card { background:#1c1c1f; border:1px solid #222; border-radius:12px; padding:1.5rem; margin-bottom:2rem; }
-    .workshop-card ul { margin-left:1.5rem; list-style: disc; }
+    .card { background: var(--card-bg); border:1px solid #222; border-radius:12px; padding:2rem; margin-bottom:2rem; box-shadow:0 5px 15px rgba(0,0,0,0.3); }
+    .card h4 { color: var(--accent); margin-bottom:1rem; }
+    .card ul { list-style: disc; margin-left:1.5rem; }
 
-    .mini-contact-form { max-width:500px; margin:3rem auto 0; padding:1.5rem; background:#1c1c1f; border:1px solid #333; border-radius:12px; }
+    .flyer { display:block; max-width:700px; margin:2rem auto; border-radius:12px; box-shadow:0 5px 20px rgba(0,0,0,0.4); }
+
+    .carousel { display:flex; overflow-x:auto; gap:1rem; scroll-snap-type:x mandatory; padding-bottom:1rem; }
+    .carousel img { scroll-snap-align:start; flex:0 0 auto; width:300px; border-radius:12px; box-shadow:0 5px 15px rgba(0,0,0,0.3); border:1px solid #222; }
+
+    .mini-contact-form { max-width:500px; margin:3rem auto; padding:1.5rem; background: var(--card-bg); border:1px solid #333; border-radius:12px; }
     .mini-contact-form form { display:flex; flex-direction:column; gap:1rem; }
     .mini-contact-form input, .mini-contact-form textarea { background:#0e0e10; border:1px solid #444; border-radius:8px; padding:0.75rem 1rem; color:#f9f9f9; font-size:1rem; width:100%; }
     .mini-contact-form textarea { resize:vertical; min-height:100px; }
@@ -41,6 +53,10 @@
     footer { padding:2rem; text-align:center; font-size:0.9rem; color: var(--muted); border-top:1px solid #222; }
     .socials a { color: var(--fg); text-decoration:none; margin:0 0.5rem; }
     .socials a:hover { color: var(--accent); }
+
+    @media(max-width:768px){
+      .carousel img { width:80%; }
+    }
   </style>
 </head>
 <body>
@@ -62,63 +78,77 @@
   </section>
 
   <section class="section">
-    <h3>Learning Outcomes</h3>
-    <ul>
-      <li>Confidently shoot high-quality video content with their phone.</li>
-      <li>Film listing tours, reels, and client updates that build trust & attract leads.</li>
-      <li>Edit & post quickly using simple, free/low-cost apps.</li>
-      <li>Re-purpose one video across multiple platforms (Instagram, TikTok, YouTube Shorts, LinkedIn).</li>
-      <li>Develop a consistent on-camera presence that boosts personal brand.</li>
-    </ul>
+    <h3>Workshop Flyer</h3>
+    <img src="assets/images/WSPFlyer.jpg" alt="Workshop Flyer" class="flyer">
 
-    <h3>Agenda</h3>
-    <div class="workshop-card">
-      <h4>Hour 1 – Phone Video Basics</h4>
+    <h3>Learning Outcomes</h3>
+    <div class="card">
       <ul>
-        <li>Why video sells in real estate.</li>
-        <li>Best phone settings for quality.</li>
-        <li>Using natural daylight, angles, and steady shots.</li>
+        <li>Confidently shoot high-quality video content with their phone.</li>
+        <li>Film listing tours, reels, and client updates that build trust & attract leads.</li>
+        <li>Edit & post quickly using simple, free/low-cost apps.</li>
+        <li>Re-purpose one video across multiple platforms (Instagram, TikTok, YouTube Shorts, LinkedIn).</li>
+        <li>Develop a consistent on-camera presence that boosts personal brand.</li>
       </ul>
     </div>
-    <div class="workshop-card">
+
+    <h3>Agenda</h3>
+    <div class="card">
+      <h4>Hour 1 – Phone Video Basics</h4>
+      <ul>
+        <li>Phone Video Basics → framing, lighting, steady shots.</li>
+        <li>Using natural daylight, angles, and steady shots.</li>
+        <li>Best phone settings for quality.</li>
+        <li>Why video sells in real estate.</li>
+      </ul>
+    </div>
+    <div class="card">
       <h4>Hour 2 – Hands-On at a Listing</h4>
       <ul>
+        <li>Hands-On at a Listing → agents film real content </li> =
         <li>Live demo: capturing exteriors, interiors, and agent intros.</li>
         <li>Each agent films clips with guided coaching.</li>
         <li>Instant playback + feedback.</li>
       </ul>
     </div>
-    <div class="workshop-card">
+    <div class="card">
       <h4>Hour 3 – Quick Editing & Posting</h4>
       <ul>
+        <li>Editing Made Easy → quick workflows with free apps </li>
         <li>Fast editing on phone (CapCut / InShot).</li>
         <li>Adding captions & music.</li>
         <li>Posting workflow: IG, TikTok, YouTube Shorts.</li>
       </ul>
     </div>
-    <div class="workshop-card">
+    <div class="card">
       <h4>Hour 4 – Multiply Your Content</h4>
       <ul>
+        <li>Content Multiplication → 1 listing = 5+ posts</li>
         <li>Turn one listing video into 5+ posts.</li>
         <li>Personal branding tips for consistency.</li>
         <li>Q&A + wrap-up.</li>
       </ul>
     </div>
 
-    <h3>Additional Info</h3>
-    <ul>
-      <li>3–4 hour, hands-on training session.</li>
-      <li>No need for reserved office space or catering; lunch included.</li>
-      <li>Hosted at one of your current listings so agents walk away with promotional material same-day.</li>
-      <li>Quarterly packages starting at $12,000/year (customizable based on brokerage size).</li>
-      <li>Optional add-ons: editing support, social content templates, recruitment video package, gear kit setup, one-on-one coaching.</li>
-    </ul>
+    <h3>Pitch Deck Slides</h3>
+    <div class="carousel">
+      <img src="assets/images/WSPMedia1.jpg" alt="Slide 1">
+      <img src="assets/images/WSPMedia2.jpg" alt="Slide 2">
+      <img src="assets/images/WSPMedia3.jpg" alt="Slide 3">
+      <img src="assets/images/WSPMedia4.jpg" alt="Slide 4">
+      <img src="assets/images/WSPMedia5.jpg" alt="Slide 5">
+      <img src="assets/images/WSPMedia6.jpg" alt="Slide 6">
+      <img src="assets/images/WSPMedia7.jpg" alt="Slide 7">
+      <img src="assets/images/WSPMedia8.jpg" alt="Slide 8">
+      <img src="assets/images/WSPMedia9.jpg" alt="Slide 9">
+      <img src="assets/images/WSPMedia10.jpg" alt="Slide 10">
+    </div>
 
     <div class="mini-contact-form">
       <form action="https://formspree.io/f/mzzvgnvq" method="POST">
-        <input type="text" name="name" placeholder="Name" required />
-        <input type="tel" name="phone" placeholder="Phone Number" required />
-        <input type="email" name="email" placeholder="Email" required />
+        <input type="text" name="name" placeholder="Name" required>
+        <input type="tel" name="phone" placeholder="Phone Number" required>
+        <input type="email" name="email" placeholder="Email" required>
         <textarea name="message" placeholder="Your Message" required></textarea>
         <button type="submit">Send</button>
       </form>
@@ -126,13 +156,4 @@
   </section>
 
   <footer>
-    <p>&copy; 2025 Isaiah Markel. Chicago, IL. | @theisaiahml</p>
-    <div class="socials">
-      <a href="https://www.instagram.com/isaiahmarkellesley/" target="_blank">Instagram</a> |
-      <a href="https://www.tiktok.com/@isaiah.markel" target="_blank">TikTok</a> |
-      <a href="https://x.com/theisaiahml" target="_blank">Twitter/X</a> |
-      <a href="https://www.youtube.com/c/Isaiahml" target="_blank">YouTube</a>
-    </div>
-  </footer>
-</body>
-</html>
+    <p>&copy; 2025 Isaiah Markel. Chicago, IL. | @theisaiahml</p
