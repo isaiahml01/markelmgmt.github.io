@@ -12,149 +12,41 @@
       --accent: #de685b;
       --muted: #999;
     }
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Inter', sans-serif;
-    }
-    body {
-      background: var(--bg);
-      color: var(--fg);
-      line-height: 1.6;
-    }
+    * { margin:0; padding:0; box-sizing:border-box; font-family:'Inter', sans-serif; }
+    body { background: var(--bg); color: var(--fg); line-height:1.6; }
     header {
-      background: #111;
-      padding: 1.5rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 1px solid #222;
+      background: #111; padding:1.5rem 2rem; display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid #222;
     }
-    header h1 {
-      font-size: 1.5rem;
-      font-weight: 800;
-    }
-    nav a {
-      color: var(--fg);
-      margin-left: 1.5rem;
-      text-decoration: none;
-      font-weight: 600;
-      transition: color 0.2s;
-    }
-    nav a:hover {
-      color: var(--accent);
-    }
-    .hero {
-      padding: 6rem 2rem 3rem;
-      text-align: center;
-      background: linear-gradient(to bottom, #1c1c1f, #0e0e10);
-    }
-    .hero h2 {
-      font-size: 2.5rem;
-      font-weight: 800;
-      margin-bottom: 1rem;
-    }
-    .hero p {
-      font-size: 1.1rem;
-      color: var(--muted);
-    }
-    .section {
-      max-width: 900px;
-      margin: auto;
-      padding: 4rem 2rem;
-    }
-    .section h3 {
-      font-size: 2rem;
-      font-weight: 700;
-      margin-bottom: 1.5rem;
-    }
-    .section p {
-      font-size: 1.05rem;
-      color: var(--muted);
-      margin-bottom: 2rem;
-    }
-    .highlight {
-      color: var(--accent);
-      font-weight: 600;
-    }
-    .photo-strip {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-      margin-top: 2rem;
-    }
-    .photo-strip img {
-      width: calc(33% - 0.66rem);
-      border-radius: 0.5rem;
-      border: 1px solid #222;
-    }
-    footer {
-      padding: 2rem;
-      text-align: center;
-      font-size: 0.9rem;
-      color: var(--muted);
-      border-top: 1px solid #222;
-    }
-    @media (max-width: 768px) {
-      .photo-strip img {
-        width: 100%;
-      }
-   .contact-form {
-    max-width: 600px;
-    margin: 4rem auto;
-    padding: 2rem;
-    background-color: #1c1c1f;
-    border: 1px solid #333;
-    border-radius: 1rem;
-    box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  }
+    header h1 { font-size:1.5rem; font-weight:800; }
+    nav a { color: var(--fg); margin-left:1.5rem; text-decoration:none; font-weight:600; transition: color 0.2s; }
+    nav a:hover { color: var(--accent); }
 
-.mini-contact-form {
-  max-width: 500px;
-  margin: 2rem auto;
-  padding: 1.5rem;
-  background-color: #1c1c1f;
-  border: 1px solid #333;
-  border-radius: 12px;
-}
+    .hero { padding:6rem 2rem 3rem; text-align:center; background: linear-gradient(to bottom, #1c1c1f, #0e0e10); }
+    .hero h2 { font-size:2.5rem; font-weight:800; margin-bottom:1rem; }
+    .hero p { font-size:1.1rem; color: var(--muted); }
 
-.mini-contact-form form {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
+    .section { max-width:900px; margin:auto; padding:4rem 2rem; }
+    .section h3 { font-size:2rem; font-weight:700; margin-bottom:1.5rem; }
+    .section p { font-size:1.05rem; color: var(--muted); margin-bottom:2rem; }
+    .highlight { color: var(--accent); font-weight:600; }
 
-.mini-contact-form input,
-.mini-contact-form textarea {
-  background-color: #0e0e10;
-  border: 1px solid #444;
-  border-radius: 8px;
-  padding: 0.75rem 1rem;
-  color: #f9f9f9;
-  font-size: 1rem;
-  width: 100%;
-}
+    .photo-strip { display:flex; gap:1rem; flex-wrap:wrap; margin-top:2rem; }
+    .photo-strip img { width:calc(33% - 0.66rem); border-radius:0.5rem; border:1px solid #222; }
 
-.mini-contact-form textarea {
-  resize: vertical;
-  min-height: 100px;
-}
+    .mini-contact-form {
+      max-width:500px; margin:2rem auto; padding:1.5rem; background-color:#1c1c1f; border:1px solid #333; border-radius:12px;
+    }
+    .mini-contact-form form { display:flex; flex-direction:column; gap:1rem; }
+    .mini-contact-form input, .mini-contact-form textarea { background-color:#0e0e10; border:1px solid #444; border-radius:8px; padding:0.75rem 1rem; color:#f9f9f9; font-size:1rem; width:100%; }
+    .mini-contact-form textarea { resize:vertical; min-height:100px; }
+    .mini-contact-form button { background-color: var(--accent); color:#fff; padding:0.75rem; border:none; border-radius:8px; font-weight:bold; cursor:pointer; transition:background 0.3s; }
+    .mini-contact-form button:hover { background-color:#c9564c; }
 
-.mini-contact-form button {
-  background-color: #de685b;
-  color: #fff;
-  padding: 0.75rem;
-  border: none;
-  border-radius: 8px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background 0.3s;
-}
+    footer { padding:2rem; text-align:center; font-size:0.9rem; color: var(--muted); border-top:1px solid #222; }
+    .socials a { color: var(--fg); text-decoration:none; margin:0 0.5rem; }
+    .socials a:hover { color: var(--accent); }
 
-.mini-contact-form button:hover {
-  background-color: #c9564c;
-}
+    @media(max-width:768px){ .photo-strip img{ width:100%; } }
   </style>
 </head>
 <body>
@@ -165,6 +57,7 @@
       <a href="real-estate.html">Real Estate</a>
       <a href="videography.html">Videography</a>
       <a href="event-media.html">Events</a>
+      <a href="workshops.html">Workshops</a>
       <a href="contact.html">Contact</a>
     </nav>
   </header>
@@ -188,25 +81,26 @@
       <img src="assets/images/ABMedia3.jpg" alt="Real estate showing" />
       <img src="assets/images/ABMedia2.JPG" alt="Isaiah at work" />
     </div>
-<div class="mini-contact-form">
-  <form action="https://formspree.io/f/mzzvgnvq" method="POST">
-    <input type="text" name="name" placeholder="Name" required />
-    <input type="tel" name="phone" placeholder="Phone Number" required />
-    <input type="email" name="email" placeholder="Email" required />
-    <textarea name="message" placeholder="Your Message" required></textarea>
-    <button type="submit">Send</button>
-  </form>
-</div>
+
+    <div class="mini-contact-form">
+      <form action="https://formspree.io/f/mzzvgnvq" method="POST">
+        <input type="text" name="name" placeholder="Name" required />
+        <input type="tel" name="phone" placeholder="Phone Number" required />
+        <input type="email" name="email" placeholder="Email" required />
+        <textarea name="message" placeholder="Your Message" required></textarea>
+        <button type="submit">Send</button>
+      </form>
+    </div>
   </section>
 
   <footer>
-    <p>&copy; 2025 Isaiah Markel. Chicago, IL. | @theisaiahml</p>
-     <div class="socials">
-    <a href="https://www.instagram.com/isaiahmarkellesley/" target="_blank">Instagram</a> |
-    <a href="https://www.tiktok.com/@isaiah.markel" target="_blank">tiktok</a> |
-    <a href="https://x.com/theisaiahml" target="_blank">twitter/X</a> |
-    <a href="https://www.youtube.com/c/Isaiahml" target="_blank">youtube/X</a>
-  </div>
+    <p>&copy; 2025 Isaiah Markel. Chicago, IL.</p>
+    <div class="socials">
+      <a href="https://www.instagram.com/isaiahmarkellesley/" target="_blank">Instagram</a> |
+      <a href="https://www.tiktok.com/@isaiah.markel" target="_blank">TikTok</a> |
+      <a href="https://x.com/theisaiahml" target="_blank">X/Twitter</a> |
+      <a href="https://www.youtube.com/c/Isaiahml" target="_blank">YouTube</a>
+    </div>
   </footer>
 </body>
 </html>
