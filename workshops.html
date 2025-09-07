@@ -1,168 +1,238 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Workshops – Markel Media</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Workshops | Markel Management</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0e0e10;
+      --fg: #f9f9f9;
+      --accent: #5a97b9;
+      --muted: #999;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+    body {
+      background: var(--bg);
+      color: var(--fg);
+      line-height: 1.6;
+    }
+    header {
+      background: #111;
+      padding: 1.5rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #222;
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+    header h1 {
+      font-size: 1.5rem;
+      font-weight: 800;
+    }
+    nav a {
+      color: var(--fg);
+      margin-left: 1.5rem;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+    nav a:hover {
+      color: var(--accent);
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 6rem 2rem 3rem;
+      text-align: center;
+      background: linear-gradient(to bottom, #1c1c1f, #0e0e10);
+    }
+    .hero h2 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+    }
+    .hero p {
+      font-size: 1.1rem;
+      color: var(--muted);
+    }
+
+    /* Section Styling */
+    .section {
+      max-width: 900px;
+      margin: auto;
+      padding: 4rem 2rem;
+    }
+    .section h3 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+    }
+    .section p {
+      color: var(--muted);
+      font-size: 1.05rem;
+      margin-bottom: 2rem;
+    }
+
+    /* Workshop Cards */
+    .workshops {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    .workshop-card {
+      background-color: #1c1c1f;
+      border: 1px solid #222;
+      border-radius: 12px;
+      padding: 1.5rem;
+      transition: transform 0.3s;
+    }
+    .workshop-card:hover {
+      transform: scale(1.02);
+    }
+    .workshop-card h4 {
+      font-size: 1.25rem;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+    }
+    .workshop-card p {
+      color: var(--muted);
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Contact Form */
+    .mini-contact-form {
+      max-width: 500px;
+      margin: 3rem auto 0;
+      padding: 1.5rem;
+      background-color: #1c1c1f;
+      border: 1px solid #333;
+      border-radius: 12px;
+    }
+    .mini-contact-form form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .mini-contact-form input,
+    .mini-contact-form textarea {
+      background-color: #0e0e10;
+      border: 1px solid #444;
+      border-radius: 8px;
+      padding: 0.75rem 1rem;
+      color: #f9f9f9;
+      font-size: 1rem;
+      width: 100%;
+    }
+    .mini-contact-form textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+    .mini-contact-form button {
+      background-color: var(--accent);
+      color: #fff;
+      padding: 0.75rem;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .mini-contact-form button:hover {
+      background-color: #46749a;
+    }
+
+    footer {
+      padding: 2rem;
+      text-align: center;
+      font-size: 0.9rem;
+      color: var(--muted);
+      border-top: 1px solid #222;
+    }
+    .socials a {
+      color: var(--fg);
+      text-decoration: none;
+      margin: 0 0.5rem;
+    }
+    .socials a:hover {
+      color: var(--accent);
+    }
+  </style>
 </head>
-<body class="font-sans bg-gray-50 text-gray-800">
+<body>
+  <header>
+    <h1>Markel Management</h1>
+    <nav>
+      <a href="about.html">About</a>
+      <a href="real-estate.html">Real Estate</a>
+      <a href="videography.html">Videography</a>
+      <a href="event-media.html">Events</a>
+      <a href="workshops.html">Workshops</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
 
-  <!-- Nav Bar -->
-  <nav class="bg-white shadow-md">
-    <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-      <a href="index.html" class="text-2xl font-bold text-blue-600">Markel Media</a>
-      <ul class="flex space-x-6 text-gray-700 font-medium">
-        <li><a href="index.html" class="hover:text-blue-600">Home</a></li>
-        <li><a href="about.html" class="hover:text-blue-600">About</a></li>
-        <li><a href="services.html" class="hover:text-blue-600">Services</a></li>
-        <li><a href="portfolio.html" class="hover:text-blue-600">Portfolio</a></li>
-        <li><a href="workshops.html" class="text-blue-600 font-semibold">Workshops</a></li>
-        <li><a href="contact.html" class="hover:text-blue-600">Contact</a></li>
-      </ul>
-    </div>
-  </nav>
-
-  <!-- Hero Section -->
-  <section class="bg-blue-50 py-16 text-center">
-    <h1 class="text-4xl md:text-5xl font-bold mb-4">Empower Your Agents With Video That Sells</h1>
-    <p class="text-lg md:text-xl text-gray-700 mb-6 max-w-2xl mx-auto">
-      Hands-on workshops to train your team in listing videos, social content, and personal branding — using just their phone and daylight.
-    </p>
-    <a href="#booking" class="inline-block px-8 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition">
-      Book a Workshop
-    </a>
+  <section class="hero">
+    <h2>Brokerage Training Workshops</h2>
+    <p>Empowering brokers with skills, systems, and strategies for success.</p>
   </section>
 
-  <!-- Value Proposition -->
-  <section class="container mx-auto px-6 py-12">
-    <h2 class="text-3xl font-semibold mb-4">Why This Matters</h2>
-    <p class="text-gray-700 mb-4">
-      AI and platforms like Zillow can display listings, but only authentic video from your agents builds trust, showcases personality, and converts leads. Training your team in video marketing ensures your brokerage stands out and future-proofs your agents.
-    </p>
-    <ul class="list-disc list-inside text-gray-700 space-y-2">
-      <li>Boost listings exposure and social reach</li>
-      <li>Train agents in 3–4 hours hands-on</li>
-      <li>Each session produces real content for your brokerage</li>
-      <li>Position your brokerage as forward-thinking and tech-enabled</li>
-    </ul>
-  </section>
+  <section class="section">
+    <h3>Workshop Offerings</h3>
+    <p>Our training workshops are designed for managing brokers, corporate teams, and agents who want to level up. Each session combines practical business strategies with media-savvy techniques to maximize growth and client impact.</p>
 
-  <!-- Workshop Outline -->
-  <section class="bg-white py-12">
-    <div class="container mx-auto px-6">
-      <h2 class="text-3xl font-semibold mb-6">Workshop Outline</h2>
-      <p class="text-gray-700 mb-4">3–4 hour hands-on training, designed to make video simple and actionable.</p>
-      <div class="space-y-6">
-        <div>
-          <h3 class="text-xl font-semibold mb-2">Hour 1 – Phone Video Basics</h3>
-          <ul class="list-disc list-inside text-gray-700">
-            <li>Why video wins in real estate</li>
-            <li>Best phone settings for professional-quality video</li>
-            <li>Using natural daylight, angles, and steady shots</li>
-          </ul>
-        </div>
-        <div>
-          <h3 class="text-xl font-semibold mb-2">Hour 2 – Hands-On at a Listing</h3>
-          <ul class="list-disc list-inside text-gray-700">
-            <li>Live demo: filming exteriors, interiors, and agent intros</li>
-            <li>Agents practice filming with guided coaching</li>
-            <li>Instant playback and feedback</li>
-          </ul>
-        </div>
-        <div>
-          <h3 class="text-xl font-semibold mb-2">Hour 3 – Quick Editing & Posting</h3>
-          <ul class="list-disc list-inside text-gray-700">
-            <li>Editing on your phone (CapCut, InShot, Canva)</li>
-            <li>Adding captions, music, and branding</li>
-            <li>Posting strategies for Instagram, TikTok, YouTube Shorts</li>
-          </ul>
-        </div>
-        <div>
-          <h3 class="text-xl font-semibold mb-2">Hour 4 – Multiply Your Content</h3>
-          <ul class="list-disc list-inside text-gray-700">
-            <li>Turn one listing video into 5+ posts</li>
-            <li>Personal branding tips for consistency</li>
-            <li>Q&A and wrap-up</li>
-          </ul>
-        </div>
+    <div class="workshops">
+      <div class="workshop-card">
+        <h4>Brokerage Growth Masterclass</h4>
+        <p>Strategies for scaling your team and operations.</p>
+        <p>Includes leadership frameworks and KPI tracking.</p>
+        <p>Ideal for managing brokers.</p>
+        <p><strong>$850 / session</strong></p>
       </div>
-      <p class="mt-6 text-gray-700"><strong>Deliverables:</strong> Polished listing video for broker, usable clips for agents, and a PDF cheat sheet with shot lists, posting guide, and workflow tips.</p>
-    </div>
-  </section>
-
-  <!-- Slide Deck Summary -->
-  <section class="container mx-auto px-6 py-12">
-    <h2 class="text-3xl font-semibold mb-6">Slide Deck Highlights</h2>
-    <ul class="list-disc list-inside text-gray-700 space-y-2">
-      <li>Market Shift – why video matters in real estate now</li>
-      <li>The Problem – cost of outsourcing video & agent confusion</li>
-      <li>Human Advantage – differentiating agents from AI/Zillow</li>
-      <li>Workshop Agenda – step-by-step outline</li>
-      <li>Benefits to Brokerage – cost savings, competitive differentiation</li>
-      <li>Packages & Pricing – Pilot, Quarterly, Annual</li>
-      <li>Call-to-Action – how to book & next steps</li>
-    </ul>
-  </section>
-
-  <!-- Pricing Section -->
-  <section class="bg-blue-50 py-12">
-    <div class="container mx-auto px-6">
-      <h2 class="text-3xl font-semibold mb-6">Packages & Pricing</h2>
-      <div class="grid md:grid-cols-3 gap-6">
-        <div class="p-6 bg-white rounded-lg shadow hover:shadow-lg transition">
-          <h3 class="text-xl font-bold mb-2">Pilot Workshop</h3>
-          <p class="text-gray-700 mb-2">One 3–4 hour session at a current listing, 1 polished video, resource kit</p>
-          <p class="text-2xl font-semibold">$1,500</p>
-        </div>
-        <div class="p-6 bg-white rounded-lg shadow hover:shadow-lg transition">
-          <h3 class="text-xl font-bold mb-2">Quarterly Package</h3>
-          <p class="text-gray-700 mb-2">4 sessions/year, each produces listing + agent clips, priority scheduling</p>
-          <p class="text-2xl font-semibold">$4,500</p>
-        </div>
-        <div class="p-6 bg-white rounded-lg shadow hover:shadow-lg transition">
-          <h3 class="text-xl font-bold mb-2">Annual Partnership</h3>
-          <p class="text-gray-700 mb-2">6–8 sessions/year + optional editing & templates, full media support</p>
-          <p class="text-2xl font-semibold">Starting at $12,000</p>
-        </div>
+      <div class="workshop-card">
+        <h4>Corporate Agent Accelerator</h4>
+        <p>High-impact tools for agents to improve conversions.</p>
+        <p>Media, marketing, and client engagement strategies.</p>
+        <p>Corporate or team-focused sessions.</p>
+        <p><strong>$650 / session</strong></p>
+      </div>
+      <div class="workshop-card">
+        <h4>Listing Presentation Intensive</h4>
+        <p>Perfect your pitch and branding for high-value listings.</p>
+        <p>Includes media coaching and storytelling techniques.</p>
+        <p><strong>$500 / session</strong></p>
       </div>
     </div>
-  </section>
 
-  <!-- Booking Section -->
-  <section id="booking" class="container mx-auto px-6 py-12">
-    <h2 class="text-3xl font-semibold mb-4 text-center">Book Your Workshop Today</h2>
-    <p class="text-gray-700 mb-6 text-center">Choose your preferred date, submit your details, and pay securely online. That’s it — we handle the rest.</p>
-    <form class="max-w-xl mx-auto grid gap-4">
-      <input type="text" placeholder="Name" class="p-3 border rounded-lg w-full">
-      <input type="email" placeholder="Email" class="p-3 border rounded-lg w-full">
-      <input type="text" placeholder="Brokerage" class="p-3 border rounded-lg w-full">
-      <input type="number" placeholder="Number of Agents" class="p-3 border rounded-lg w-full">
-      <input type="date" placeholder="Preferred Date" class="p-3 border rounded-lg w-full">
-      <select class="p-3 border rounded-lg w-full">
-        <option value="">Select Package</option>
-        <option value="pilot">Pilot Workshop</option>
-        <option value="quarterly">Quarterly Package</option>
-        <option value="annual">Annual Partnership</option>
-      </select>
-      <button type="submit" class="px-6 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition">
-        Reserve Your Workshop
-      </button>
-    </form>
-  </section>
-
-  <!-- FAQ Section -->
-  <section class="bg-white py-12">
-    <div class="container mx-auto px-6 max-w-3xl">
-      <h2 class="text-3xl font-semibold mb-4 text-center">Frequently Asked Questions</h2>
-      <ul class="list-disc list-inside text-gray-700 space-y-2">
-        <li>Do we need any equipment? Only your phone + daylight; we show you the rest.</li>
-        <li>How many agents per workshop? Up to 10 for hands-on experience.</li>
-        <li>Do we get a finished video? Yes, broker receives a polished listing video.</li>
-        <li>Can we schedule multiple workshops? Quarterly and annual packages available.</li>
-      </ul>
+    <div class="mini-contact-form">
+      <form action="https://formspree.io/f/mzzvgnvq" method="POST">
+        <input type="text" name="name" placeholder="Name" required />
+        <input type="tel" name="phone" placeholder="Phone Number" required />
+        <input type="email" name="email" placeholder="Email" required />
+        <textarea name="message" placeholder="Your Message" required></textarea>
+        <button type="submit">Send</button>
+      </form>
     </div>
   </section>
 
+  <footer>
+    <p>&copy; 2025 Isaiah Markel. Chicago, IL. | @theisaiahml</p>
+    <div class="socials">
+      <a href="https://www.instagram.com/isaiahmarkellesley/" target="_blank">Instagram</a> |
+      <a href="https://www.tiktok.com/@isaiah.markel" target="_blank">TikTok</a> |
+      <a href="https://x.com/theisaiahml" target="_blank">Twitter/X</a> |
+      <a href="https://www.youtube.com/c/Isaiahml" target="_blank">YouTube</a>
+    </div>
+  </footer>
 </body>
 </html>
