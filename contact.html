@@ -1,64 +1,76 @@
-<style>
-  .contact-form {
-    max-width: 600px;
-    margin: 4rem auto;
-    padding: 2rem;
-    background-color: #1c1c1f;
-    border: 1px solid #333;
-    border-radius: 1rem;
-    box-shadow: 0 0 15px rgba(0,0,0,0.2);
-    font-family: 'Segoe UI', sans-serif;
-  }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact | Markel Management</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:#0e0e10; --fg:#f9f9f9; --accent:#de685b; --muted:#999;
+    }
+    * { margin:0; padding:0; box-sizing:border-box; font-family:'Inter', sans-serif; }
+    body { background: var(--bg); color: var(--fg); line-height:1.6; }
 
-  .contact-form h2 {
-    color: #f9f9f9;
-    font-size: 1.8rem;
-    margin-bottom: 1.5rem;
-    text-align: center;
-  }
+    header {
+      background:#111; padding:1.5rem 2rem; display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid #222;
+    }
+    header h1{ font-size:1.5rem; font-weight:800; }
+    nav a{ color: var(--fg); margin-left:1.5rem; text-decoration:none; font-weight:600; transition:color 0.2s; }
+    nav a:hover{ color: var(--accent); }
 
-  .contact-form input,
-  .contact-form textarea {
-    width: 100%;
-    padding: 0.9rem 1rem;
-    margin-bottom: 1.2rem;
-    background: #0e0e10;
-    border: 1px solid #444;
-    color: #f9f9f9;
-    border-radius: 0.5rem;
-    font-size: 1rem;
-    transition: border 0.3s;
-  }
+    .contact-form {
+      max-width:600px; margin:4rem auto; padding:2rem; background-color:#1c1c1f;
+      border:1px solid #333; border-radius:1rem; box-shadow:0 0 15px rgba(0,0,0,0.2);
+    }
+    .contact-form h2{ color:#f9f9f9; font-size:1.8rem; margin-bottom:1.5rem; text-align:center; }
+    .contact-form input, .contact-form textarea {
+      width:100%; padding:0.9rem 1rem; margin-bottom:1.2rem; background:#0e0e10; border:1px solid #444; color:#f9f9f9;
+      border-radius:0.5rem; font-size:1rem; transition:border 0.3s;
+    }
+    .contact-form input:focus, .contact-form textarea:focus{ border-color: var(--accent); outline:none; }
+    .contact-form button{
+      background: var(--accent); color:#fff; padding:0.9rem 1.5rem; border:none; border-radius:0.5rem; font-weight:bold;
+      cursor:pointer; width:100%; font-size:1rem; transition:background 0.3s;
+    }
+    .contact-form button:hover{ background:#c65348; }
 
-  .contact-form input:focus,
-  .contact-form textarea:focus {
-    border-color: #de685b;
-    outline: none;
-  }
+    footer{ padding:2rem; text-align:center; font-size:0.9rem; color: var(--muted); border-top:1px solid #222; }
+    .socials a{ color: var(--fg); text-decoration:none; margin:0 0.5rem; }
+    .socials a:hover{ color: var(--accent); }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Markel Management</h1>
+    <nav>
+      <a href="about.html">About</a>
+      <a href="real-estate.html">Real Estate</a>
+      <a href="videography.html">Videography</a>
+      <a href="event-media.html">Events</a>
+      <a href="workshops.html">Workshops</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
 
-  .contact-form button {
-    background: #de685b;
-    color: #fff;
-    padding: 0.9rem 1.5rem;
-    border: none;
-    border-radius: 0.5rem;
-    font-weight: bold;
-    cursor: pointer;
-    width: 100%;
-    font-size: 1rem;
-    transition: background 0.3s;
-  }
+  <div class="contact-form">
+    <h2>Contact Me</h2>
+    <form action="https://formspree.io/f/mzzvgnvq" method="POST">
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="email" name="email" placeholder="Your Email" required />
+      <textarea name="message" placeholder="Your Message" rows="6" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </div>
 
-  .contact-form button:hover {
-    background: #c65348;
-  }
-</style>
-<div class="contact-form">
-  <h2>Contact Me</h2>
-  <form action="https://formspree.io/f/mzzvgnvq" method="POST">
-    <input type="text" name="name" placeholder="Your Name" required />
-    <input type="email" name="email" placeholder="Your Email" required />
-    <textarea name="message" placeholder="Your Message" rows="6" required></textarea>
-    <button type="submit">Send Message</button>
-  </form>
-</div>
+  <footer>
+    <p>&copy; 2025 Isaiah Markel. Chicago, IL.</p>
+    <div class="socials">
+      <a href="https://www.instagram.com/isaiahmarkellesley/" target="_blank">Instagram</a> |
+      <a href="https://www.tiktok.com/@isaiah.markel" target="_blank">TikTok</a> |
+      <a href="https://x.com/theisaiahml" target="_blank">X/Twitter</a> |
+      <a href="https://www.youtube.com/c/Isaiahml" target="_blank">YouTube</a>
+    </div>
+  </footer>
+</body>
+</html>
