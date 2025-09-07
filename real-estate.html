@@ -1,43 +1,199 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Real Estate | Markel Management</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Markel Media | Chicago Video & Creative Agency</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
     :root {
       --bg: #0e0e10;
       --fg: #f9f9f9;
-      --accent: #de685b;
+      --accent: #6c757d;
       --muted: #999;
     }
-    * { margin:0; padding:0; box-sizing:border-box; font-family:'Inter',sans-serif; }
-    body { background:var(--bg); color:var(--fg); line-height:1.6; }
-    header { background:#111; padding:1.5rem 2rem; display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid #222; position:sticky; top:0; z-index:50;}
-    header h1 { font-size:1.5rem; font-weight:800; }
-    nav a { color:var(--fg); margin-left:1.5rem; text-decoration:none; font-weight:600; transition:color 0.2s;}
-    nav a:hover { color:var(--accent); }
 
-    .hero { padding:6rem 2rem 3rem; text-align:center; background: linear-gradient(to bottom,#1c1c1f,#0e0e10);}
-    .hero h2 { font-size:2.5rem; font-weight:800; margin-bottom:1rem;}
-    .hero p { font-size:1.1rem; color:var(--muted);}
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
 
-    .section { max-width:1000px; margin:auto; padding:4rem 2rem;}
-    .section h3 { font-size:2rem; font-weight:700; margin-bottom:1.5rem;}
-    .section p { font-size:1.05rem; color:var(--muted); margin-bottom:2rem; }
+    body {
+      background: var(--bg);
+      color: var(--fg);
+      line-height: 1.6;
+    }
 
-    .photo-strip { display:flex; gap:1rem; flex-wrap:wrap; margin-top:2rem;}
-    .photo-strip img { width: calc(33% - 0.66rem); border-radius:0.5rem; border:1px solid #222; }
+    header {
+      background: #111;
+      padding: 1.5rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #222;
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
 
-    footer { padding:2rem; text-align:center; font-size:0.9rem; color:var(--muted); border-top:1px solid #222;}
-    .socials a { color: var(--fg); text-decoration:none; margin:0 0.5rem;}
-    .socials a:hover { color:var(--accent); }
+    header h1 {
+      font-size: 1.5rem;
+      font-weight: 800;
+    }
 
-    @media(max-width:768px){.photo-strip img{width:100%;}}
+    nav a {
+      color: var(--fg);
+      margin-left: 1.5rem;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+
+    nav a:hover {
+      color: var(--accent);
+    }
+
+    /* Hero Section */
+    .hero {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 4rem 2rem;
+      background: #111;
+      height: auto;
+      min-height: 60vh;
+    }
+
+    .hero h2 {
+      font-size: 3rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      color: var(--muted);
+      max-width: 650px;
+      margin-bottom: 2rem;
+    }
+
+    .hero .btn {
+      padding: 0.5rem 1rem;
+      font-size: 0.95rem;
+      font-weight: 600;
+      border-radius: 0.3rem;
+      background: var(--accent);
+      color: #fff;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+
+    .hero .btn:hover {
+      background: #5a6268;
+    }
+
+    /* Portfolio Grid */
+    .portfolio {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      padding: 4rem 2rem;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .portfolio-item {
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .portfolio-item:hover {
+      transform: scale(1.02);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+    }
+
+    .portfolio-item iframe {
+      width: 100%;
+      height: 200px;
+      border: none;
+    }
+
+    /* Services Section */
+    .services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      padding: 4rem 2rem;
+      max-width: 1000px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .service-card h4 {
+      font-size: 1.4rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .service-card p {
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    /* CTA Banner */
+    .cta-banner {
+      background: #111;
+      text-align: center;
+      padding: 4rem 2rem;
+      border-top: 1px solid #222;
+      border-bottom: 1px solid #222;
+    }
+
+    .cta-banner h3 {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .cta-banner .btn {
+      padding: 0.5rem 1rem;
+      font-size: 0.95rem;
+      border-radius: 0.3rem;
+      background: var(--accent);
+      color: #fff;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+
+    .cta-banner .btn:hover {
+      background: #5a6268;
+    }
+
+    footer {
+      padding: 2rem;
+      text-align: center;
+      font-size: 0.9rem;
+      color: var(--muted);
+      border-top: 1px solid #222;
+    }
+
+    .socials a {
+      color: var(--fg);
+      text-decoration: none;
+      margin: 0 0.5rem;
+    }
+
+    .socials a:hover {
+      color: var(--accent);
+    }
   </style>
 </head>
 <body>
+
   <header>
     <h1>Markel Management</h1>
     <nav>
@@ -51,29 +207,64 @@
   </header>
 
   <section class="hero">
-    <h2>Real Estate Media & Marketing</h2>
-    <p>High-quality visuals to showcase properties and elevate your real estate brand.</p>
+    <h2>Cinematic Media for Brands, Creators, and Real Estate</h2>
+    <p>We craft high-impact visuals that move people and grow businesses.</p>
+    <a href="videography.html" class="btn">View Portfolio</a>
+    <p style="margin-top:2rem; font-size:1rem; color:#bbb; max-width:600px;">
+      Explore our recent projects below — from brand storytelling to cinematic real estate showcases. Each video demonstrates our commitment to quality, creativity, and impact.
+    </p>
   </section>
 
-  <section class="section">
-    <h3>Our Real Estate Services</h3>
-    <p>We help agents, investors, and brokers capture properties in a cinematic way, including photography, videography, and social media-ready content.</p>
-
-    <div class="photo-strip">
-      <img src="assets/images/RE1.jpg" alt="Property 1" />
-      <img src="assets/images/RE2.jpg" alt="Property 2" />
-      <img src="assets/images/RE3.jpg" alt="Property 3" />
+  <section class="portfolio">
+    <div class="portfolio-item">
+      <iframe src="https://www.youtube.com/embed/G3pBz8s11WM" allowfullscreen></iframe>
     </div>
+    <div class="portfolio-item">
+      <iframe src="https://www.youtube.com/embed/xao_0IjdtzE" allowfullscreen></iframe>
+    </div>
+    <div class="portfolio-item">
+      <iframe src="https://www.youtube.com/embed/FIts7QzGvjQ" allowfullscreen></iframe>
+    </div>
+    <div class="portfolio-item">
+      <iframe src="https://www.youtube.com/embed/zyZjD6Fc_10" allowfullscreen></iframe>
+    </div>
+    <div class="portfolio-item">
+      <iframe src="https://www.youtube.com/embed/3gnear73Lgc" allowfullscreen></iframe>
+    </div>
+    <div class="portfolio-item">
+      <iframe src="https://www.youtube.com/embed/b4OR6mbgIlI" allowfullscreen></iframe>
+    </div>
+  </section>
+
+  <section class="services">
+    <div class="service-card">
+      <h4>Corporate Media</h4>
+      <p>Brand films, ads, and social campaigns for businesses that want impact.</p>
+    </div>
+    <div class="service-card">
+      <h4>Events & Storytelling</h4>
+      <p>Conference coverage, launches, and mini-documentaries.</p>
+    </div>
+    <div class="service-card">
+      <h4>Real Estate Media</h4>
+      <p>Cinematic property listings and agent promo videos that sell lifestyles.</p>
+    </div>
+  </section>
+
+  <section class="cta-banner">
+    <h3>Let’s create something unforgettable.</h3>
+    <a href="contact.html" class="btn">Book a Consultation</a>
   </section>
 
   <footer>
-    <p>&copy; 2025 Isaiah Markel. Chicago, IL. | @theisaiahml</p>
+    <p>&copy; 2025 Isaiah Markel. Chicago, IL.</p>
     <div class="socials">
       <a href="https://www.instagram.com/isaiahmarkellesley/" target="_blank">Instagram</a> |
       <a href="https://www.tiktok.com/@isaiah.markel" target="_blank">TikTok</a> |
-      <a href="https://x.com/theisaiahml" target="_blank">Twitter/X</a> |
+      <a href="https://x.com/theisaiahml" target="_blank">X/Twitter</a> |
       <a href="https://www.youtube.com/c/Isaiahml" target="_blank">YouTube</a>
     </div>
   </footer>
+
 </body>
 </html>
