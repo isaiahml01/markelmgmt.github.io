@@ -1,139 +1,177 @@
-// LuxuryApplication.jsx
-import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-
-const inviteCode = "MARKEL2025";
-
-const questions = [
-  "What does your brand currently offer the world?",
-  "Where are your properties, clients, or markets located?",
-  "Who is the audience your brand speaks to?",
-  "What media, PR, or marketing have you engaged with previously?",
-  "What strategies have delivered results? Which have not?",
-  "What is your single most important growth priority for the next 12 months?",
-  "Where do you envision your brand positioned in the marketplace?",
-  "What is your current monthly or annual budget for media & marketing excellence?",
-  "Are you prepared to invest in a long-term, retainer-based partnership?",
-  "Why do you believe your brand is an ideal fit for an accelerator partnership with Markel Media?",
-  "If invited, how soon would you be ready to begin?",
-];
-
-export default function LuxuryApplication() {
-  const [code, setCode] = useState("");
-  const [authenticated, setAuthenticated] = useState(false);
-  const [step, setStep] = useState(0);
-  const [answers, setAnswers] = useState(Array(questions.length).fill(""));
-
-  const handleCodeSubmit = (e) => {
-    e.preventDefault();
-    if (code === inviteCode) {
-      setAuthenticated(true);
-    } else {
-      alert("Invalid access code.");
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Markel Media Accelerator</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: radial-gradient(circle at top left, #0a0a0a, #000);
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      overflow: hidden;
     }
-  };
+    .card {
+      max-width: 650px;
+      width: 90%;
+      background: rgba(10, 10, 10, 0.85);
+      padding: 3rem 2rem;
+      border-radius: 20px;
+      box-shadow: 0 0 40px rgba(212, 175, 55, 0.15);
+      text-align: center;
+      animation: fadeIn 1.2s ease;
+    }
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      color: #d4af37;
+      margin-bottom: 1rem;
+    }
+    p {
+      color: #aaa;
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+    }
+    input, textarea {
+      width: 100%;
+      background: transparent;
+      border: none;
+      border-bottom: 2px solid #444;
+      color: white;
+      font-size: 1rem;
+      padding: 0.75rem 0;
+      margin-bottom: 2rem;
+      transition: border-color 0.3s;
+      font-family: inherit;
+    }
+    input:focus, textarea:focus {
+      outline: none;
+      border-color: #d4af37;
+    }
+    button {
+      background: #d4af37;
+      color: black;
+      border: none;
+      padding: 0.8rem 2rem;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    button:hover {
+      background: #e5c158;
+      box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+    }
+    .hidden { display: none; }
+    .question { animation: slideIn 0.6s ease; }
+    .progress {
+      height: 3px;
+      background: #333;
+      margin-bottom: 2rem;
+      border-radius: 2px;
+      overflow: hidden;
+    }
+    .progress-bar {
+      height: 3px;
+      width: 0%;
+      background: #d4af37;
+      transition: width 0.5s ease;
+    }
+    @keyframes fadeIn { from {opacity: 0;} to {opacity: 1;} }
+    @keyframes slideIn { from {opacity: 0; transform: translateY(20px);} to {opacity: 1; transform: translateY(0);} }
+  </style>
+</head>
+<body>
 
-  const handleAnswerChange = (e) => {
-    const updated = [...answers];
-    updated[step] = e.target.value;
-    setAnswers(updated);
-  };
+  <div class="card" id="gate">
+    <h1>By Invitation Only</h1>
+    <p>Please enter your exclusive access code to continue.</p>
+    <input type="password" id="inviteCode" placeholder="Enter Access Code">
+    <button onclick="checkCode()">Enter</button>
+  </div>
 
-  const handleNext = () => {
-    if (step < questions.length - 1) setStep(step + 1);
-    else handleSubmit();
-  };
+  <div class="card hidden" id="formCard">
+    <h1>Markel Media Accelerator</h1>
+    <div class="progress"><div class="progress-bar" id="progressBar"></div></div>
+    <div id="questionContainer"></div>
+    <button onclick="nextQuestion()" id="nextBtn">Next</button>
+  </div>
 
-  const handleSubmit = () => {
-    console.log("Application submitted:", answers);
-    setStep("done");
-  };
+  <div class="card hidden" id="thankYou">
+    <h1>Application Received</h1>
+    <p>Thank you for applying to the Markel Media Accelerator. Our team will carefully review your submission. If selected, you will be personally contacted with next steps.</p>
+  </div>
 
-  return (
-    <div className="min-h-screen bg-black text-white flex items-center justify-center p-6">
-      {!authenticated ? (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          className="max-w-lg w-full text-center"
-        >
-          <h1 className="text-4xl font-serif text-yellow-500 mb-4">
-            By Invitation Only
-          </h1>
-          <p className="text-gray-400 mb-6">
-            Please enter your access code to continue.
-          </p>
-          <form onSubmit={handleCodeSubmit} className="space-y-4">
-            <input
-              type="text"
-              value={code}
-              onChange={(e) => setCode(e.target.value)}
-              placeholder="Enter Access Code"
-              className="w-full bg-black border-b border-yellow-500 text-center text-lg focus:outline-none focus:border-yellow-400 transition-all"
-            />
-            <button
-              type="submit"
-              className="px-6 py-2 bg-yellow-500 text-black font-semibold rounded-full hover:bg-yellow-400 transition-all"
-            >
-              Enter
-            </button>
-          </form>
-        </motion.div>
-      ) : step === "done" ? (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          className="max-w-xl text-center"
-        >
-          <h1 className="text-4xl font-serif text-yellow-500 mb-6">
-            Application Received
-          </h1>
-          <p className="text-gray-300">
-            Thank you for applying to the Markel Media Accelerator.  
-            Our team will carefully review your submission.  
-            If selected, you will receive a private invitation to proceed.
-          </p>
-        </motion.div>
-      ) : (
-        <div className="max-w-2xl w-full">
-          {/* Progress bar */}
-          <div className="h-1 bg-gray-800 mb-8 rounded">
-            <div
-              className="h-1 bg-yellow-500 rounded"
-              style={{ width: `${((step + 1) / questions.length) * 100}%` }}
-            ></div>
-          </div>
+<script>
+  const accessCode = "MARKEL2025";
 
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={step}
-              initial={{ opacity: 0, x: 50 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -50 }}
-              transition={{ duration: 0.5 }}
-            >
-              <h2 className="text-2xl font-serif text-yellow-500 mb-4">
-                {questions[step]}
-              </h2>
-              <textarea
-                value={answers[step]}
-                onChange={handleAnswerChange}
-                className="w-full bg-black border border-gray-700 rounded-xl p-4 text-lg focus:outline-none focus:border-yellow-500 transition-all"
-                rows="5"
-                placeholder="Type your response here..."
-              />
-              <div className="mt-6 flex justify-end">
-                <button
-                  onClick={handleNext}
-                  className="px-6 py-2 bg-yellow-500 text-black font-semibold rounded-full hover:bg-yellow-400 transition-all"
-                >
-                  {step === questions.length - 1 ? "Submit" : "Next"}
-                </button>
-              </div>
-            </motion.div>
-          </AnimatePresence>
-        </div>
-      )}
-    </div>
-  );
-}
+  const questions = [
+    "What does your brand currently offer the world?",
+    "Where are your properties, clients, or markets located?",
+    "Who is the audience your brand speaks to?",
+    "What media, PR, or marketing have you engaged with previously?",
+    "What strategies have delivered results? Which have not?",
+    "What is your single most important growth priority for the next 12 months?",
+    "Where do you envision your brand positioned in the marketplace?",
+    "What is your current monthly or annual budget for media & marketing excellence?",
+    "Are you prepared to invest in a long-term, retainer-based partnership?",
+    "Why do you believe your brand is an ideal fit for an accelerator partnership with Markel Media?",
+    "If invited, how soon would you be ready to begin?"
+  ];
+
+  let step = 0;
+  let answers = [];
+
+  function checkCode() {
+    const code = document.getElementById("inviteCode").value.trim();
+    if (code === accessCode) {
+      document.getElementById("gate").classList.add("hidden");
+      document.getElementById("formCard").classList.remove("hidden");
+      loadQuestion();
+    } else {
+      alert("Invalid code. Please try again.");
+    }
+  }
+
+  function loadQuestion() {
+    const container = document.getElementById("questionContainer");
+    container.innerHTML = `
+      <div class="question">
+        <h2 style="color:#d4af37; font-family:'Playfair Display', serif; font-size:1.5rem; margin-bottom:1rem;">
+          ${questions[step]}
+        </h2>
+        <textarea id="answer" rows="4" placeholder="Type your response here..."></textarea>
+      </div>
+    `;
+    document.getElementById("progressBar").style.width = ((step + 1) / questions.length * 100) + "%";
+    document.getElementById("nextBtn").innerText = (step === questions.length - 1) ? "Submit" : "Next";
+  }
+
+  function nextQuestion() {
+    const answer = document.getElementById("answer").value.trim();
+    answers.push(answer);
+
+    if (step < questions.length - 1) {
+      step++;
+      loadQuestion();
+    } else {
+      submitForm();
+    }
+  }
+
+  function submitForm() {
+    console.log("Form submitted:", answers);
+    document.getElementById("formCard").classList.add("hidden");
+    document.getElementById("thankYou").classList.remove("hidden");
+  }
+</script>
+
+</body>
+</html>
