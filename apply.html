@@ -166,11 +166,28 @@
     }
   }
 
-  function submitForm() {
-    console.log("Form submitted:", answers);
-    document.getElementById("formCard").classList.add("hidden");
-    document.getElementById("thankYou").classList.remove("hidden");
-  }
+function submitForm() {
+  const endpoint = "https://formspree.io/f/movkanoy";
+  fetch(endpoint, {
+    method: "POST",
+    body: JSON.stringify({ answers }),
+    headers: {
+      "Content-Type": "application/json"
+    }
+  })
+  .then(response => {
+    if (response.ok) {
+      document.getElementById("formCard").classList.add("hidden");
+      document.getElementById("thankYou").classList.remove("hidden");
+    } else {
+      throw new Error("Network response was not ok.");
+    }
+  })
+  .catch(err => {
+    console.error("Submission error:", err);
+    alert("Something went wrong submitting your application. Please try again.");
+  });
+}
 </script>
 
 </body>
