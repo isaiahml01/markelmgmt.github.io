@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" class="bg-black text-white">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Exclusive Application | Markel Media</title>
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Alpine.js for interactivity -->
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+<body class="min-h-screen flex items-center justify-center bg-gradient-to-br from-black via-zinc-900 to-black">
+
+  <div x-data="{ step: 'gate', code: '', form: { name:'', brand:'', investment:'', vision:'' }, submitted: false }"
+       class="w-full max-w-lg p-8 bg-zinc-950 rounded-2xl shadow-2xl border border-yellow-600/20">
+
+    <!-- Invite Gate -->
+    <template x-if="step === 'gate'">
+      <div class="text-center space-y-6">
+        <h1 class="text-2xl font-bold text-yellow-500">Exclusive Access</h1>
+        <p class="text-zinc-400">This application is by invitation only. Please enter your access code to continue.</p>
+
+        <input x-model="code"
+               type="password"
+               placeholder="Enter Invite Code"
+               class="w-full px-4 py-3 bg-black border border-zinc-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-yellow-500 text-center" />
+
+        <button @click="code === 'MARKEL2025' ? step = 'form' : alert('Invalid Code')"
+                class="w-full py-3 mt-4 bg-yellow-600 hover:bg-yellow-500 text-black font-semibold rounded-xl transition">
+          Unlock Application
+        </button>
+      </div>
+    </template>
+
+    <!-- Application Form -->
+    <template x-if="step === 'form' && !submitted">
+      <form @submit.prevent="submitted = true" class="space-y-6 animate-fadeIn">
+        <h2 class="text-xl font-semibold text-yellow-500 text-center">Private Client Application</h2>
+
+        <div>
+          <label class="block text-sm text-zinc-400 mb-1">Full Name</label>
+          <input x-model="form.name" type="text" required
+                 class="w-full px-4 py-3 bg-black border border-zinc-700 rounded-xl focus:ring-2 focus:ring-yellow-500" />
+        </div>
+
+        <div>
+          <label class="block text-sm text-zinc-400 mb-1">Brand Name</label>
+          <input x-model="form.brand" type="text" required
+                 class="w-full px-4 py-3 bg-black border border-zinc-700 rounded-xl focus:ring-2 focus:ring-yellow-500" />
+        </div>
+
+        <div>
+          <label class="block text-sm text-zinc-400 mb-1">Planned Investment Range</label>
+          <select x-model="form.investment" required
+                  class="w-full px-4 py-3 bg-black border border-zinc-700 rounded-xl focus:ring-2 focus:ring-yellow-500">
+            <option value="">Select</option>
+            <option value="10k-25k">$10,000 – $25,000</option>
+            <option value="25k-50k">$25,000 – $50,000</option>
+            <option value="50k+">$50,000+</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block text-sm text-zinc-400 mb-1">Describe Your Brand's Vision</label>
+          <textarea x-model="form.vision" rows="4" required
+                    class="w-full px-4 py-3 bg-black border border-zinc-700 rounded-xl focus:ring-2 focus:ring-yellow-500"></textarea>
+        </div>
+
+        <button type="submit"
+                class="w-full py-3 bg-gradient-to-r from-yellow-600 to-yellow-500 text-black font-bold rounded-xl shadow-lg hover:from-yellow-500 hover:to-yellow-400 transition">
+          Submit Application
+        </button>
+      </form>
+    </template>
+
+    <!-- Confirmation -->
+    <template x-if="submitted">
+      <div class="text-center space-y-4 animate-fadeIn">
+        <h2 class="text-2xl font-bold text-yellow-500">Application Received</h2>
+        <p class="text-zinc-400">Thank you for your interest. Markel Media selects only a limited number of collaborations each quarter. You will be contacted personally within 24–48 hours.</p>
+        <div class="mt-6">
+          <span class="inline-block px-6 py-3 bg-yellow-600 text-black font-semibold rounded-full">Exclusive Status: Pending Review</span>
+        </div>
+      </div>
+    </template>
+  </div>
+
+  <style>
+    .animate-fadeIn {
+      animation: fadeIn 0.8s ease-in-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+
+</body>
+</html>
