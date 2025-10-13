@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Why I Won’t Give Up Podcast</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Why I Won’t Give Up — Podcast</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@300;400;600&display=swap');
 
@@ -11,19 +11,26 @@
       --bg: #0e0e0e;
       --gold: #d4af37;
       --text: #f5f5f5;
-      --muted: #999;
+      --muted: #9a9a9a;
+      --card: rgba(255,255,255,0.02);
+      --card-border: rgba(212,175,55,0.12);
     }
+
+    * { box-sizing: border-box; }
 
     body {
       margin: 0;
       background: var(--bg);
-      font-family: 'Inter', sans-serif;
+      font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
       color: var(--text);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
 
     header {
       text-align: center;
       padding: 4rem 1rem 2rem;
+      border-bottom: 1px solid rgba(255,255,255,0.02);
     }
 
     header h1 {
@@ -35,18 +42,44 @@
     }
 
     header p {
-      font-size: 1.1rem;
+      font-size: 1.05rem;
       color: var(--muted);
-      max-width: 600px;
+      max-width: 820px;
       margin: 1rem auto 0;
       line-height: 1.6;
     }
 
+    .subscribe {
+      margin-top: 1.25rem;
+      display:flex;
+      gap:.5rem;
+      justify-content:center;
+      flex-wrap:wrap;
+    }
+
+    .btn {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid rgba(255,255,255,0.06);
+      padding: 0.6rem 1rem;
+      border-radius: 8px;
+      font-weight:600;
+      text-decoration:none;
+      font-size:0.92rem;
+    }
+
+    .btn.primary {
+      background: linear-gradient(90deg, rgba(212,175,55,0.12), rgba(212,175,55,0.06));
+      border-color: rgba(212,175,55,0.25);
+      color: var(--gold);
+    }
+
     .episodes {
-      max-width: 1000px;
+      max-width: 1080px;
       margin: 3rem auto;
       display: grid;
-      gap: 3rem;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2.25rem;
       padding: 0 1rem;
     }
 
@@ -54,117 +87,213 @@
       display: flex;
       flex-direction: column;
       gap: 1rem;
-      background: rgba(255, 255, 255, 0.02);
-      border: 1px solid rgba(212, 175, 55, 0.15);
-      padding: 2rem;
-      border-radius: 16px;
-      transition: all 0.3s ease;
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      padding: 1.75rem;
+      border-radius: 14px;
+      transition: transform .28s ease, border-color .28s ease, box-shadow .28s ease;
     }
 
     .episode:hover {
-      background: rgba(255, 255, 255, 0.05);
-      border-color: var(--gold);
-      transform: translateY(-4px);
+      transform: translateY(-6px);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.6);
+      border-color: rgba(212,175,55,0.28);
+    }
+
+    .episode .meta {
+      display:flex;
+      gap:1rem;
+      align-items:center;
+    }
+
+    .thumb {
+      width:84px;
+      height:84px;
+      border-radius:10px;
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border: 1px solid rgba(255,255,255,0.02);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:var(--muted);
+      font-size:0.85rem;
+      flex-shrink:0;
     }
 
     .episode h2 {
       font-family: 'Playfair Display', serif;
       color: var(--gold);
-      font-size: 1.5rem;
+      font-size: 1.15rem;
       margin: 0;
     }
 
     .episode p {
       color: var(--muted);
-      font-size: 0.95rem;
+      font-size: 0.96rem;
       line-height: 1.6;
+      margin: 0;
     }
 
-    video {
+    .media {
+      margin-top: 0.5rem;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.02);
+    }
+
+    .media video {
       width: 100%;
-      border-radius: 12px;
+      display:block;
+      background:#000;
       outline: none;
+      height: auto;
     }
 
     footer {
       text-align: center;
-      padding: 3rem 1rem;
-      border-top: 1px solid rgba(212, 175, 55, 0.2);
+      padding: 2.5rem 1rem;
+      border-top: 1px solid rgba(255,255,255,0.02);
       color: var(--muted);
       font-size: 0.9rem;
+      margin-top: 3rem;
     }
 
-    @media (max-width: 700px) {
-      header h1 {
-        font-size: 2rem;
-      }
-      .episode {
-        padding: 1.5rem;
-      }
+    @media (max-width: 880px) {
+      .episodes { grid-template-columns: 1fr; padding: 0 1rem; }
+      .thumb { width:72px; height:72px; }
+      header h1 { font-size:2rem; }
     }
+
   </style>
 </head>
 <body>
   <header>
     <h1>Why I Won’t Give Up</h1>
-    <p>A declaration of faith, fire, and relentless pursuit.  
-       For those who build in the unseen until it’s undeniable.</p>
+    <p>For spiritual entrepreneurs who build in the unseen — a prophetic, strategic, and lyrical record of faith in motion.</p>
+
+    <div class="subscribe">
+      <!-- Replace these links with your Libsyn/Spotify/Apple/YouTube URLs -->
+      <a class="btn primary" href="#" target="_blank" rel="noreferrer">Subscribe</a>
+      <a class="btn" href="#" target="_blank" rel="noreferrer">Listen on Spotify</a>
+      <a class="btn" href="#" target="_blank" rel="noreferrer">Listen on Apple</a>
+      <a class="btn" href="#" target="_blank" rel="noreferrer">Watch on YouTube</a>
+    </div>
   </header>
 
-  <section class="episodes">
+  <main class="episodes">
 
-    <div class="episode">
-      <h2>Episode 0: Ground Floor</h2>
-      <p>The foundation. A morning mantra of faith and manifestation.</p>
-      <video controls poster="">
-        <source src="https://traffic.libsyn.com/forcedn/bcc82ec9-f529-46ea-becb-89fd25be0906/WIWGU_-_Ground_Floor.mp4" type="video/mp4">
-      </video>
-    </div>
+    <!-- Episode 0 -->
+    <article class="episode">
+      <div class="meta">
+        <div class="thumb">EP 0</div>
+        <div>
+          <h2>Episode 0 — Ground Floor</h2>
+          <p><em>The foundation. A full-length, mantra-style affirmation and prophetic declaration designed to be lived with daily during a building season.</em></p>
+        </div>
+      </div>
 
-    <div class="episode">
-      <h2>Episode 1: Faith Over Feelings</h2>
-      <p>When it doesn’t look like it’s working, faith speaks louder than doubt.</p>
-      <video controls>
-        <source src="https://traffic.libsyn.com/forcedn/bcc82ec9-f529-46ea-becb-89fd25be0906/WIWGU_-_Episode_1.mp4" type="video/mp4">
-      </video>
-    </div>
+      <div class="media">
+        <video controls preload="metadata" poster="">
+          <source src="https://traffic.libsyn.com/forcedn/bcc82ec9-f529-46ea-becb-89fd25be0906/WIWGU_-_Ground_Floor.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </article>
 
-    <div class="episode">
-      <h2>Episode 2: Walk Like It’s Already Yours</h2>
-      <p>Stepping into promise with the authority of someone who already possesses it.</p>
-      <video controls>
-        <source src="https://traffic.libsyn.com/forcedn/bcc82ec9-f529-46ea-becb-89fd25be0906/WIWGU_-_Episode_2.mp4" type="video/mp4">
-      </video>
-    </div>
+    <!-- Episode 1 -->
+    <article class="episode">
+      <div class="meta">
+        <div class="thumb">EP 1</div>
+        <div>
+          <h2>Episode 1 — Faith Over Feelings</h2>
+          <p><em>When it doesn’t look like it’s working: how to move beyond emotion and build with holy strategy.</em></p>
+        </div>
+      </div>
 
-    <div class="episode">
-      <h2>Episode 3: Build While It’s Unfinished</h2>
-      <p>True faith is constructing the future when the blueprint isn’t fully revealed.</p>
-      <video controls>
-        <source src="https://traffic.libsyn.com/forcedn/bcc82ec9-f529-46ea-becb-89fd25be0906/WIWGU_-_Episode_3.mp4" type="video/mp4">
-      </video>
-    </div>
+      <div class="media">
+        <video controls preload="metadata">
+          <source src="https://traffic.libsyn.com/forcedn/bcc82ec9-f529-46ea-becb-89fd25be0906/WIWGU_-_Episode_1.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </article>
 
-    <div class="episode">
-      <h2>Episode 4: Wait Like It’s On the Way</h2>
-      <p>Patience is not passive. It’s power held steady in time.</p>
-      <video controls>
-        <source src="https://traffic.libsyn.com/forcedn/bcc82ec9-f529-46ea-becb-89fd25be0906/WIWGU_-_Episode_4.mp4" type="video/mp4">
-      </video>
-    </div>
+    <!-- Episode 2 -->
+    <article class="episode">
+      <div class="meta">
+        <div class="thumb">EP 2</div>
+        <div>
+          <h2>Episode 2 — Walk Like It’s Already Yours</h2>
+          <p><em>Moving with authority before the evidence appears — spiritual and practical steps for owning the promise now.</em></p>
+        </div>
+      </div>
 
-    <div class="episode">
-      <h2>Episode 5: Why I Won’t Give Up</h2>
-      <p>The declaration. The fire. The moment faith becomes reality.</p>
-      <video controls>
-        <source src="https://traffic.libsyn.com/forcedn/bcc82ec9-f529-46ea-becb-89fd25be0906/WIWGU_-_Episode_5.mp4" type="video/mp4">
-      </video>
-    </div>
+      <div class="media">
+        <video controls preload="metadata">
+          <source src="https://traffic.libsyn.com/forcedn/bcc82ec9-f529-46ea-becb-89fd25be0906/WIWGU_-_Episode_2.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </article>
 
-  </section>
+    <!-- Episode 3 -->
+    <article class="episode">
+      <div class="meta">
+        <div class="thumb">EP 3</div>
+        <div>
+          <h2>Episode 3 — Build While It’s Unfinished</h2>
+          <p><em>The in-between season: why the half-built room is holy, and how to keep laying bricks when no one’s watching.</em></p>
+        </div>
+      </div>
+
+      <div class="media">
+        <video controls preload="metadata">
+          <source src="https://traffic.libsyn.com/forcedn/bcc82ec9-f529-46ea-becb-89fd25be0906/WIWGU_-_Episode_3.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </article>
+
+    <!-- Episode 4 -->
+    <article class="episode">
+      <div class="meta">
+        <div class="thumb">EP 4</div>
+        <div>
+          <h2>Episode 4 — Wait Like It’s On the Way</h2>
+          <p><em>Holding posture in the waiting season — active waiting, prophetic positioning, and daily disciplines that matter.</em></p>
+        </div>
+      </div>
+
+      <div class="media">
+        <video controls preload="metadata">
+          <source src="https://traffic.libsyn.com/forcedn/bcc82ec9-f529-46ea-becb-89fd25be0906/WIWGU_-_Episode_4.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </article>
+
+    <!-- Episode 5 -->
+    <article class="episode">
+      <div class="meta">
+        <div class="thumb">EP 5</div>
+        <div>
+          <h2>Episode 5 — Why I Won’t Give Up</h2>
+          <p><em>The declaration: a final prophetic, poetic charge — steps to fight discouragement and anchor in God’s will until the promise arrives.</em></p>
+        </div>
+      </div>
+
+      <div class="media">
+        <video controls preload="metadata">
+          <source src="https://traffic.libsyn.com/forcedn/bcc82ec9-f529-46ea-becb-89fd25be0906/WIWGU_-_Episode_5.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </article>
+
+  </main>
 
   <footer>
-    © 2025 Why I Won’t Give Up Podcast — Markel Media & Management
+    © 2025 Why I Won’t Give Up Podcast — Markel Media &amp; Management
   </footer>
 </body>
 </html>
