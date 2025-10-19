@@ -98,6 +98,10 @@
   </div>
 
   <div class="card hidden" id="formCard">
+    <div style="margin-bottom: 2rem;">
+  <label for="fileUpload" style="display:block; margin-bottom:0.5rem; color:#d4af37;">Upload Supporting Files (optional)</label>
+  <input type="file" id="fileUpload" multiple style="color:white;">
+</div>
     <h1>Markel Media Accelerator</h1>
     <div class="progress"><div class="progress-bar" id="progressBar"></div></div>
     <div id="questionContainer"></div>
@@ -168,6 +172,14 @@
 
 function submitForm() {
   const endpoint = "https://formspree.io/f/movkanoy";
+  const files = document.getElementById("fileUpload").files;
+if (files.length > 0) {
+  const success = await uploadFilesToDropbox(files);
+  if (!success) {
+    alert("File upload failed. Please try again.");
+    return;
+  }
+}
   fetch(endpoint, {
     method: "POST",
     body: JSON.stringify({ answers }),
@@ -187,6 +199,35 @@ function submitForm() {
     console.error("Submission error:", err);
     alert("Something went wrong submitting your application. Please try again.");
   });
+}
+  async function uploadFilesToDropbox(files) {
+  const accessToken = "sl.u.AGDJv4IBUvQKsm1CBSTKrE7xFAZoV7O6mJ2ZpmzZQwKvS1zD0q5JuYJxIExtdKr5iu5n3LkLhI1BjssUGDMz3vDRtI3Q2CgyJKdDFKrnboYb3przFt8xrKRNhCaFcWgkxPSHowDmO53IOarCh5YAMPjoSA6WLq32uuKagY2LMnUtQMoLKiosZ4amN1SotXQAeVeZY791xKfoYhFxit0sM1_qldDPSBGHfBJCo7kOWLdnq4IqoigOxNSY-UizUhvx4hM27cr2UJJS98Nnbeo8hCi4iu3dafE6LPIc7IbugLYJPnwwbvdwgdU-JJ5fMLAbpJ6m7nMqxTwmMJC4H-VaDexE4Gej3m2yiaF9mcB0VVV-QcTF0vs0HJjXTYhC2AeJmWT2t0KcBeWx7Vjz9-87Dh0ZpjGzuaU20KqpeU7b2pcnBWRWWHmyTxYaZxCYYydE5PUSBym2zy-zM31XeXvaueXW9MuWea_pLasMvRvJAzfPEu-ufYRPR7Lmb97rRfY5pd0_W6JJ0Zxe51XZxzEktQ9_YGbqcxW90u4R_6EI2cPpcZaLD_TqSrt1Zn98Ek3WlKO8JS86ULMOHoYmpwKibt1hAcsi5T4TA8rjq7RdpL2Pe-mpxr23bNGH_C_PEfhC9ViA5BKsQC6cbSR3i30uZ61OysMyTh2bvDWqRzCvK9hvNrmWu6IpIazF7_WL1S-cFNUdGTZXOs5uxf10u3Mf_ApPGfO1dcW3o4UAINMXle3NlXhI0Xctf5hJxItHqbCH5vzNjCuzjCvCu13lmO4q_05t8ChENBy883nGLENKEsTQjRmVyWAhd8h2J0aVFl2S_UVExMGKfKLPx6zecX6t2LqfYTmYO4pAl3wb5-9tj2Ola0zwifuYXoYIJvj2CuiNTw4ee1Z4kGOACZQ12y3BkVz2S0azuIpREAGN6RK5Luh9UB3q4Ww-IrIPJewapiA72HrcAxCbC0HNGqcYnn9_Q3FZyhLzi5Ih7ML7xg8i6eGqIh2b13asiQBx0FrJ6u6a2aa0eKsZ8A9vftpGDc-quPqEVZyTqqnBtjgHl2SRbwjI7VBAb4Vz9BacHyEgDFr3iSWVauJLyqlXWJ9qTuRtwrCGFg4wI312uQPOvmgv0bSJD6fwqeQPrTw9ahpB_z2kVc25ilBTgCpUVABsQbbgT5Rxat1CuiqXnK7Ax0ETteEdtcbsizv5OQ37xi4iK9ft3a-k6lIvfuWkbuprSqwl1FFHol6ETUhpBh_kM03kPDK7_e5h3UMwzTgz6paM5euxnUSuNstrg8paHoDMyV3bKX_b8mRKJU5xg41YqUMu5dMt97GRkUOAWClES82cRrR5bYkZl73IzCgIKlNdJqPGi7R7S8pOfXED1wQ9fi9FXPZW29lSpmhcprNKudffbzALuvlACjE64aaF64vuSBR2_liKOovQnnph9hsecra4HrXIZBgIrndMrCAryClCnA0Thdc7KqvHCBt2YM-mkguRc3Lk"
+  const uploadPromises = [];
+
+  for (let file of files) {
+    const arrayBuffer = await file.arrayBuffer();
+    const dropboxPath = `/Client_Uploads/${file.name}`;
+
+    uploadPromises.push(
+      fetch("https://content.dropboxapi.com/2/files/upload", {
+        method: "POST",
+        headers: {
+          "Authorization": `Bearer ${accessToken}`,
+          "Dropbox-API-Arg": JSON.stringify({
+            path: dropboxPath,
+            mode: "add",
+            autorename: true,
+            mute: false
+          }),
+          "Content-Type": "application/octet-stream"
+        },
+        body: arrayBuffer
+      })
+    );
+  }
+
+  const results = await Promise.all(uploadPromises);
+  return results.every(res => res.ok);
 }
 </script>
 
