@@ -27,17 +27,8 @@
       text-align: center;
       animation: fadeIn 1.2s ease;
     }
-    h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.5rem;
-      color: #d4af37;
-      margin-bottom: 1rem;
-    }
-    p {
-      color: #aaa;
-      font-size: 1.1rem;
-      margin-bottom: 2rem;
-    }
+    h1 { font-family: 'Playfair Display', serif; font-size: 2.5rem; color: #d4af37; margin-bottom: 1rem; }
+    p { color: #aaa; font-size: 1.1rem; margin-bottom: 2rem; }
     input, textarea {
       width: 100%;
       background: transparent;
@@ -50,10 +41,7 @@
       transition: border-color 0.3s;
       font-family: inherit;
     }
-    input:focus, textarea:focus {
-      outline: none;
-      border-color: #d4af37;
-    }
+    input:focus, textarea:focus { outline: none; border-color: #d4af37; }
     button {
       background: #d4af37;
       color: black;
@@ -65,25 +53,11 @@
       cursor: pointer;
       transition: all 0.3s;
     }
-    button:hover {
-      background: #e5c158;
-      box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
-    }
+    button:hover { background: #e5c158; box-shadow: 0 0 20px rgba(212, 175, 55, 0.4); }
     .hidden { display: none; }
     .question { animation: slideIn 0.6s ease; }
-    .progress {
-      height: 3px;
-      background: #333;
-      margin-bottom: 2rem;
-      border-radius: 2px;
-      overflow: hidden;
-    }
-    .progress-bar {
-      height: 3px;
-      width: 0%;
-      background: #d4af37;
-      transition: width 0.5s ease;
-    }
+    .progress { height: 3px; background: #333; margin-bottom: 2rem; border-radius: 2px; overflow: hidden; }
+    .progress-bar { height: 3px; width: 0%; background: #d4af37; transition: width 0.5s ease; }
     @keyframes fadeIn { from {opacity: 0;} to {opacity: 1;} }
     @keyframes slideIn { from {opacity: 0; transform: translateY(20px);} to {opacity: 1; transform: translateY(0);} }
   </style>
@@ -94,20 +68,16 @@
   <div class="card" id="gate">
     <h1>By Invitation Only</h1>
     <p>Please enter your exclusive access code to continue.</p>
-    <input 
-      type="password" 
-      id="inviteCode" 
-      placeholder="Enter Access Code"
-      onkeydown="if(event.key === 'Enter'){ checkCode(); }">
+    <input type="password" id="inviteCode" placeholder="Enter Access Code" onkeydown="if(event.key==='Enter'){checkCode();}">
     <button onclick="checkCode()">Enter</button>
   </div>
 
   <!-- FORM -->
   <div class="card hidden" id="formCard">
-    <div style="margin-bottom: 2rem;">
-      <label for="fileUpload" style="display:block; margin-bottom:0.5rem; color:#d4af37;">Upload Supporting Files (optional)</label>
-      <input type="file" id="fileUpload" multiple style="color:white;">
-    </div>
+    <p>
+      <strong>Optional File Upload:</strong> Please upload your supporting files via this Dropbox link: 
+      <a href="https://www.dropbox.com/request/WUlFvC89stWDKzgxTyrC" target="_blank" style="color:#d4af37;">Upload Files</a>
+    </p>
     <h1>Markel Media Accelerator</h1>
     <div class="progress"><div class="progress-bar" id="progressBar"></div></div>
     <div id="questionContainer"></div>
@@ -123,7 +93,6 @@
 <script>
   const accessCode = "MARKEL2025";
   const zapierWebhook = "https://hooks.zapier.com/hooks/catch/25046980/urdo6cy/";
-  const dropboxToken = "sl.u.AGDJv4IBUvQKsm1CBSTKrE7xFAZoV7O6mJ2ZpmzZQwKvS1zD0q5JuYJxIExtdKr5iu5n3LkLhI1BjssUGDMz3vDRtI3Q2CgyJKdDFKrnboYb3przFt8xrKRNhCaFcWgkxPSHowDmO53IOarCh5YAMPjoSA6WLq32uuKagY2LMnUtQMoLKiosZ4amN1SotXQAeVeZY791xKfoYhFxit0sM1_qldDPSBGHfBJCo7kOWLdnq4IqoigOxNSY-UizUhvx4hM27cr2UJJS98Nnbeo8hCi4iu3dafE6LPIc7IbugLYJPnwwbvdwgdU-JJ5fMLAbpJ6m7nMqxTwmMJC4H-VaDexE4Gej3m2yiaF9mcB0VVV-QcTF0vs0HJjXTYhC2AeJmWT2t0KcBeWx7Vjz9-87Dh0ZpjGzuaU20KqpeU7b2pcnBWRWWHmyTxYaZxCYYydE5PUSBym2zy-zM31XeXvaueXW9MuWea_pLasMvRvJAzfPEu-ufYRPR7Lmb97rRfY5pd0_W6JJ0Zxe51XZxzEktQ9_YGbqcxW90u4R_6EI2cPpcZaLD_TqSrt1Zn98Ek3WlKO8JS86ULMOHoYmpwKibt1hAcsi5T4TA8rjq7RdpL2Pe-mpxr23bNGH_C_PEfhC9ViA5BKsQC6cbSR3i30uZ61OysMyTh2bvDWqRzCvK9hvNrmWu6IpIazF7_WL1S-cFNUdGTZXOs5uxf10u3Mf_ApPGfO1dcW3o4UAINMXle3NlXhI0Xctf5hJxItHqbCH5vzNjCuzjCvCu13lmO4q_05t8ChENBy883nGLENKEsTQjRmVyWAhd8h2J0aVFl2S_UVExMGKfKLPx6zecX6t2LqfYTmYO4pAl3wb5-9tj2Ola0zwifuYXoYIJvj2CuiNTw4ee1Z4kGOACZQ12y3BkVz2S0azuIpREAGN6RK5Luh9UB3q4Ww-IrIPJewapiA72HrcAxCbC0HNGqcYnn9_Q3FZyhLzi5Ih7ML7xg8i6eGqIh2b13asiQBx0FrJ6u6a2aa0eKsZ8A9vftpGDc-quPqEVZyTqqnBtjgHl2SRbwjI7VBAb4Vz9BacHyEgDFr3iSWVauJLyqlXWJ9qTuRtwrCGFg4wI312uQPOvmgv0bSJD6fwqeQPrTw9ahpB_z2kVc25ilBTgCpUVABsQbbgT5Rxat1CuiqXnK7Ax0ETteEdtcbsizv5OQ37xi4iK9ft3a-k6lIvfuWkbuprSqwl1FFHol6ETUhpBh_kM03kPDK7_e5h3UMwzTgz6paM5euxnUSuNstrg8paHoDMyV3bKX_b8mRKJU5xg41YqUMu5dMt97GRkUOAWClES82cRrR5bYkZl73IzCgIKlNdJqPGi7R7S8pOfXED1wQ9fi9FXPZW29lSpmhcprNKudffbzALuvlACjE64aaF64vuSBR2_liKOovQnnph9hsecra4HrXIZBgIrndMrCAryClCnA0Thdc7KqvHCBt2YM-mkguRc3Lk";
 
   const questions = [
     "What does your brand currently offer the world?",
@@ -141,17 +110,14 @@
 
   let step = 0;
   let answers = [];
-  let uploadedFileLinks = [];
 
   function checkCode() {
     const code = document.getElementById("inviteCode").value.trim();
-    if (code === accessCode) {
+    if(code===accessCode){
       document.getElementById("gate").classList.add("hidden");
       document.getElementById("formCard").classList.remove("hidden");
       loadQuestion();
-    } else {
-      alert("Invalid code. Please try again.");
-    }
+    } else { alert("Invalid code. Please try again."); }
   }
 
   function loadQuestion() {
@@ -164,15 +130,14 @@
         <textarea id="answer" rows="4" placeholder="Type your response here..."></textarea>
       </div>
     `;
-    document.getElementById("progressBar").style.width = ((step + 1) / questions.length * 100) + "%";
-    document.getElementById("nextBtn").innerText = (step === questions.length - 1) ? "Submit" : "Next";
+    document.getElementById("progressBar").style.width = ((step+1)/questions.length*100)+"%";
+    document.getElementById("nextBtn").innerText = (step===questions.length-1)?"Submit":"Next";
   }
 
   function nextQuestion() {
     const answer = document.getElementById("answer").value.trim();
     answers.push(answer);
-
-    if (step < questions.length - 1) {
+    if(step<questions.length-1){
       step++;
       loadQuestion();
     } else {
@@ -181,72 +146,20 @@
   }
 
   async function submitForm() {
-    const files = document.getElementById("fileUpload").files;
-
-    if (files.length > 0) {
-      const success = await uploadFilesToDropbox(files);
-      if (!success) {
-        alert("File upload failed. Please try again.");
-        return;
-      }
-    }
-
     try {
       const response = await fetch(zapierWebhook, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          answers,
-          files: uploadedFileLinks,
-          submittedAt: new Date().toISOString()
-        })
+        method:"POST",
+        headers:{"Content-Type":"application/json"},
+        body: JSON.stringify({answers, submittedAt: new Date().toISOString()})
       });
-
-      if (response.ok) {
+      if(response.ok){
         document.getElementById("formCard").classList.add("hidden");
         document.getElementById("thankYou").classList.remove("hidden");
-      } else {
-        throw new Error("Webhook failed");
-      }
-    } catch (err) {
+      } else { throw new Error("Webhook failed"); }
+    } catch(err) {
       console.error("Error sending to Zapier:", err);
       alert("Something went wrong submitting your application. Please try again.");
     }
-  }
-
-  async function uploadFilesToDropbox(files) {
-    const uploadPromises = [];
-
-    for (let file of files) {
-      const arrayBuffer = await file.arrayBuffer();
-      const dropboxPath = `/Client_Uploads/${Date.now()}_${file.name}`;
-
-      const upload = fetch("https://content.dropboxapi.com/2/files/upload", {
-        method: "POST",
-        headers: {
-          "Authorization": `Bearer ${dropboxToken}`,
-          "Dropbox-API-Arg": JSON.stringify({
-            path: dropboxPath,
-            mode: "add",
-            autorename: true,
-            mute: false
-          }),
-          "Content-Type": "application/octet-stream"
-        },
-        body: arrayBuffer
-      })
-      .then(async res => {
-        if (!res.ok) throw new Error("Upload failed");
-        const data = await res.json();
-        const sharedLink = `https://www.dropbox.com/home${data.path_display}`;
-        uploadedFileLinks.push(sharedLink);
-      });
-
-      uploadPromises.push(upload);
-    }
-
-    await Promise.all(uploadPromises);
-    return uploadedFileLinks.length === files.length;
   }
 </script>
 
