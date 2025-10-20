@@ -181,17 +181,24 @@
 
   async function submitForm() {
     try {
+      const payload = { answers, submittedAt: new Date().toISOString() };
+      console.log("Sending payload to Zapier:", payload);
+
       const response = await fetch(zapierWebhook, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ answers, submittedAt: new Date().toISOString() })
+        body: JSON.stringify(payload)
       });
+
+      console.log("Zapier response:", response.status, response.statusText);
+      const text = await response.text();
+      console.log("Response body:", text);
 
       if (response.ok) {
         document.getElementById("formCard").classList.add("hidden");
         document.getElementById("thankYou").classList.remove("hidden");
       } else {
-        throw new Error("Webhook failed");
+        alert("Webhook submission failed. Check console for details.");
       }
     } catch (err) {
       console.error("Error sending to Zapier:", err);
