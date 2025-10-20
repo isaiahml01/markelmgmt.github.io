@@ -185,7 +185,7 @@
       console.log("Sending payload to Zapier:", payload);
 
       const response = await fetch(zapierWebhook, {
-        method: "POST",
+        method: "no-cors",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload)
       });
