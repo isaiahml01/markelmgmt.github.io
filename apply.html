@@ -30,14 +30,28 @@
     h1 { font-family: 'Playfair Display', serif; font-size: 2.5rem; color: #d4af37; margin-bottom: 1rem; }
     p { color: #aaa; font-size: 1.1rem; margin-bottom: 2rem; }
     input, textarea {
-      width: 100%; background: transparent; border: none; border-bottom: 2px solid #444;
-      color: white; font-size: 1rem; padding: 0.75rem 0; margin-bottom: 2rem; transition: border-color 0.3s;
+      width: 100%;
+      background: transparent;
+      border: none;
+      border-bottom: 2px solid #444;
+      color: white;
+      font-size: 1rem;
+      padding: 0.75rem 0;
+      margin-bottom: 2rem;
+      transition: border-color 0.3s;
       font-family: inherit;
     }
     input:focus, textarea:focus { outline: none; border-color: #d4af37; }
     button {
-      background: #d4af37; color: black; border: none; padding: 0.8rem 2rem;
-      font-size: 1rem; font-weight: 600; border-radius: 50px; cursor: pointer; transition: all 0.3s;
+      background: #d4af37;
+      color: black;
+      border: none;
+      padding: 0.8rem 2rem;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all 0.3s;
     }
     button:hover { background: #e5c158; box-shadow: 0 0 20px rgba(212, 175, 55, 0.4); }
     .hidden { display: none; }
@@ -54,15 +68,16 @@
   <div class="card" id="gate">
     <h1>By Invitation Only</h1>
     <p>Please enter your exclusive access code to continue.</p>
-    <input type="password" id="inviteCode" placeholder="Enter Access Code" onkeydown="if(event.key==='Enter'){ checkCode(); }">
+    <input type="password" id="inviteCode" placeholder="Enter Access Code" onkeydown="if(event.key==='Enter'){checkCode();}">
     <button onclick="checkCode()">Enter</button>
   </div>
 
   <!-- FORM -->
   <div class="card hidden" id="formCard">
-    <div style="margin-bottom: 2rem;">
+    <div style="margin-bottom:2rem;">
       <label style="display:block; margin-bottom:0.5rem; color:#d4af37;">Upload Supporting Files (optional)</label>
-      <p style="color:#aaa;">Please use this Dropbox link to upload any supporting files: 
+      <p style="color:#aaa;">
+        Please use this Dropbox link to upload any supporting files: 
         <a href="https://www.dropbox.com/request/WUlFvC89stWDKzgxTyrC" target="_blank" style="color:#d4af37; text-decoration:underline;">Upload Files</a>
       </p>
     </div>
@@ -79,79 +94,85 @@
   </div>
 
 <script>
-const accessCode = "MARKEL2025";
-const serverEndpoint = "/.netlify/functions/submitApplication"; // Netlify function URL
-const questions = [
-  "What does your brand currently offer the world?",
-  "Where are your properties, clients, or markets located?",
-  "Who is the audience your brand speaks to?",
-  "What media, PR, or marketing have you engaged with previously?",
-  "What strategies have delivered results? Which have not?",
-  "What is your single most important growth priority for the next 12 months?",
-  "Where do you envision your brand positioned in the marketplace?",
-  "What is your current monthly or annual budget for media & marketing excellence?",
-  "Are you prepared to invest in a long-term, retainer-based partnership?",
-  "Why do you believe your brand is an ideal fit for an accelerator partnership with Markel Media?",
-  "If invited, how soon would you be ready to begin?"
-];
+  const accessCode = "MARKEL2025";
+  const zapierWebhook = "https://hooks.zapier.com/hooks/catch/25046980/urdo6cy/";
+  const questions = [
+    "What does your brand currently offer the world?",
+    "Where are your properties, clients, or markets located?",
+    "Who is the audience your brand speaks to?",
+    "What media, PR, or marketing have you engaged with previously?",
+    "What strategies have delivered results? Which have not?",
+    "What is your single most important growth priority for the next 12 months?",
+    "Where do you envision your brand positioned in the marketplace?",
+    "What is your current monthly or annual budget for media & marketing excellence?",
+    "Are you prepared to invest in a long-term, retainer-based partnership?",
+    "Why do you believe your brand is an ideal fit for an accelerator partnership with Markel Media?",
+    "If invited, how soon would you be ready to begin?"
+  ];
 
-let step = 0;
-let answers = [];
+  let step = 0;
+  let answers = [];
 
-function checkCode() {
-  const code = document.getElementById("inviteCode").value.trim();
-  if (code === accessCode) {
-    document.getElementById("gate").classList.add("hidden");
-    document.getElementById("formCard").classList.remove("hidden");
-    loadQuestion();
-  } else alert("Invalid code. Please try again.");
-}
-
-function loadQuestion() {
-  const container = document.getElementById("questionContainer");
-  container.innerHTML = `
-    <div class="question">
-      <h2 style="color:#d4af37; font-family:'Playfair Display', serif; font-size:1.5rem; margin-bottom:1rem;">
-        ${questions[step]}
-      </h2>
-      <textarea id="answer" rows="4" placeholder="Type your response here..."></textarea>
-    </div>
-  `;
-  document.getElementById("progressBar").style.width = ((step+1)/questions.length*100) + "%";
-  document.getElementById("nextBtn").innerText = (step===questions.length-1) ? "Submit" : "Next";
-}
-
-async function nextQuestion() {
-  const answer = document.getElementById("answer").value.trim();
-  answers.push(answer);
-  if (step < questions.length-1) {
-    step++;
-    loadQuestion();
-  } else {
-    await submitForm();
+  function checkCode() {
+    const code = document.getElementById("inviteCode").value.trim();
+    if (code === accessCode) {
+      document.getElementById("gate").classList.add("hidden");
+      document.getElementById("formCard").classList.remove("hidden");
+      loadQuestion();
+    } else {
+      alert("Invalid code. Please try again.");
+    }
   }
-}
 
-async function submitForm() {
-  try {
-    const payload = { answers, submittedAt: new Date().toISOString() };
-    console.log("Sending payload to serverless function:", payload);
-
-    const response = await fetch(serverEndpoint, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(payload)
-    });
-
-    if (!response.ok) throw new Error("Serverless function failed");
-
-    document.getElementById("formCard").classList.add("hidden");
-    document.getElementById("thankYou").classList.remove("hidden");
-  } catch (err) {
-    console.error("Error submitting form:", err);
-    alert("Something went wrong submitting your application. Please try again.");
+  function loadQuestion() {
+    const container = document.getElementById("questionContainer");
+    container.innerHTML = `
+      <div class="question">
+        <h2 style="color:#d4af37; font-family:'Playfair Display', serif; font-size:1.5rem; margin-bottom:1rem;">${questions[step]}</h2>
+        <textarea id="answer" rows="4" placeholder="Type your response here..."></textarea>
+      </div>
+    `;
+    document.getElementById("progressBar").style.width = ((step+1)/questions.length*100)+"%";
+    document.getElementById("nextBtn").innerText = (step === questions.length-1) ? "Submit" : "Next";
   }
-}
+
+  async function nextQuestion() {
+    const answer = document.getElementById("answer").value.trim();
+    answers.push(answer);
+    if (step < questions.length-1) {
+      step++;
+      loadQuestion();
+    } else {
+      await submitForm();
+    }
+  }
+
+  async function submitForm() {
+    try {
+      const payload = { answers, submittedAt: new Date().toISOString() };
+      console.log("Sending payload to Zapier:", payload);
+
+      const response = await fetch(zapierWebhook, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload)
+      });
+
+      console.log("Response status:", response.status);
+      console.log("Response body:", await response.text());
+
+      if (response.ok) {
+        document.getElementById("formCard").classList.add("hidden");
+        document.getElementById("thankYou").classList.remove("hidden");
+      } else {
+        alert("Webhook submission failed. Check console for details.");
+      }
+    } catch (err) {
+      console.error("Error sending to Zapier:", err);
+      alert("Something went wrong submitting your application. Please try again.");
+    }
+  }
 </script>
+
 </body>
 </html>
