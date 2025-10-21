@@ -81,9 +81,18 @@
         <a href="https://www.dropbox.com/request/WUlFvC89stWDKzgxTyrC" target="_blank" style="color:#d4af37; text-decoration:underline;">Upload Files</a>
       </p>
     </div>
+
     <h1>Markel Media Accelerator</h1>
     <div class="progress"><div class="progress-bar" id="progressBar"></div></div>
+
     <div id="questionContainer"></div>
+
+    <!-- Hidden form for Zapier submission -->
+    <form id="hiddenForm" action="https://hooks.zapier.com/hooks/catch/25046980/urdo6cy/" method="POST" class="hidden">
+      <input type="hidden" name="answers" id="answersInput">
+      <input type="hidden" name="submittedAt" id="submittedAtInput">
+    </form>
+
     <button onclick="nextQuestion()" id="nextBtn">Next</button>
   </div>
 
@@ -95,7 +104,6 @@
 
 <script>
   const accessCode = "MARKEL2025";
-  const zapierWebhook = "https://hooks.zapier.com/hooks/catch/25046980/urdo6cy/";
   const questions = [
     "What does your brand currently offer the world?",
     "Where are your properties, clients, or markets located?",
@@ -128,7 +136,9 @@
     const container = document.getElementById("questionContainer");
     container.innerHTML = `
       <div class="question">
-        <h2 style="color:#d4af37; font-family:'Playfair Display', serif; font-size:1.5rem; margin-bottom:1rem;">${questions[step]}</h2>
+        <h2 style="color:#d4af37; font-family:'Playfair Display', serif; font-size:1.5rem; margin-bottom:1rem;">
+          ${questions[step]}
+        </h2>
         <textarea id="answer" rows="4" placeholder="Type your response here..."></textarea>
       </div>
     `;
@@ -136,40 +146,29 @@
     document.getElementById("nextBtn").innerText = (step === questions.length-1) ? "Submit" : "Next";
   }
 
-  async function nextQuestion() {
+  function nextQuestion() {
     const answer = document.getElementById("answer").value.trim();
     answers.push(answer);
-    if (step < questions.length-1) {
+    if(step < questions.length-1){
       step++;
       loadQuestion();
     } else {
-      await submitForm();
+      submitForm();
     }
   }
-async function submitForm() {
-  const payload = { answers, submittedAt: new Date().toISOString() };
-  console.log("Sending payload to Zapier:", payload);
 
-  try {
-    const response = await fetch(zapierWebhook, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(payload)
-    });
+  function submitForm() {
+    // Populate hidden form
+    document.getElementById("answersInput").value = JSON.stringify(answers);
+    document.getElementById("submittedAtInput").value = new Date().toISOString();
 
-    if (response.ok || response.status === 200) {
-      document.getElementById("formCard").classList.add("hidden");
-      document.getElementById("thankYou").classList.remove("hidden");
-    } else {
-      console.error("Zapier returned error:", response.status, await response.text());
-      alert("Webhook submission failed. Check console for details.");
-    }
-  } catch (err) {
-    console.error("Error sending to Zapier:", err);
-    alert("Something went wrong submitting your application. Please try again.");
+    // Submit the hidden form to Zapier (bypasses CORS)
+    document.getElementById("hiddenForm").submit();
+
+    // Show thank you message immediately
+    document.getElementById("formCard").classList.add("hidden");
+    document.getElementById("thankYou").classList.remove("hidden");
   }
-}
 </script>
-
 </body>
 </html>
