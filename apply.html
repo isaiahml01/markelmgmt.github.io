@@ -146,32 +146,29 @@
       await submitForm();
     }
   }
+async function submitForm() {
+  const payload = { answers, submittedAt: new Date().toISOString() };
+  console.log("Sending payload to Zapier:", payload);
 
-  async function submitForm() {
-    try {
-      const payload = { answers, submittedAt: new Date().toISOString() };
-      console.log("Sending payload to Zapier:", payload);
+  try {
+    const response = await fetch(zapierWebhook, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload)
+    });
 
-      const response = await fetch(zapierWebhook, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload)
-      });
-
-      console.log("Response status:", response.status);
-      console.log("Response body:", await response.text());
-
-      if (response.ok) {
-        document.getElementById("formCard").classList.add("hidden");
-        document.getElementById("thankYou").classList.remove("hidden");
-      } else {
-        alert("Webhook submission failed. Check console for details.");
-      }
-    } catch (err) {
-      console.error("Error sending to Zapier:", err);
-      alert("Something went wrong submitting your application. Please try again.");
+    if (response.ok || response.status === 200) {
+      document.getElementById("formCard").classList.add("hidden");
+      document.getElementById("thankYou").classList.remove("hidden");
+    } else {
+      console.error("Zapier returned error:", response.status, await response.text());
+      alert("Webhook submission failed. Check console for details.");
     }
+  } catch (err) {
+    console.error("Error sending to Zapier:", err);
+    alert("Something went wrong submitting your application. Please try again.");
   }
+}
 </script>
 
 </body>
