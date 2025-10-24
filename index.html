@@ -12,80 +12,79 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
- <style>
-   body {
-  margin: 0;
-  font-family: 'Inter', sans-serif;
-  background: #0e0e0e;
-  color: #EDE7D9;
-  overflow-x: hidden;
-}
+  <style>
+    /* GLOBAL */
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: #0e0e0e;
+      color: #EDE7D9;
+      overflow-x: hidden;
+    }
+    h1, h2, h3 { font-family: 'Playfair Display', serif; letter-spacing: 1px; margin: 0; }
 
-h1, h2, h3 {
-  font-family: 'Playfair Display', serif;
-  letter-spacing: 1px;
-}
+    /* BUTTONS */
+    .btn { text-decoration: none; padding: 12px 28px; border-radius: 40px; font-weight: 600; transition: all 0.3s ease; display: inline-block; text-align: center; }
+    .btn.gold { background: linear-gradient(135deg, #C5A572, #b69249); color: #0e0e0e; }
+    .btn.outline { border: 2px solid #C5A572; color: #C5A572; }
+    .btn.large { padding: 16px 36px; font-size: 1.2rem; }
 
-.btn {
-  text-decoration: none;
-  padding: 12px 28px;
-  border-radius: 40px;
-  font-weight: 600;
-  transition: all 0.3s ease;
-}
+    /* HERO */
+    .hero { position: relative; height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; }
+    .hero-bg { position: absolute; width: 100%; height: 100%; object-fit: cover; z-index: -2; }
+    .hero-overlay { position: absolute; width: 100%; height: 100%; background: rgba(14,14,14,0.65); z-index: -1; }
+    .hero-content h1 { font-size: 3rem; color: #EDE7D9; }
+    .hero-content p { font-size: 1.2rem; margin: 10px 0 20px; color: #C5A572; }
+    .hero-buttons { display: flex; gap: 15px; flex-wrap: wrap; justify-content: center; }
 
-.btn.gold {
-  background: linear-gradient(135deg, #C5A572, #b69249);
-  color: #0e0e0e;
-}
+    /* ABOUT */
+    .about-preview { display: flex; gap: 40px; padding: 80px 10%; flex-wrap: wrap; }
+    .about-left, .about-right { flex: 1 1 400px; }
+    .about-img { width: 100%; height: auto; border-radius: 12px; object-fit: cover; }
+    .about-right h2 { font-size: 2rem; margin-bottom: 15px; }
+    .about-right p { font-size: 1rem; line-height: 1.6; }
+    blockquote { font-style: italic; margin-top: 15px; color: #C5A572; }
 
-.btn.outline {
-  border: 2px solid #C5A572;
-  color: #C5A572;
-}
+    /* DIVISIONS */
+    .divisions { padding: 80px 10%; }
+    .section-title { font-size: 2rem; margin-bottom: 40px; text-align: center; }
+    .division-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+    .division-card { position: relative; overflow: hidden; border-radius: 12px; cursor: pointer; text-align: center; color: #EDE7D9; }
+    .division-card img { width: 100%; height: 200px; object-fit: cover; transition: transform 0.3s ease; }
+    .division-card:hover img { transform: scale(1.05); }
+    .division-card .overlay { position: absolute; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.3); }
 
-.hero {
-  position: relative;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
+    /* PORTFOLIO */
+    .portfolio { padding: 80px 10%; }
+    .portfolio-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); gap: 15px; }
+    .portfolio-grid img { width: 100%; height: 150px; object-fit: cover; border-radius: 8px; }
 
-.hero-bg {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: -2;
-}
+    /* VIDEOS */
+    .videos { padding: 80px 0; }
+    .video-scroll { display: flex; gap: 15px; overflow-x: auto; padding: 0 10%; }
+    .video-scroll video { width: 300px; height: 170px; object-fit: cover; border-radius: 8px; flex-shrink: 0; }
 
-.hero-overlay {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: rgba(14, 14, 14, 0.65);
-  z-index: -1;
-}
+    /* CTA */
+    .cta { text-align: center; padding: 80px 10%; }
+    .cta h2 { font-size: 2rem; margin-bottom: 25px; }
 
-.hero-content h1 {
-  font-size: 3rem;
-  color: #EDE7D9;
-}
+    /* FOOTER */
+    footer { display: flex; justify-content: space-between; padding: 40px 10%; flex-wrap: wrap; border-top: 1px solid #C5A572; }
+    footer a { color: #C5A572; text-decoration: none; margin-right: 15px; font-weight: 500; }
 
-.hero-content p {
-  font-size: 1.2rem;
-  margin: 10px 0 20px;
-  color: #C5A572;
-}
-
-/* Additional sections continue with dark gold aesthetic */
- </style>
+    /* RESPONSIVE */
+    @media(max-width:768px){
+      .hero-content h1 { font-size: 2rem; }
+      .hero-content p { font-size: 1rem; }
+      .about-preview { padding: 60px 5%; gap: 30px; }
+      .portfolio-grid img { height: 120px; }
+      .video-scroll video { width: 220px; height: 130px; }
+    }
+  </style>
 </head>
 
 <body>
-  <!-- HERO SECTION -->
+  <!-- HERO -->
   <section class="hero">
     <video autoplay muted loop playsinline class="hero-bg">
       <source src="VIMedia1.mp4" type="video/mp4" />
@@ -101,7 +100,7 @@ h1, h2, h3 {
     </div>
   </section>
 
-  <!-- ABOUT PREVIEW -->
+  <!-- ABOUT -->
   <section class="about-preview">
     <div class="about-left">
       <img src="ABMedia1.jpeg" alt="Isaiah Lesley" class="about-img" />
@@ -109,17 +108,15 @@ h1, h2, h3 {
     <div class="about-right">
       <h2>Visionary. Strategist. Artist.</h2>
       <p>
-        Markel Media & Management was built to redefine what excellence looks like in modern media.
+        Markel Media & Management was built to redefine modern media excellence.
         Founded by <strong>Isaiah Lesley</strong>, this Chicago-based agency merges art, strategy,
         and legacy to craft stories that outlive the moment.
       </p>
-      <blockquote>
-        “We don’t chase trends — we design legacies.”
-      </blockquote>
+      <blockquote>“We don’t chase trends — we design legacies.”</blockquote>
     </div>
   </section>
 
-  <!-- DIVISIONS GRID -->
+  <!-- DIVISIONS -->
   <section class="divisions">
     <h2 class="section-title">Divisions</h2>
     <div class="division-grid">
@@ -141,7 +138,7 @@ h1, h2, h3 {
     </div>
   </section>
 
-  <!-- PORTFOLIO HIGHLIGHTS -->
+  <!-- PORTFOLIO -->
   <section class="portfolio">
     <h2 class="section-title">Selected Work</h2>
     <div class="portfolio-grid">
@@ -154,7 +151,7 @@ h1, h2, h3 {
     </div>
   </section>
 
-  <!-- VIDEO HIGHLIGHTS -->
+  <!-- VIDEOS -->
   <section class="videos">
     <h2 class="section-title">In Motion</h2>
     <div class="video-scroll">
@@ -191,10 +188,7 @@ h1, h2, h3 {
         opacity: 0,
         y: 50,
         duration: 1,
-        scrollTrigger: {
-          trigger: section,
-          start: 'top 80%',
-        },
+        scrollTrigger: { trigger: section, start: 'top 80%' },
       });
     });
   </script>
