@@ -1,76 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact | Markel Management</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --bg:#0e0e10; --fg:#f9f9f9; --accent:#de685b; --muted:#999;
-    }
-    * { margin:0; padding:0; box-sizing:border-box; font-family:'Inter', sans-serif; }
-    body { background: var(--bg); color: var(--fg); line-height:1.6; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact | Markel Media & Management</title>
 
-    header {
-      background:#111; padding:1.5rem 2rem; display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid #222;
-    }
-    header h1{ font-size:1.5rem; font-weight:800; }
-    nav a{ color: var(--fg); margin-left:1.5rem; text-decoration:none; font-weight:600; transition:color 0.2s; }
-    nav a:hover{ color: var(--accent); }
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
 
-    .contact-form {
-      max-width:600px; margin:4rem auto; padding:2rem; background-color:#1c1c1f;
-      border:1px solid #333; border-radius:1rem; box-shadow:0 0 15px rgba(0,0,0,0.2);
-    }
-    .contact-form h2{ color:#f9f9f9; font-size:1.8rem; margin-bottom:1.5rem; text-align:center; }
-    .contact-form input, .contact-form textarea {
-      width:100%; padding:0.9rem 1rem; margin-bottom:1.2rem; background:#0e0e10; border:1px solid #444; color:#f9f9f9;
-      border-radius:0.5rem; font-size:1rem; transition:border 0.3s;
-    }
-    .contact-form input:focus, .contact-form textarea:focus{ border-color: var(--accent); outline:none; }
-    .contact-form button{
-      background: var(--accent); color:#fff; padding:0.9rem 1.5rem; border:none; border-radius:0.5rem; font-weight:bold;
-      cursor:pointer; width:100%; font-size:1rem; transition:background 0.3s;
-    }
-    .contact-form button:hover{ background:#c65348; }
+<!-- GSAP -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
-    footer{ padding:2rem; text-align:center; font-size:0.9rem; color: var(--muted); border-top:1px solid #222; }
-    .socials a{ color: var(--fg); text-decoration:none; margin:0 0.5rem; }
-    .socials a:hover{ color: var(--accent); }
-  </style>
+<style>
+/* GLOBAL */
+body { margin:0; font-family:'Inter',sans-serif; background:#0e0e0e; color:#EDE7D9; }
+h1,h2,h3 { font-family:'Playfair Display',serif; }
+a { text-decoration:none; color:#C5A572; }
+header { background:#111; padding:1.5rem 5%; display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid #222; }
+header h1 { font-size:1.8rem; font-weight:700; }
+nav a { margin-left:1.5rem; font-weight:600; transition:color 0.3s; }
+nav a:hover { color:#de685b; }
+
+/* FORM SECTION */
+.contact-section { padding:100px 5%; display:flex; flex-direction:column; align-items:center; }
+.contact-container { display:flex; flex-wrap:wrap; gap:60px; max-width:1000px; width:100%; justify-content:center; }
+.contact-form, .calendly-container { flex:1 1 400px; background:#1c1c1f; padding:3rem; border-radius:16px; box-shadow:0 15px 40px rgba(0,0,0,0.3); }
+.contact-form h2, .calendly-container h2 { text-align:center; margin-bottom:2rem; font-size:2rem; color:#C5A572; }
+
+.contact-form input, .contact-form textarea {
+  width:100%; padding:1rem; margin-bottom:1.5rem; border-radius:8px; border:1px solid #333; background:#0e0e10; color:#EDE7D9; font-size:1rem; transition:border 0.3s;
+}
+.contact-form input:focus, .contact-form textarea:focus { border-color:#C5A572; outline:none; }
+
+.contact-form button {
+  width:100%; padding:1rem; background:#C5A572; color:#0e0e0e; font-weight:700; border:none; border-radius:8px; font-size:1rem; cursor:pointer; transition:all 0.3s;
+}
+.contact-form button:hover { background:#b69249; transform:scale(1.03); }
+
+/* Calendly embed */
+.calendly-container iframe { width:100%; height:600px; border:none; border-radius:16px; }
+
+/* FOOTER */
+footer { padding:4rem 5%; text-align:center; font-size:0.9rem; border-top:1px solid #C5A572; color:#999; }
+footer .socials a { margin:0 0.5rem; font-weight:500; transition:color 0.3s; }
+footer .socials a:hover { color:#C5A572; }
+
+/* RESPONSIVE */
+@media(max-width:900px){ .contact-container { flex-direction:column; } }
+</style>
 </head>
 <body>
-  <header>
-    <h1>Markel Management</h1>
-    <nav>
-      <a href="about.html">About</a>
-      <a href="real-estate.html">Real Estate</a>
-      <a href="videography.html">Videography</a>
-      <a href="event-media.html">Events</a>
-      <a href="workshops.html">Workshops</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-  </header>
 
-  <div class="contact-form">
-    <h2>Contact Me</h2>
-    <form action="https://formspree.io/f/mzzvgnvq" method="POST">
-      <input type="text" name="name" placeholder="Your Name" required />
-      <input type="email" name="email" placeholder="Your Email" required />
-      <textarea name="message" placeholder="Your Message" rows="6" required></textarea>
-      <button type="submit">Send Message</button>
-    </form>
-  </div>
+<!-- HEADER -->
+<header>
+  <h1>Markel Media & Management</h1>
+  <nav>
+    <a href="about.html">About</a>
+    <a href="realestate.html">Real Estate</a>
+    <a href="videography.html">Videography</a>
+    <a href="eventmedia.html">Events</a>
+    <a href="workshops.html">Workshops</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
 
-  <footer>
-    <p>&copy; 2025 Isaiah Markel. Chicago, IL.</p>
-    <div class="socials">
-      <a href="https://www.instagram.com/isaiahmarkellesley/" target="_blank">Instagram</a> |
-      <a href="https://www.tiktok.com/@isaiah.markel" target="_blank">TikTok</a> |
-      <a href="https://x.com/theisaiahml" target="_blank">X/Twitter</a> |
-      <a href="https://www.youtube.com/c/Isaiahml" target="_blank">YouTube</a>
+<!-- CONTACT SECTION -->
+<section class="contact-section">
+  <div class="contact-container">
+    <!-- CONTACT FORM -->
+    <div class="contact-form">
+      <h2>Send a Message</h2>
+      <form action="https://formspree.io/f/mzzvgnvq" method="POST">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <textarea name="message" placeholder="Your Message" rows="6" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
     </div>
-  </footer>
+
+    <!-- CALENDLY -->
+    <div class="calendly-container">
+      <h2>Book a 30-Min Meeting</h2>
+      <iframe src="https://calendly.com/isaiah-lesley/30min?month=2025-10"></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>&copy; 2025 Isaiah Lesley. Chicago, IL.</p>
+  <div class="socials">
+    <a href="https://www.instagram.com/isaiahmarkellesley/" target="_blank">Instagram</a> |
+    <a href="https://www.tiktok.com/@isaiah.markel" target="_blank">TikTok</a> |
+    <a href="https://x.com/theisaiahml" target="_blank">X/Twitter</a> |
+    <a href="https://www.youtube.com/c/Isaiahml" target="_blank">YouTube</a>
+  </div>
+</footer>
+
+<script>
+// GSAP fade-in for sections
+gsap.utils.toArray('.contact-section').forEach(section => {
+  gsap.from(section, { opacity:0, y:50, duration:1, scrollTrigger:{ trigger: section, start:'top 85%' } });
+});
+</script>
+
 </body>
 </html>
