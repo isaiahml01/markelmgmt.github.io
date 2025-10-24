@@ -1,138 +1,202 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Markel MGMT | Chicago Video & Creative Agency</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --bg: #0e0e10;
-      --fg: #f9f9f9;
-      --accent: #6c757d;
-      --muted: #999;
-    }
-    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
-    body { background: var(--bg); color: var(--fg); line-height: 1.6; }
-    header {
-      background: #111;
-      padding: 1.5rem 2rem;
-      display: flex; justify-content: space-between; align-items: center;
-      border-bottom: 1px solid #222; position: sticky; top: 0; z-index: 50;
-    }
-    header h1 { font-size: 1.5rem; font-weight: 800; }
-    nav a {
-      color: var(--fg); margin-left: 1.5rem; text-decoration: none; font-weight: 600; transition: color 0.2s;
-    }
-    nav a:hover { color: var(--accent); }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Markel Media & Management | Chicago’s Luxury Agency</title>
 
-    /* Hero Section */
-    .hero {
-      display: flex; flex-direction: column; justify-content: center; align-items: center;
-      text-align: center; padding: 4rem 2rem; background: #111; min-height: 60vh;
-    }
-    .hero h2 { font-size: 3rem; font-weight: 800; margin-bottom: 1rem; }
-    .hero p { font-size: 1.2rem; color: var(--muted); max-width: 650px; margin-bottom: 2rem; }
-    .hero .btn {
-      padding: 0.5rem 1rem; font-size: 0.95rem; font-weight: 600;
-      border-radius: 0.3rem; background: var(--accent); color: #fff; text-decoration: none; transition: background 0.2s;
-    }
-    .hero .btn:hover { background: #5a6268; }
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet" />
 
-    /* Portfolio Grid */
-    .portfolio {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 1.5rem; padding: 4rem 2rem; max-width: 1200px; margin: auto;
-    }
-    .portfolio-item {
-      position: relative; border-radius: 12px; overflow: hidden; transition: transform 0.3s, box-shadow 0.3s;
-    }
-    .portfolio-item:hover { transform: scale(1.02); box-shadow: 0 10px 20px rgba(0,0,0,0.5); }
-    .portfolio-item iframe { width: 100%; height: 200px; border: none; }
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
-    /* Services Section */
-    .services {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 2rem; padding: 4rem 2rem; max-width: 1000px; margin: auto; text-align: center;
-    }
-    .service-card h4 { font-size: 1.4rem; margin-bottom: 0.5rem; }
-    .service-card p { color: var(--muted); font-size: 1rem; }
+ <style>
+   body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: #0e0e0e;
+  color: #EDE7D9;
+  overflow-x: hidden;
+}
 
-    /* CTA Banner */
-    .cta-banner {
-      background: #111; text-align: center; padding: 4rem 2rem; border-top: 1px solid #222; border-bottom: 1px solid #222;
-    }
-    .cta-banner h3 { font-size: 2rem; margin-bottom: 1.5rem; }
-    .cta-banner .btn { padding: 0.5rem 1rem; font-size: 0.95rem; border-radius: 0.3rem; background: var(--accent); color: #fff; text-decoration: none; transition: background 0.2s; }
-    .cta-banner .btn:hover { background: #5a6268; }
+h1, h2, h3 {
+  font-family: 'Playfair Display', serif;
+  letter-spacing: 1px;
+}
 
-    footer { padding: 2rem; text-align: center; font-size: 0.9rem; color: var(--muted); border-top: 1px solid #222; }
-    .socials a { color: var(--fg); text-decoration: none; margin: 0 0.5rem; }
-    .socials a:hover { color: var(--accent); }
-  </style>
+.btn {
+  text-decoration: none;
+  padding: 12px 28px;
+  border-radius: 40px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn.gold {
+  background: linear-gradient(135deg, #C5A572, #b69249);
+  color: #0e0e0e;
+}
+
+.btn.outline {
+  border: 2px solid #C5A572;
+  color: #C5A572;
+}
+
+.hero {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.hero-bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -2;
+}
+
+.hero-overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(14, 14, 14, 0.65);
+  z-index: -1;
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+  color: #EDE7D9;
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  margin: 10px 0 20px;
+  color: #C5A572;
+}
+
+/* Additional sections continue with dark gold aesthetic */
+ </style>
 </head>
+
 <body>
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <video autoplay muted loop playsinline class="hero-bg">
+      <source src="VIMedia1.mp4" type="video/mp4" />
+    </video>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1>THE FUTURE OF MEDIA & MANAGEMENT</h1>
+      <p>Crafted in Chicago.</p>
+      <div class="hero-buttons">
+        <a href="about.html" class="btn gold">Explore The Agency</a>
+        <a href="wiwgu.html" class="btn outline">Watch The Vision</a>
+      </div>
+    </div>
+  </section>
 
-<header>
-  <meta name='impact-site-verification' value='454c173b-4460-4036-8a14-c342f884d1e5'>
-  <h1>Markel Management</h1>
-  <nav>
-    <a href="about.html">About</a>
-    <a href="real-estate.html">Real Estate</a>
-    <a href="videography.html">Videography</a>
-    <a href="event-media.html">Events</a>
-    <a href="workshops.html">Workshops</a>
-    <a href="contact.html">Contact</a>
-  </nav>
-</header>
+  <!-- ABOUT PREVIEW -->
+  <section class="about-preview">
+    <div class="about-left">
+      <img src="ABMedia1.jpeg" alt="Isaiah Lesley" class="about-img" />
+    </div>
+    <div class="about-right">
+      <h2>Visionary. Strategist. Artist.</h2>
+      <p>
+        Markel Media & Management was built to redefine what excellence looks like in modern media.
+        Founded by <strong>Isaiah Lesley</strong>, this Chicago-based agency merges art, strategy,
+        and legacy to craft stories that outlive the moment.
+      </p>
+      <blockquote>
+        “We don’t chase trends — we design legacies.”
+      </blockquote>
+    </div>
+  </section>
 
-<section class="hero">
-  <h2>Cinematic Media for Brands, Creators, and Real Estate</h2>
-  <p>We craft high-impact visuals that move people and grow businesses.</p>
-  <a href="videography.html" class="btn">View Portfolio</a>
-  <p style="margin-top:2rem; font-size:1rem; color:#bbb; max-width:600px;">
-    Explore our recent projects below — from brand storytelling to cinematic real estate showcases. Each video demonstrates our commitment to quality, creativity, and impact.
-  </p>
-</section>
+  <!-- DIVISIONS GRID -->
+  <section class="divisions">
+    <h2 class="section-title">Divisions</h2>
+    <div class="division-grid">
+      <a href="realestate.html" class="division-card">
+        <div class="overlay"></div>
+        <img src="REPhoto1.JPG" alt="Real Estate Media" />
+        <h3>Real Estate Media</h3>
+      </a>
+      <a href="eventmedia.html" class="division-card">
+        <div class="overlay"></div>
+        <img src="EMPhoto1.jpg" alt="Event Media" />
+        <h3>Event & Lifestyle</h3>
+      </a>
+      <a href="wiwgu.html" class="division-card">
+        <div class="overlay"></div>
+        <img src="Main Graphic.jpg" alt="Video Production" />
+        <h3>Video & Podcasting</h3>
+      </a>
+    </div>
+  </section>
 
-<section class="portfolio">
-  <div class="portfolio-item"><iframe src="https://www.youtube.com/embed/G3pBz8s11WM" allowfullscreen></iframe></div>
-  <div class="portfolio-item"><iframe src="https://www.youtube.com/embed/xao_0IjdtzE" allowfullscreen></iframe></div>
-  <div class="portfolio-item"><iframe src="https://www.youtube.com/embed/FIts7QzGvjQ" allowfullscreen></iframe></div>
-  <div class="portfolio-item"><iframe src="https://www.youtube.com/embed/zyZjD6Fc_10" allowfullscreen></iframe></div>
-  <div class="portfolio-item"><iframe src="https://www.youtube.com/embed/3gnear73Lgc" allowfullscreen></iframe></div>
-  <div class="portfolio-item"><iframe src="https://www.youtube.com/embed/b4OR6mbgIlI" allowfullscreen></iframe></div>
-</section>
+  <!-- PORTFOLIO HIGHLIGHTS -->
+  <section class="portfolio">
+    <h2 class="section-title">Selected Work</h2>
+    <div class="portfolio-grid">
+      <img src="REPhoto2.JPG" alt="Portfolio Image" />
+      <img src="REPhoto3.JPG" alt="Portfolio Image" />
+      <img src="EMPhoto1.jpg" alt="Portfolio Image" />
+      <img src="VIMedia9.JPG" alt="Portfolio Image" />
+      <img src="VIMedia10.jpg" alt="Portfolio Image" />
+      <img src="VIMedia11.jpg" alt="Portfolio Image" />
+    </div>
+  </section>
 
-<section class="services">
-  <div class="service-card">
-    <h4>Corporate Media</h4>
-    <p>Brand films, ads, and social campaigns for businesses that want impact.</p>
-  </div>
-  <div class="service-card">
-    <h4>Events & Storytelling</h4>
-    <p>Conference coverage, launches, and mini-documentaries.</p>
-  </div>
-  <div class="service-card">
-    <h4>Real Estate Media</h4>
-    <p>Cinematic property listings and agent promo videos that sell lifestyles.</p>
-  </div>
-</section>
+  <!-- VIDEO HIGHLIGHTS -->
+  <section class="videos">
+    <h2 class="section-title">In Motion</h2>
+    <div class="video-scroll">
+      <video src="REVideo2.mp4" autoplay muted loop playsinline></video>
+      <video src="REVideo3.mp4" autoplay muted loop playsinline></video>
+      <video src="VIMedia2.mp4" autoplay muted loop playsinline></video>
+      <video src="VIMedia3.mp4" autoplay muted loop playsinline></video>
+    </div>
+  </section>
 
-<section class="cta-banner">
-  <h3>Let’s create something unforgettable.</h3>
-  <a href="contact.html" class="btn">Book a Consultation</a>
-</section>
+  <!-- CTA -->
+  <section class="cta">
+    <h2>Let’s Build Your Next Iconic Story</h2>
+    <a href="contact.html" class="btn gold large">Work With Us</a>
+  </section>
 
-<footer>
-  <p>&copy; 2025 Isaiah Markel. Chicago, IL.</p>
-  <div class="socials">
-    <a href="https://www.instagram.com/isaiahmarkellesley/" target="_blank">Instagram</a> |
-    <a href="https://www.tiktok.com/@isaiah.markel" target="_blank">TikTok</a> |
-    <a href="https://x.com/theisaiahml" target="_blank">X/Twitter</a> |
-    <a href="https://www.youtube.com/c/Isaiahml" target="_blank">YouTube</a>
-  </div>
-</footer>
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-left">
+      <h3>Markel Media & Management</h3>
+      <p>Chicago, IL</p>
+    </div>
+    <div class="footer-right">
+      <a href="https://instagram.com" target="_blank">Instagram</a>
+      <a href="https://youtube.com" target="_blank">YouTube</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </footer>
 
+  <script>
+    gsap.registerPlugin(ScrollTrigger);
+    gsap.utils.toArray('section').forEach((section) => {
+      gsap.from(section, {
+        opacity: 0,
+        y: 50,
+        duration: 1,
+        scrollTrigger: {
+          trigger: section,
+          start: 'top 80%',
+        },
+      });
+    });
+  </script>
 </body>
 </html>
