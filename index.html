@@ -16,6 +16,7 @@
     /* GLOBAL */
     body { margin: 0; font-family: 'Inter', sans-serif; background: #0e0e0e; color: #EDE7D9; overflow-x: hidden; }
     h1,h2,h3 { font-family: 'Playfair Display', serif; letter-spacing: 1px; margin: 0; }
+    a { text-decoration: none; }
 
     /* BUTTONS */
     .btn { text-decoration: none; padding: 14px 36px; border-radius: 40px; font-weight: 600; transition: all 0.3s ease; display: inline-block; text-align: center; }
@@ -43,27 +44,34 @@
     /* DIVISIONS */
     .divisions { padding: 100px 10%; }
     .section-title { font-size: 2.5rem; margin-bottom: 60px; text-align: center; }
-    .division-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); gap: 40px; }
-    .division-card { position: relative; overflow: hidden; border-radius: 16px; cursor: pointer; text-align: center; color: #EDE7D9; transition: transform 0.5s, box-shadow 0.5s; }
-    .division-card img { width: 100%; height: 280px; object-fit: cover; transition: transform 0.5s ease; }
+    .division-grid { display: flex; flex-wrap: wrap; gap: 40px; justify-content: center; }
+    .division-card { position: relative; overflow: hidden; border-radius: 16px; cursor: pointer; color: #fff; flex: 1 1 300px; transition: transform 0.5s, box-shadow 0.5s; }
+    .division-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
     .division-card h3 { position: absolute; bottom: 20px; left: 20px; font-size: 1.5rem; color: #fff; }
+    .division-card .overlay { position: absolute; width: 100%; height: 100%; top: 0; left: 0; background: linear-gradient(180deg, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.6) 100%); transition: opacity 0.3s; }
+    .division-card:hover .overlay { opacity: 0.4; }
     .division-card:hover { transform: scale(1.05); box-shadow: 0 20px 50px rgba(0,0,0,0.3); }
+    .division-card.large { height: 400px; }
+    .division-card.medium { height: 320px; }
+    .division-card.small { height: 280px; }
 
     /* PORTFOLIO */
     .portfolio { padding: 100px 10%; }
     .portfolio-grid { column-count: 3; column-gap: 20px; }
-    .portfolio-item { margin-bottom: 20px; break-inside: avoid; overflow: hidden; border-radius: 16px; }
-    .portfolio-item img { width: 100%; height: auto; object-fit: cover; transition: transform 0.4s ease; }
-    .portfolio-item img:hover { transform: scale(1.05); }
+    .portfolio-item { margin-bottom: 20px; break-inside: avoid; overflow: hidden; border-radius: 16px; transition: transform 0.3s; }
+    .portfolio-item img { width: 100%; display: block; object-fit: cover; transition: transform 0.3s; }
+    .portfolio-item:hover img { transform: scale(1.05); }
+    .portfolio-item.featured { column-span: all; }
     @media(max-width:1024px){ .portfolio-grid { column-count: 2; } }
     @media(max-width:768px){ .portfolio-grid { column-count: 1; } }
 
     /* VIDEOS */
-    .videos { padding: 100px 0; }
+    .videos { padding: 100px 10%; }
     .video-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; }
-    .video-container video { width: 32%; border-radius: 16px; object-fit: cover; }
-    @media(max-width:1024px){ .video-container video { width: 48%; } }
-    @media(max-width:768px){ .video-container video { width: 90%; } }
+    .video-wrapper { width: 32%; position: relative; padding-top: 56.25%; overflow: hidden; border-radius: 16px; }
+    .video-wrapper video { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; }
+    @media(max-width:1024px){ .video-wrapper { width: 48%; } }
+    @media(max-width:768px){ .video-wrapper { width: 90%; } }
 
     /* CTA */
     .cta { text-align: center; padding: 100px 10%; }
@@ -84,7 +92,6 @@
     }
   </style>
 </head>
-
 <body>
   <!-- HERO -->
   <section class="hero">
@@ -104,16 +111,10 @@
 
   <!-- ABOUT -->
   <section class="about-preview">
-    <div class="about-left">
-      <img src="assets/images/ABMedia1.jpeg" alt="Isaiah Lesley">
-    </div>
+    <div class="about-left"><img src="assets/images/ABMedia1.jpeg" alt="Isaiah Lesley"></div>
     <div class="about-right">
       <h2>Visionary. Strategist. Artist.</h2>
-      <p>
-        Markel Media & Management was built to redefine modern media excellence.
-        Founded by <strong>Isaiah Lesley</strong>, this Chicago-based agency merges art, strategy,
-        and legacy to craft stories that outlive the moment.
-      </p>
+      <p>Markel Media & Management was built to redefine modern media excellence. Founded by <strong>Isaiah Lesley</strong>, this Chicago-based agency merges art, strategy, and legacy to craft stories that outlive the moment.</p>
       <blockquote>“We don’t chase trends — we design legacies.”</blockquote>
     </div>
   </section>
@@ -122,18 +123,9 @@
   <section class="divisions">
     <h2 class="section-title">Divisions</h2>
     <div class="division-grid">
-      <a href="realestate.html" class="division-card">
-        <img src="assets/images/REPhoto1.JPG" alt="Real Estate Media">
-        <h3>Real Estate Media</h3>
-      </a>
-      <a href="eventmedia.html" class="division-card">
-        <img src="assets/images/EMPhoto1.jpg" alt="Event Media">
-        <h3>Event & Lifestyle</h3>
-      </a>
-      <a href="wiwgu.html" class="division-card">
-        <img src="assets/images/Main Graphic.jpg" alt="Video Production">
-        <h3>Video & Podcasting</h3>
-      </a>
+      <a href="realestate.html" class="division-card large"><div class="overlay"></div><img src="assets/images/REPhoto1.JPG" alt="Real Estate Media"><h3>Real Estate Media</h3></a>
+      <a href="eventmedia.html" class="division-card small"><div class="overlay"></div><img src="assets/images/EMPhoto1.jpg" alt="Event Media"><h3>Event & Lifestyle</h3></a>
+      <a href="wiwgu.html" class="division-card medium"><div class="overlay"></div><img src="assets/images/Main Graphic.jpg" alt="Video Production"><h3>Video & Podcasting</h3></a>
     </div>
   </section>
 
@@ -141,11 +133,11 @@
   <section class="portfolio">
     <h2 class="section-title">Selected Work</h2>
     <div class="portfolio-grid">
-      <div class="portfolio-item"><img src="assets/images/REPhoto2.JPG" alt="Portfolio Image"></div>
+      <div class="portfolio-item featured"><img src="assets/images/REPhoto2.JPG" alt="Portfolio Image"></div>
       <div class="portfolio-item"><img src="assets/images/REPhoto3.JPG" alt="Portfolio Image"></div>
       <div class="portfolio-item"><img src="assets/images/EMPhoto1.jpg" alt="Portfolio Image"></div>
       <div class="portfolio-item"><img src="assets/images/VIMedia9.JPG" alt="Portfolio Image"></div>
-      <div class="portfolio-item"><img src="assets/images/VIMedia10.jpg" alt="Portfolio Image"></div>
+      <div class="portfolio-item featured"><img src="assets/images/VIMedia10.jpg" alt="Portfolio Image"></div>
       <div class="portfolio-item"><img src="assets/images/VIMedia11.jpg" alt="Portfolio Image"></div>
     </div>
   </section>
@@ -154,10 +146,10 @@
   <section class="videos">
     <h2 class="section-title">In Motion</h2>
     <div class="video-container">
-      <video src="assets/videos/REVideo2.mp4" autoplay muted loop playsinline></video>
-      <video src="assets/videos/REVideo3.mp4" autoplay muted loop playsinline></video>
-      <video src="assets/videos/VIMedia2.mp4" autoplay muted loop playsinline></video>
-      <video src="assets/videos/VIMedia3.mp4" autoplay muted loop playsinline></video>
+      <div class="video-wrapper"><video src="assets/videos/REVideo2.mp4" autoplay muted loop playsinline></video></div>
+      <div class="video-wrapper"><video src="assets/videos/REVideo3.mp4" autoplay muted loop playsinline></video></div>
+      <div class="video-wrapper"><video src="assets/videos/VIMedia2.mp4" autoplay muted loop playsinline></video></div>
+      <div class="video-wrapper"><video src="assets/videos/VIMedia3.mp4" autoplay muted loop playsinline></video></div>
     </div>
   </section>
 
@@ -184,69 +176,35 @@
     gsap.registerPlugin(ScrollTrigger);
 
     // Section fade in
-    gsap.utils.toArray('section').forEach((section) => {
-      gsap.from(section, {
-        opacity: 0,
-        y: 50,
-        duration: 1,
-        scrollTrigger: { trigger: section, start: 'top 80%' },
-        stagger: 0.2
-      });
+    gsap.utils.toArray('section').forEach(section => {
+      gsap.from(section, { opacity:0, y:50, duration:1, scrollTrigger:{ trigger: section, start:'top 80%' }, stagger:0.2 });
     });
 
     // Hero parallax
-    gsap.to(".hero-content h1", {
-      y: -50,
-      scrollTrigger: { trigger: ".hero", start: "top top", end: "bottom top", scrub: true }
-    });
-    gsap.to(".hero-content p", {
-      y: -30,
-      scrollTrigger: { trigger: ".hero", start: "top top", end: "bottom top", scrub: true }
-    });
+    gsap.to(".hero-content h1", { y:-50, scrollTrigger:{ trigger: ".hero", start:"top top", end:"bottom top", scrub:true } });
+    gsap.to(".hero-content p", { y:-30, scrollTrigger:{ trigger: ".hero", start:"top top", end:"bottom top", scrub:true } });
 
-    // Hero buttons hover scale
+    // Hero buttons hover
     document.querySelectorAll('.btn').forEach(btn => {
-      btn.addEventListener('mouseenter', () => gsap.to(btn, { scale: 1.05, duration: 0.3 }));
-      btn.addEventListener('mouseleave', () => gsap.to(btn, { scale: 1, duration: 0.3 }));
+      btn.addEventListener('mouseenter', ()=>gsap.to(btn, {scale:1.05,duration:0.3}));
+      btn.addEventListener('mouseleave', ()=>gsap.to(btn, {scale:1,duration:0.3}));
     });
 
-    // About blockquote animation
-    gsap.from(".about-preview blockquote", {
-      x: -50,
-      opacity: 0,
-      duration: 1,
-      scrollTrigger: { trigger: ".about-preview", start: "top 80%" }
+    // About quote
+    gsap.from(".about-preview blockquote", { x:-50, opacity:0, duration:1, scrollTrigger:{ trigger: ".about-preview", start:"top 80%" } });
+
+    // Portfolio stagger
+    gsap.utils.toArray('.portfolio-item').forEach((item,i)=>{
+      gsap.from(item,{ opacity:0, y:50, duration:1, delay:i*0.15, scrollTrigger:{ trigger:item, start:"top 85%" } });
     });
 
-    // Portfolio stagger animation
-    gsap.utils.toArray('.portfolio-item').forEach((item,i) => {
-      gsap.from(item, {
-        opacity: 0,
-        y: 50,
-        duration: 1,
-        delay: i*0.15,
-        scrollTrigger: { trigger: item, start: "top 85%" }
-      });
-    });
-
-    // Video stagger animation
-    gsap.utils.toArray('.video-container video').forEach((video,i) => {
-      gsap.from(video, {
-        opacity: 0,
-        scale: 0.95,
-        duration: 1,
-        delay: i*0.2,
-        scrollTrigger: { trigger: video, start: "top 80%" }
-      });
+    // Videos stagger
+    gsap.utils.toArray('.video-wrapper video').forEach((video,i)=>{
+      gsap.from(video,{ opacity:0, scale:0.95, duration:1, delay:i*0.2, scrollTrigger:{ trigger:video, start:"top 80%" } });
     });
 
     // Footer fade
-    gsap.from('footer', {
-      opacity: 0,
-      y: 50,
-      duration: 1,
-      scrollTrigger: { trigger: 'footer', start: "top 90%" }
-    });
+    gsap.from('footer',{ opacity:0, y:50, duration:1, scrollTrigger:{ trigger:'footer', start:"top 90%" } });
   </script>
 </body>
 </html>
