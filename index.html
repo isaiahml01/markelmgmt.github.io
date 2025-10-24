@@ -14,14 +14,8 @@
 
   <style>
     /* GLOBAL */
-    body {
-      margin: 0;
-      font-family: 'Inter', sans-serif;
-      background: #0e0e0e;
-      color: #EDE7D9;
-      overflow-x: hidden;
-    }
-    h1, h2, h3 { font-family: 'Playfair Display', serif; letter-spacing: 1px; margin: 0; }
+    body { margin: 0; font-family: 'Inter', sans-serif; background: #0e0e0e; color: #EDE7D9; overflow-x: hidden; }
+    h1,h2,h3 { font-family: 'Playfair Display', serif; letter-spacing: 1px; margin: 0; }
 
     /* BUTTONS */
     .btn { text-decoration: none; padding: 12px 28px; border-radius: 40px; font-weight: 600; transition: all 0.3s ease; display: inline-block; text-align: center; }
@@ -56,8 +50,10 @@
 
     /* PORTFOLIO */
     .portfolio { padding: 80px 10%; }
-    .portfolio-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); gap: 15px; }
-    .portfolio-grid img { width: 100%; height: 150px; object-fit: cover; border-radius: 8px; }
+    .portfolio-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px,1fr)); grid-auto-rows: 200px; gap: 15px; }
+    .portfolio-item { overflow: hidden; border-radius: 12px; }
+    .portfolio-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease; }
+    .portfolio-item img:hover { transform: scale(1.05); }
 
     /* VIDEOS */
     .videos { padding: 80px 0; }
@@ -77,7 +73,7 @@
       .hero-content h1 { font-size: 2rem; }
       .hero-content p { font-size: 1rem; }
       .about-preview { padding: 60px 5%; gap: 30px; }
-      .portfolio-grid img { height: 120px; }
+      .portfolio-grid { grid-auto-rows: 150px; gap: 10px; }
       .video-scroll video { width: 220px; height: 130px; }
     }
   </style>
@@ -86,7 +82,7 @@
 <body>
   <!-- HERO -->
   <section class="hero">
-    <video autoplay muted loop playsinline class="hero-bg">
+    <video autoplay muted lassetsoop playsinline class="hero-bg">
       <source src="assets/videos/REVideo2.mp4" type="video/mp4" />
     </video>
     <div class="hero-overlay"></div>
@@ -142,12 +138,12 @@
   <section class="portfolio">
     <h2 class="section-title">Selected Work</h2>
     <div class="portfolio-grid">
-      <img src="assets/images/REPhoto2.JPG" alt="Portfolio Image" />
-      <img src="assets/images/REPhoto3.JPG" alt="Portfolio Image" />
-      <img src="assets/images/EMPhoto1.jpg" alt="Portfolio Image" />
-      <img src="assets/images/VIMedia9.JPG" alt="Portfolio Image" />
-      <img src="assets/images/VIMedia10.jpg" alt="Portfolio Image" />
-      <img src="assets/images/VIMedia11.jpg" alt="Portfolio Image" />
+      <div class="portfolio-item"><img src="assets/images/REPhoto2.JPG" alt="Portfolio Image" /></div>
+      <div class="portfolio-item"><img src="assets/images/REPhoto3.JPG" alt="Portfolio Image" /></div>
+      <div class="portfolio-item"><img src="assets/images/EMPhoto1.jpg" alt="Portfolio Image" /></div>
+      <div class="portfolio-item"><img src="assets/images/VIMedia9.JPG" alt="Portfolio Image" /></div>
+      <div class="portfolio-item"><img src="assets/images/VIMedia10.jpg" alt="Portfolio Image" /></div>
+      <div class="portfolio-item"><img src="assets/images/VIMedia11.jpg" alt="Portfolio Image" /></div>
     </div>
   </section>
 
