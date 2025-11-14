@@ -3,271 +3,591 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Videography | Markel Management</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
+  <title>Videography &amp; Visual Storytelling | Markel Media &amp; Management | Chicago Video Production</title>
+
+  <!-- SEO -->
+  <meta name="description" content="Chicago-based videography and visual storytelling for real estate, founders, creatives, and brands. Markel Media & Management produces cinematic short-form and long-form video built for social, sales, and storytelling." />
+  <meta name="robots" content="index,follow" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Videography & Visual Storytelling | Markel Media & Management" />
+  <meta property="og:description" content="Cinematic video production for real estate, creators, and brands rooted in Chicago." />
+  <meta property="og:type" content="website" />
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
+
   <style>
-    :root {
-      --bg: #0e0e10;
-      --fg: #f9f9f9;
-      --accent: #5a97b9;
-      --muted: #999;
-    }
-    * {
+    /* RESET */
+    *, *::before, *::after {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: 'Inter', sans-serif;
     }
+
+    html, body {
+      scroll-behavior: smooth;
+    }
+
     body {
-      background: var(--bg);
-      color: var(--fg);
+      font-family: 'Inter', sans-serif;
+      background: #0e0e0e;
+      color: #EDE7D9;
       line-height: 1.6;
     }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img, video {
+      max-width: 100%;
+      display: block;
+    }
+
+    /* LAYOUT HELPERS */
+    .section {
+      padding: 80px 10%;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-narrow {
+      padding: 60px 10%;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.4rem;
+      margin-bottom: 1.5rem;
+      letter-spacing: 0.5px;
+    }
+
+    /* HEADER / NAV (matches other pages) */
     header {
-      background: #111;
-      padding: 1.5rem 2rem;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: rgba(10,10,10,0.9);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid #1f1f1f;
+    }
+
+    .nav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 1rem 10%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .brand span {
+      color: #C5A572;
+    }
+
+    nav a {
+      margin-left: 1.5rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #EDE7D9;
+      opacity: 0.9;
+      transition: color 0.2s ease, opacity 0.2s ease;
+    }
+
+    nav a:hover,
+    nav a.active {
+      color: #C5A572;
+      opacity: 1;
+    }
+
+    /* BUTTONS */
+    .btn {
+      display: inline-block;
+      padding: 0.85rem 2.4rem;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      border: 2px solid transparent;
+      transition: all 0.25s ease;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #C5A572, #b69249);
+      color: #0e0e0e;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      border-color: #C5A572;
+      color: #C5A572;
+      background: transparent;
+    }
+
+    .btn-outline:hover {
+      background: #C5A572;
+      color: #0e0e0e;
+      transform: translateY(-2px);
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 70vh;
+      padding: 140px 10% 80px;
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .hero-copy h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.8rem;
+      line-height: 1.1;
+      margin-bottom: 1rem;
+    }
+
+    .hero-kicker {
+      font-size: 0.9rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #C5A572;
+      margin-bottom: 0.65rem;
+    }
+
+    .hero-subtitle {
+      font-size: 1rem;
+      color: #d2c7b2;
+      max-width: 520px;
+      margin-bottom: 1.75rem;
+    }
+
+    .hero-tags {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: #8e8e8e;
+      margin-bottom: 1.75rem;
+    }
+
+    .hero-media {
+      position: relative;
+    }
+
+    .hero-media img {
+      border-radius: 22px;
+      border: 1px solid #262626;
+      box-shadow: 0 22px 60px rgba(0,0,0,0.7);
+    }
+
+    .hero-label {
+      position: absolute;
+      left: 1.5rem;
+      bottom: 1.5rem;
+      background: rgba(5,5,5,0.9);
+      border-radius: 999px;
+      padding: 0.4rem 1rem;
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      border: 1px solid #333;
+      color: #C5A572;
+    }
+
+    /* GRIDS & CARDS */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.75rem;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.75rem;
+    }
+
+    .card {
+      background: #151515;
+      border-radius: 16px;
+      border: 1px solid #262626;
+      padding: 1.5rem;
+    }
+
+    /* SELECTED FRAMES */
+    .frames-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.25rem;
+    }
+
+    .frame-item img {
+      border-radius: 14px;
+      border: 1px solid #262626;
+    }
+
+    .frame-item p {
+      font-size: 0.9rem;
+      color: #b4b4b4;
+      margin-top: 0.6rem;
+    }
+
+    /* VIDEO GRID */
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.75rem;
+      margin-top: 1.5rem;
+    }
+
+    .video-wrapper {
+      background: #151515;
+      border-radius: 18px;
+      padding: 1.25rem;
+      border: 1px solid #252525;
+    }
+
+    .video-wrapper p {
+      font-size: 0.88rem;
+      color: #b4b4b4;
+      margin-top: 0.75rem;
+    }
+
+    /* PACKAGES */
+    .package-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.75rem;
+      margin-top: 1.5rem;
+    }
+
+    .package-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .package-price {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #C5A572;
+      margin-bottom: 0.75rem;
+    }
+
+    .package-card ul {
+      list-style: none;
+      margin-top: 0.5rem;
+    }
+
+    .package-card li {
+      font-size: 0.9rem;
+      color: #c4c4c4;
+      margin-bottom: 0.4rem;
+    }
+
+    .package-note {
+      font-size: 0.8rem;
+      color: #8e8e8e;
+      margin-top: 0.65rem;
+    }
+
+    /* CTA */
+    .cta {
+      text-align: center;
+    }
+
+    .cta p {
+      color: #c4c4c4;
+      max-width: 520px;
+      margin: 0.75rem auto 2rem;
+    }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid #1c1c1c;
+      padding: 1.5rem 10%;
+      max-width: 1100px;
+      margin: 0 auto 1rem;
+      font-size: 0.8rem;
+      color: #8e8e8e;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-bottom: 1px solid #222;
-      position: sticky;
-      top: 0;
-      z-index: 50;
-    }
-    header h1 {
-      font-size: 1.5rem;
-      font-weight: 800;
-    }
-    nav a {
-      color: var(--fg);
-      margin-left: 1.5rem;
-      text-decoration: none;
-      font-weight: 600;
-      transition: color 0.2s;
-    }
-    nav a:hover {
-      color: var(--accent);
-    }
-
-    /* Hero Section */
-    .hero {
-      padding: 6rem 2rem 3rem;
-      text-align: center;
-      background: linear-gradient(to bottom, #1c1c1f, #0e0e10);
-    }
-    .hero h2 {
-      font-size: 2.5rem;
-      font-weight: 800;
-      margin-bottom: 1rem;
-    }
-    .hero p {
-      font-size: 1.1rem;
-      color: var(--muted);
-    }
-
-    /* Section Styling */
-    .section {
-      max-width: 1000px;
-      margin: auto;
-      padding: 4rem 2rem;
-    }
-    .section h3 {
-      font-size: 2rem;
-      font-weight: 700;
-      margin-bottom: 1.5rem;
-    }
-    .section p {
-      color: var(--muted);
-      font-size: 1.05rem;
-      margin-bottom: 2rem;
-    }
-
-    /* Video Gallery */
-    .video-gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
-      margin-top: 2rem;
-    }
-    .video-gallery video {
-      width: 100%;
-      aspect-ratio: 16 / 9;
-      object-fit: cover;
-      border-radius: 0.5rem;
-      border: 1px solid #222;
-    }
-
-    /* Packages */
-    .packages {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
-      margin-top: 2rem;
-    }
-    .package-card {
-      background-color: #1c1c1f;
-      border: 1px solid #222;
-      border-radius: 12px;
-      padding: 1.5rem;
-      transition: transform 0.3s;
-    }
-    .package-card:hover {
-      transform: scale(1.02);
-    }
-    .package-card h4 {
-      font-size: 1.25rem;
-      color: var(--accent);
-      margin-bottom: 0.75rem;
-    }
-    .package-card p {
-      color: var(--muted);
-      font-size: 1rem;
-      margin-bottom: 0.5rem;
-    }
-
-    /* Contact Form */
-    .mini-contact-form {
-      max-width: 500px;
-      margin: 3rem auto 0;
-      padding: 1.5rem;
-      background-color: #1c1c1f;
-      border: 1px solid #333;
-      border-radius: 12px;
-    }
-    .mini-contact-form form {
-      display: flex;
-      flex-direction: column;
       gap: 1rem;
     }
-    .mini-contact-form input,
-    .mini-contact-form textarea {
-      background-color: #0e0e10;
-      border: 1px solid #444;
-      border-radius: 8px;
-      padding: 0.75rem 1rem;
-      color: #f9f9f9;
-      font-size: 1rem;
-      width: 100%;
-    }
-    .mini-contact-form textarea {
-      resize: vertical;
-      min-height: 100px;
-    }
-    .mini-contact-form button {
-      background-color: var(--accent);
-      color: #fff;
-      padding: 0.75rem;
-      border: none;
-      border-radius: 8px;
-      font-weight: bold;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-    .mini-contact-form button:hover {
-      background-color: #46749a;
+
+    footer a {
+      color: #C5A572;
     }
 
-    footer {
-      padding: 2rem;
-      text-align: center;
-      font-size: 0.9rem;
-      color: var(--muted);
-      border-top: 1px solid #222;
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: 1fr;
+        padding-inline: 10%;
+      }
     }
-    .socials a {
-      color: var(--fg);
-      text-decoration: none;
-      margin: 0 0.5rem;
-    }
-    .socials a:hover {
-      color: var(--accent);
+
+    @media (max-width: 640px) {
+      .nav-inner {
+        padding-inline: 6%;
+      }
+
+      .hero,
+      .section,
+      .section-narrow {
+        padding-inline: 6%;
+      }
+
+      nav {
+        display: none; /* keep mobile nav simple for now */
+      }
+
+      .hero {
+        padding-top: 120px;
+      }
     }
   </style>
 </head>
 <body>
+  <!-- HEADER -->
   <header>
-    <h1>Markel Management</h1>
-    <nav>
-      <a href="about.html">About</a>
-      <a href="real-estate.html">Real Estate</a>
-      <a href="videography.html">Videography</a>
-      <a href="event-media.html">Events</a>
-      <a href="workshops.html">Workshops</a>
-      <a href="contact.html">Contact</a>
-    </nav>
+    <div class="nav-inner">
+      <div class="brand">
+        Markel Media <span>&amp; Management</span>
+      </div>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="real-estate.html">Real Estate</a>
+        <a href="event-media.html">Events</a>
+        <a href="videography.html" class="active">Videography</a>
+        <a href="workshops.html">Workshops</a>
+        <a href="theintegratededge.html">Conference</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
   </header>
 
-  <section class="hero">
-    <h2>Professional Videography</h2>
-    <p>Storytelling that elevates your brand, listings, and events.</p>
-  </section>
-
-  <section class="section">
-    <h3>Portfolio</h3>
-    <div class="video-gallery">
-      <video controls>
-        <source src="assets/videos/VIMedia8.mp4" type="video/mp4">
-      </video>
-      <video controls>
-        <source src="assets/videos/VIMedia7.mp4" type="video/mp4">
-      </video>
-      <video controls>
-        <source src="assets/videos/VIMedia6.mp4" type="video/mp4">
-      </video>
-      <video controls>
-        <source src="assets/videos/VIMedia5.mp4" type="video/mp4">
-      </video>
-      <video controls>
-        <source src="assets/videos/VIMedia4.mov" type="video/mp4">
-      </video>
-      <video controls>
-        <source src="assets/videos/VIMedia3.mp4" type="video/mp4">
-      </video>
-      <video controls>
-        <source src="assets/videos/VIMedia2.mp4" type="video/mp4">
-      </video>
-      <video controls>
-        <source src="assets/videos/VIMedia1.mp4" type="video/mp4">
-      </video>
-    </div>
-
-    <h3>Packages</h3>
-    <div class="packages">
-      <div class="package-card">
-        <h4>Highlight Reel</h4>
-        <p>1–2 hours coverage</p>
-        <p>60–90 sec edited video</p>
-        <p>Includes motion graphics & color grading</p>
-        <p><strong>$450</strong></p>
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-copy">
+        <div class="hero-kicker">Videography &amp; Visual Storytelling</div>
+        <h1>Cinematic Stories, Built For Conversion.</h1>
+        <p class="hero-subtitle">
+          We produce video for agents, founders, and creatives who need more than a pretty reel. From
+          short-form social content to narrative-driven pieces, every frame is built to move your
+          audience toward action.
+        </p>
+        <div class="hero-tags">
+          Short-Form Reels &nbsp;•&nbsp; Long-Form Video &nbsp;•&nbsp; Brand Films
+        </div>
+        <a href="#packages" class="btn btn-primary">View Video Packages</a>
       </div>
-      <div class="package-card">
-        <h4>Full Coverage</h4>
-        <p>3–5 hours coverage</p>
-        <p>Full recap video (3–5 min) + short clips</p>
-        <p>Perfect for corporate & personal events</p>
-        <p><strong>$1,200</strong></p>
+      <div class="hero-media">
+        <img src="assets/images/VIMedia10.jpg" alt="Cinematic portrait frame from video shoot" />
+        <div class="hero-label">Studio &amp; On-Location Cinematic Work</div>
       </div>
-    </div>
+    </section>
 
-    <div class="mini-contact-form">
-      <form action="https://formspree.io/f/mzzvgnvq" method="POST">
-        <input type="text" name="name" placeholder="Name" required />
-        <input type="tel" name="phone" placeholder="Phone Number" required />
-        <input type="email" name="email" placeholder="Email" required />
-        <textarea name="message" placeholder="Your Message" required></textarea>
-        <button type="submit">Send</button>
-      </form>
-    </div>
-  </section>
+    <!-- SELECTED FRAMES -->
+    <section class="section" id="frames">
+      <h2 class="section-title">Selected Frames</h2>
+      <p style="color:#b4b4b4; max-width:520px; margin-bottom:1.25rem;">
+        A still frame should tell you everything you need to know about the story, the subject, and
+        the world they live in. Here are a few that say the most with a single pause.
+      </p>
 
+      <div class="frames-grid">
+        <div class="frame-item">
+          <img src="assets/images/VIMedia9.JPG" alt="Cinematic frame with subject in moody lighting" />
+          <p>Intimate, moody lighting for brand and artist storytelling.</p>
+        </div>
+        <div class="frame-item">
+          <img src="assets/images/VIMedia10.jpg" alt="Portrait shot with professional lighting in studio" />
+          <p>Studio portrait work that still feels human and grounded.</p>
+        </div>
+        <div class="frame-item">
+          <img src="assets/images/VIMedia11.jpg" alt="City at night with cinematic color grading" />
+          <p>Chicago at night—city visuals built to anchor your narrative.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- REELS & VIDEO WORK -->
+    <section class="section" id="reels">
+      <h2 class="section-title">Reels, Episodes &amp; Campaign Cuts</h2>
+      <p style="color:#b4b4b4; max-width:520px; margin-bottom:1.5rem;">
+        Your audience is watching on mute, on mobile, and on the move. We design each piece of
+        video to stop the scroll, deliver the message, and invite the next step—whether that’s a
+        click, a share, or a call.
+      </p>
+
+      <div class="video-grid">
+        <div class="video-wrapper">
+          <video controls muted playsinline>
+            <source src="assets/videos/VIMedia1.mp4" type="video/mp4" />
+          </video>
+          <p>Brand Reel • Quick-hit montage for web and social intros.</p>
+        </div>
+
+        <div class="video-wrapper">
+          <video controls muted playsinline>
+            <source src="assets/videos/VIMedia2.mp4" type="video/mp4" />
+          </video>
+          <p>Vertical Cut • Social-first edit tailored to Reels and TikTok.</p>
+        </div>
+
+        <div class="video-wrapper">
+          <video controls muted playsinline>
+            <source src="assets/videos/VIMedia3.mp4" type="video/mp4" />
+          </video>
+          <p>Creator Feature • Story-driven piece for a creative brand or talent.</p>
+        </div>
+
+        <div class="video-wrapper">
+          <video controls muted playsinline>
+            <source src="assets/videos/VIMedia4.mov" type="video/quicktime" />
+          </video>
+          <p>Behind-The-Scenes • Process footage to deepen audience connection.</p>
+        </div>
+      </div>
+
+      <div class="video-grid" style="margin-top:1.75rem;">
+        <div class="video-wrapper">
+          <video controls muted playsinline>
+            <source src="assets/videos/VIMedia5.mp4" type="video/mp4" />
+          </video>
+          <p>Educational Content • Teaching-style video for coaches or educators.</p>
+        </div>
+
+        <div class="video-wrapper">
+          <video controls muted playsinline>
+            <source src="assets/videos/VIMedia6.mp4" type="video/mp4" />
+          </video>
+          <p>Event-Driven Clip • Short recap segment pulled from a live moment.</p>
+        </div>
+
+        <div class="video-wrapper">
+          <video controls muted playsinline>
+            <source src="assets/videos/VIMedia7.mp4" type="video/mp4" />
+          </video>
+          <p>Longer-Form Sequence • Built for YouTube or embedded landing pages.</p>
+        </div>
+
+        <div class="video-wrapper">
+          <video controls muted playsinline>
+            <source src="assets/videos/VIMedia8.mp4" type="video/mp4" />
+          </video>
+          <p>Atmospheric Visuals • B-roll and texture shots to round out your brand world.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PACKAGES -->
+    <section class="section" id="packages">
+      <h2 class="section-title">Videography Packages</h2>
+      <p style="color:#b4b4b4; max-width:520px; margin-bottom:1.5rem;">
+        We keep the structure simple so you can focus on the work. Whether you need a one-time
+        shoot or an ongoing content system, we’ll meet you where you’re at—and build what your
+        audience actually wants to watch.
+      </p>
+
+      <div class="package-grid">
+        <!-- Short-Form -->
+        <div class="card package-card">
+          <h3>Short-Form Session</h3>
+          <div class="package-price">From $350</div>
+          <ul>
+            <li>Up to 2 hours on location or in-studio</li>
+            <li>3–5 edited vertical videos (15–45 seconds)</li>
+            <li>Optimized for Reels, TikTok, and Shorts</li>
+          </ul>
+          <p class="package-note">
+            Ideal for creators, agents, and founders ready to batch content without overcomplicating the setup.
+          </p>
+        </div>
+
+        <!-- Signature Video -->
+        <div class="card package-card">
+          <h3>Signature Video</h3>
+          <div class="package-price">From $650</div>
+          <ul>
+            <li>Half-day shoot (up to 5 hours)</li>
+            <li>1–2 minute primary video (landscape or vertical)</li>
+            <li>1–2 cut-downs for social and paid ads</li>
+          </ul>
+          <p class="package-note">
+            Great for homepage videos, service explainers, and launch announcements where one strong piece has to do a lot.
+          </p>
+        </div>
+
+        <!-- Content System -->
+        <div class="card package-card">
+          <h3>Content System</h3>
+          <div class="package-price">Custom monthly retainers</div>
+          <ul>
+            <li>Recurring shoot days (monthly or quarterly)</li>
+            <li>Ongoing library of short-form &amp; long-form edits</li>
+            <li>Lightweight strategy support for rollout and reuse</li>
+          </ul>
+          <p class="package-note">
+            Built for brands, agents, and educators who are ready to show up consistently and need a partner, not just a one-off shoot.
+          </p>
+        </div>
+      </div>
+
+      <p style="font-size:0.85rem; color:#8e8e8e; margin-top:1.5rem;">
+        Have a web series, conference, or multi-episode project in mind? We can build a
+        project-based quote or plug into your existing production team.
+      </p>
+    </section>
+
+    <!-- CTA -->
+    <section class="section-narrow cta">
+      <h2 class="section-title" style="text-align:center;">Ready To Roll Camera?</h2>
+      <p>
+        Tell us what you’re launching, who you’re trying to reach, and where your video needs to
+        live—social, sales pages, YouTube, or all of the above. We’ll recommend a structure that
+        respects your budget and your goals.
+      </p>
+      <a href="contact.html" class="btn btn-primary">Start A Video Project</a>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
   <footer>
-    <p>&copy; 2025 Isaiah Markel. Chicago, IL. | @theisaiahml</p>
-    <div class="socials">
-      <a href="https://www.instagram.com/isaiahmarkellesley/" target="_blank">Instagram</a> |
-      <a href="https://www.tiktok.com/@isaiah.markel" target="_blank">TikTok</a> |
-      <a href="https://x.com/theisaiahml" target="_blank">Twitter/X</a> |
-      <a href="https://www.youtube.com/c/Isaiahml" target="_blank">YouTube</a>
-    </div>
+    <div>© <span id="year"></span> Markel Media &amp; Management. All rights reserved.</div>
+    <div>Based in Chicago, IL &nbsp;•&nbsp; <a href="mailto:isaiah@pearsonrealtygroup.com">isaiah@pearsonrealtygroup.com</a></div>
   </footer>
+
+  <script>
+    // Set current year in footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
