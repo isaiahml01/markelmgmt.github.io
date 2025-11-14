@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Apply | Work With Markel Media &amp; Management</title>
+  <title>Brand &amp; Sponsorship Portal | Markel Media &amp; Management</title>
 
   <!-- SEO -->
-  <meta name="description" content="Apply to work with Markel Media & Management as a creative assistant, production support, editor, social media partner, or collaborator. Share your skills, availability, and portfolio." />
-  <meta name="robots" content="index,follow" />
+  <meta name="description" content="Private brand and sponsorship inquiry portal for Markel Media & Management. Submit partnership requests for campaigns, events, The Integrated Edge, WIWGU, and luxury media collaborations." />
+  <meta name="robots" content="noindex,follow" />
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
@@ -45,12 +45,6 @@
     .section {
       padding: 80px 10%;
       max-width: 1100px;
-      margin: 0 auto;
-    }
-
-    .section-narrow {
-      padding: 60px 10%;
-      max-width: 800px;
       margin: 0 auto;
     }
 
@@ -149,18 +143,6 @@
     }
 
     .btn-primary:hover {
-      transform: translateY(-2px);
-    }
-
-    .btn-outline {
-      border-color: #C5A572;
-      color: #C5A572;
-      background: transparent;
-    }
-
-    .btn-outline:hover {
-      background: #C5A572;
-      color: #0e0e0e;
       transform: translateY(-2px);
     }
 
@@ -368,8 +350,7 @@
       }
 
       .hero,
-      .section,
-      .section-narrow {
+      .section {
         padding-inline: 6%;
       }
 
@@ -400,9 +381,7 @@
         <a href="wiwgu.html">Podcast</a>
         <a href="about.html">About</a>
         <a href="contact.html">Contact</a>
-        <!-- If you want Apply in global nav, add:
-        <a href="apply.html" class="active">Apply</a>
-        and update other pages -->
+        <!-- This page is a private portal; keep it out of global nav unless you want it public -->
       </nav>
     </div>
   </header>
@@ -410,15 +389,16 @@
   <main>
     <!-- HERO -->
     <section class="hero">
-      <span class="pill-label">Apply</span>
-      <h1>Work With Markel Media &amp; Management.</h1>
-      <p class="lead" style="max-width:620px;">
-        This is for the people who see the vision and want to help build it: assistants, creatives,
-        editors, runners, and collaborators. Tell me who you are, how you work, and where you want
-        to plug in.
+      <span class="pill-label">Brand &amp; Sponsorship Portal</span>
+      <h1>Apply To Partner With Markel Media &amp; Management.</h1>
+      <p class="lead" style="max-width:640px;">
+        This private portal is for brands, agencies, and sponsors interested in premium
+        collaborations across real estate, culture, and storytelling—campaigns, launches,
+        conferences, WIWGU, or The Integrated Edge.
       </p>
       <p class="hero-meta">
-        Roles may be part-time, project-based, or freelance depending on season and fit.
+        Please complete the form with as much detail as possible so we can assess fit, timeline,
+        and scope at a strategic level.
       </p>
     </section>
 
@@ -430,89 +410,123 @@
           <div class="form-wrapper">
             <!--
               NOTE:
-              For a working hosted form, you can swap the action to a provider like Formspree:
+              For a fully hosted form, you can swap to a provider like Formspree:
               <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-              For now this uses mailto so it still works on static hosting.
+              For now this uses mailto so it works on static hosting.
             -->
             <form action="mailto:isaiah@pearsonrealtygroup.com" method="POST" enctype="text/plain">
               <div>
-                <label for="name">Full Name *</label>
-                <input type="text" id="name" name="Name" placeholder="First & last name" required>
+                <label for="brand-name">Brand / Organization Name *</label>
+                <input type="text" id="brand-name" name="Brand / Organization" placeholder="Brand, agency, or organization name" required>
               </div>
 
               <div>
-                <label for="email">Email *</label>
-                <input type="email" id="email" name="Email" placeholder="you@example.com" required>
+                <label for="contact-name">Primary Contact Name *</label>
+                <input type="text" id="contact-name" name="Primary Contact" placeholder="First & last name" required>
+              </div>
+
+              <div>
+                <label for="role">Title / Role *</label>
+                <input type="text" id="role" name="Title / Role" placeholder="Brand manager, founder, producer, etc." required>
+              </div>
+
+              <div>
+                <label for="email">Work Email *</label>
+                <input type="email" id="email" name="Email" placeholder="you@brand.com" required>
               </div>
 
               <div>
                 <label for="phone">Phone (optional)</label>
-                <input type="tel" id="phone" name="Phone" placeholder="Best number to reach you">
+                <input type="tel" id="phone" name="Phone" placeholder="Best number for time-sensitive communication">
               </div>
 
               <div>
-                <label for="location">City / Location *</label>
-                <input type="text" id="location" name="Location" placeholder="Chicago, IL (or where you're based)" required>
+                <label for="website">Website / Primary Link</label>
+                <input type="text" id="website" name="Website" placeholder="Brand site, campaign page, or key link">
+              </div>
+
+              <div class="form-full">
+                <label for="socials">Social Handles (optional)</label>
+                <input type="text" id="socials" name="Social Handles" placeholder="@brand on Instagram, TikTok, YouTube, etc.">
               </div>
 
               <div>
-                <label for="role">What are you applying for? *</label>
-                <select id="role" name="Role" required>
-                  <option value="" disabled selected>Select a focus</option>
-                  <option value="Creative Assistant">Creative / Executive Assistant</option>
-                  <option value="Production Assistant">Production Assistant (on set / shoots)</option>
-                  <option value="Editor">Editor (video / reels / social)</option>
-                  <option value="Social Media">Social Media &amp; Content Management</option>
-                  <option value="Real Estate Support">Real Estate Support / Runner</option>
-                  <option value="Intern">Internship / General Support</option>
-                  <option value="Collaborator">Collaborator / Partner</option>
+                <label for="interest">Type of Partnership *</label>
+                <select id="interest" name="Partnership Type" required>
+                  <option value="" disabled selected>Select one</option>
+                  <option value="Campaign / Content Partnership">Campaign / Content Partnership</option>
+                  <option value="Event / Conference Sponsorship">Event / Conference Sponsorship</option>
+                  <option value="The Integrated Edge Host / Sponsor">The Integrated Edge (host / sponsor)</option>
+                  <option value="WIWGU Collaboration / Live Recording">WIWGU Collaboration / Live Recording</option>
+                  <option value="Product Placement / Gifting">Product Placement / Gifting</option>
+                  <option value="Brand Ambassador / Affiliate Concept">Brand Ambassador / Affiliate Concept</option>
+                  <option value="Custom Strategy / Consulting">Custom Strategy / Consulting</option>
                   <option value="Other">Other (explain below)</option>
                 </select>
               </div>
 
               <div>
-                <label for="availability">Availability *</label>
-                <select id="availability" name="Availability" required>
-                  <option value="" disabled selected>Select one</option>
-                  <option value="Part-time">Part-time (evenings / weekends)</option>
-                  <option value="Flexible">Flexible / Project-based</option>
-                  <option value="Full-time">Full-time interest (future)</option>
-                  <option value="One-off">One-off or short-term only</option>
+                <label for="budget">Projected Budget (USD) *</label>
+                <select id="budget" name="Budget Range" required>
+                  <option value="" disabled selected>Select a range</option>
+                  <option value="Under 2,500">Under $2,500</option>
+                  <option value="2,500–7,500">$2,500 – $7,500</option>
+                  <option value="7,500–15,000">$7,500 – $15,000</option>
+                  <option value="15,000–35,000">$15,000 – $35,000</option>
+                  <option value="35,000+">$35,000+</option>
                 </select>
               </div>
 
+              <div>
+                <label for="timeline">Ideal Timeline *</label>
+                <select id="timeline" name="Timeline" required>
+                  <option value="" disabled selected>Select one</option>
+                  <option value="4–8 weeks">4–8 weeks</option>
+                  <option value="2–3 months">2–3 months</option>
+                  <option value="3–6 months">3–6 months</option>
+                  <option value="6+ months">6+ months out</option>
+                  <option value="Date Fixed">Fixed activation / event date (add below)</option>
+                </select>
+              </div>
+
+              <div>
+                <label for="region">Key Market / Region</label>
+                <input type="text" id="region" name="Primary Markets" placeholder="Chicago, Midwest, national, or specific markets you’re targeting">
+              </div>
+
               <div class="form-full">
-                <label for="portfolio">Portfolio / Social / Resume Links</label>
-                <input type="text" id="portfolio" name="Links" placeholder="Website, Instagram, YouTube, resume link, or examples of your work">
+                <label for="goals">Primary Goals For This Partnership *</label>
+                <textarea id="goals" name="Goals" placeholder="Brand awareness, conversion, launch support, community impact, content library, etc." required></textarea>
+              </div>
+
+              <div class="form-full">
+                <label for="audience">Who Are You Trying To Reach? *</label>
+                <textarea id="audience" name="Audience" placeholder="Describe your ideal audience and any demographics, psychographics, or communities you want to center." required></textarea>
+              </div>
+
+              <div class="form-full">
+                <label for="deliverables">Preferred Deliverables</label>
+                <textarea id="deliverables" name="Preferred Deliverables" placeholder="Examples: visual podcast integration, event coverage, WIWGU feature, TIE stage presence, social content suite, hero film, photo assets, etc."></textarea>
+              </div>
+
+              <div class="form-full">
+                <label for="history">Past Collaborations (optional)</label>
+                <textarea id="history" name="Past Collaborations" placeholder="Any notable partners, campaigns, or collaborations you’d like to highlight."></textarea>
+              </div>
+
+              <div class="form-full">
+                <label for="notes">Anything Else We Should Know?</label>
+                <textarea id="notes" name="Notes" placeholder="Key dates, non-negotiables, internal approval process, or links to decks / briefs."></textarea>
                 <p class="helper-text">
-                  Drop anything that helps me see how you think and what you’ve done—doesn’t have to be perfect.
+                  If you’re working from an existing brief or deck, you can note it here and attach it when we reply.
                 </p>
               </div>
 
-              <div class="form-full">
-                <label for="experience">Relevant experience *</label>
-                <textarea id="experience" name="Experience" placeholder="Share a few sentences about what you’ve done, who you’ve worked with, and what you’re great at." required></textarea>
-              </div>
-
-              <div class="form-full">
-                <label for="why">Why Markel Media &amp; Management? *</label>
-                <textarea id="why" name="Why_Markel" placeholder="Tell me why this studio, this season, and this kind of work matters to you." required></textarea>
-              </div>
-
-              <div class="form-full">
-                <label for="comp">Compensation expectations (optional)</label>
-                <input type="text" id="comp" name="Compensation" placeholder="Hourly range, day rate, or project rate if you have one">
-              </div>
-
-              <div class="form-full">
-                <label for="extra">Anything else I should know?</label>
-                <textarea id="extra" name="Notes" placeholder="Scheduling needs, access needs, boundaries, or anything that helps us work well together."></textarea>
-              </div>
-
               <div class="form-actions">
-                <button type="submit" class="btn btn-primary">Submit Application</button>
+                <button type="submit" class="btn btn-primary">Submit Partnership Inquiry</button>
                 <p class="disclaimer">
-                  Submitting this form does not guarantee a role. If there’s alignment now or in the future, we’ll reach out to continue the conversation.
+                  Submitting this form does not confirm a collaboration. All partnerships are reviewed for brand alignment,
+                  timing, and capacity. If there’s a fit, we’ll follow up with next steps and a call time.
                 </p>
               </div>
             </form>
@@ -522,38 +536,43 @@
         <!-- SIDEBAR COLUMN -->
         <div>
           <div class="sidebar-block">
-            <div class="sidebar-title">What I'm Looking For</div>
+            <div class="sidebar-title">How We Approach Partnerships</div>
             <p class="sidebar-text">
-              I’m drawn to people who are excellent at their lane, honest about their capacity, and
-              grounded in how they move. You don’t have to have a perfect resume—but you should care
-              about the work and the people we’re doing it for.
+              Markel Media &amp; Management is selective about collaborations. We care about
+              alignment with our values, the communities we serve, and the stories we’re putting
+              onscreen. Luxury, to us, is about integrity and intention—not just aesthetics.
             </p>
             <div class="tag-row">
-              <span class="tag-pill">Detail-Oriented</span>
-              <span class="tag-pill">Clear Communicator</span>
-              <span class="tag-pill">Flexible &amp; Reliable</span>
-              <span class="tag-pill">Respectful of Story</span>
-              <span class="tag-pill">Chicago-Based (Preferred)</span>
+              <span class="tag-pill">Campaigns &amp; Launches</span>
+              <span class="tag-pill">Conference Partners</span>
+              <span class="tag-pill">Real Estate &amp; Housing</span>
+              <span class="tag-pill">Culture &amp; Community</span>
+              <span class="tag-pill">Faith &amp; Wellness</span>
             </div>
           </div>
 
           <div class="sidebar-block card">
-            <h3>How Roles Usually Work</h3>
+            <h3>Where We Collaborate</h3>
             <p>
-              Most opportunities start part-time or project-based and expand as we build trust and
-              rhythm. Some seasons may be heavier on real estate and events, other seasons on
-              long-form creative and The Integrated Edge.
+              Partnerships may integrate into:
+            </p>
+            <p class="sidebar-text" style="margin-top:0.4rem;">
+              • <strong>The Integrated Edge:</strong> conference experiences, stages, and brand presence.<br/>
+              • <strong>WIWGU:</strong> visual podcast episodes, live tapings, and thematic integrations.<br/>
+              • <strong>Markel Media &amp; Management:</strong> campaign builds, hero visuals, and content systems.<br/>
+              • <strong>Real Estate &amp; Events:</strong> on-the-ground activations tied to housing, community, and culture.
             </p>
             <p class="sidebar-note">
-              If you’re only available for remote work, or only for in-person, make sure to mention that in your application.
+              We do not accept every partnership. If it’s not the right fit, we’ll let you know respectfully.
             </p>
           </div>
 
           <div class="sidebar-block">
-            <div class="sidebar-title">If This Page Finds You Later…</div>
+            <div class="sidebar-title">Confidentiality</div>
             <p class="sidebar-text">
-              Even if there’s not an active posting on social, I review applications here when I’m
-              building crews, testing offers, or stepping into a heavier production season.
+              Information shared through this portal is treated as confidential and used solely for
+              evaluating potential collaboration. If your internal process requires a formal NDA,
+              mention it in your notes and we can accommodate that in the next step.
             </p>
           </div>
         </div>
