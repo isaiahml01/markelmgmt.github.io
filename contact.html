@@ -1,109 +1,608 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Contact | Markel Media & Management</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact | Markel Media &amp; Management | Inquiries &amp; Collaborations</title>
 
-<!-- Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <!-- SEO -->
+  <meta name="description" content="Contact Markel Media & Management for real estate media, event coverage, videography, workshops, The Integrated Edge, WIWGU collaborations, and consulting. Share what you're building and we’ll follow up with next steps." />
+  <meta name="robots" content="index,follow" />
 
-<!-- GSAP -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
 
-<style>
-/* GLOBAL */
-body { margin:0; font-family:'Inter',sans-serif; background:#0e0e0e; color:#EDE7D9; }
-h1,h2,h3 { font-family:'Playfair Display',serif; }
-a { text-decoration:none; color:#C5A572; }
-header { background:#111; padding:1.5rem 5%; display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid #222; }
-header h1 { font-size:1.8rem; font-weight:700; }
-nav a { margin-left:1.5rem; font-weight:600; transition:color 0.3s; }
-nav a:hover { color:#de685b; }
+  <style>
+    /* RESET */
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-/* FORM SECTION */
-.contact-section { padding:100px 5%; display:flex; flex-direction:column; align-items:center; }
-.contact-container { display:flex; flex-wrap:wrap; gap:60px; max-width:1000px; width:100%; justify-content:center; }
-.contact-form, .calendly-container { flex:1 1 400px; background:#1c1c1f; padding:3rem; border-radius:16px; box-shadow:0 15px 40px rgba(0,0,0,0.3); }
-.contact-form h2, .calendly-container h2 { text-align:center; margin-bottom:2rem; font-size:2rem; color:#C5A572; }
+    html, body {
+      scroll-behavior: smooth;
+    }
 
-.contact-form input, .contact-form textarea {
-  width:100%; padding:1rem; margin-bottom:1.5rem; border-radius:8px; border:1px solid #333; background:#0e0e10; color:#EDE7D9; font-size:1rem; transition:border 0.3s;
-}
-.contact-form input:focus, .contact-form textarea:focus { border-color:#C5A572; outline:none; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #0e0e0e;
+      color: #EDE7D9;
+      line-height: 1.6;
+    }
 
-.contact-form button {
-  width:100%; padding:1rem; background:#C5A572; color:#0e0e0e; font-weight:700; border:none; border-radius:8px; font-size:1rem; cursor:pointer; transition:all 0.3s;
-}
-.contact-form button:hover { background:#b69249; transform:scale(1.03); }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
 
-/* Calendly embed */
-.calendly-container iframe { width:100%; height:600px; border:none; border-radius:16px; }
+    img {
+      max-width: 100%;
+      display: block;
+    }
 
-/* FOOTER */
-footer { padding:4rem 5%; text-align:center; font-size:0.9rem; border-top:1px solid #C5A572; color:#999; }
-footer .socials a { margin:0 0.5rem; font-weight:500; transition:color 0.3s; }
-footer .socials a:hover { color:#C5A572; }
+    /* LAYOUT HELPERS */
+    .section {
+      padding: 80px 10%;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
 
-/* RESPONSIVE */
-@media(max-width:900px){ .contact-container { flex-direction:column; } }
-</style>
+    .section-narrow {
+      padding: 60px 10%;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.4rem;
+      margin-bottom: 1.5rem;
+      letter-spacing: 0.5px;
+    }
+
+    .lead {
+      color: #c4c4c4;
+      font-size: 0.98rem;
+      margin-bottom: 1rem;
+    }
+
+    .pill-label {
+      display: inline-block;
+      font-size: 0.78rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #C5A572;
+      border-radius: 999px;
+      border: 1px solid #333;
+      padding: 0.35rem 0.9rem;
+      margin-bottom: 0.7rem;
+    }
+
+    /* HEADER / NAV */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: rgba(10,10,10,0.9);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid #1f1f1f;
+    }
+
+    .nav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 1rem 10%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .brand span {
+      color: #C5A572;
+    }
+
+    nav a {
+      margin-left: 1.5rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #EDE7D9;
+      opacity: 0.9;
+      transition: color 0.2s ease, opacity 0.2s ease;
+    }
+
+    nav a:hover,
+    nav a.active {
+      color: #C5A572;
+      opacity: 1;
+    }
+
+    /* BUTTONS */
+    .btn {
+      display: inline-block;
+      padding: 0.85rem 2.4rem;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      border: 2px solid transparent;
+      transition: all 0.25s ease;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #C5A572, #b69249);
+      color: #0e0e0e;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      border-color: #C5A572;
+      color: #C5A572;
+      background: transparent;
+    }
+
+    .btn-outline:hover {
+      background: #C5A572;
+      color: #0e0e0e;
+      transform: translateY(-2px);
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 40vh;
+      padding: 140px 10% 40px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.6rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .hero-meta {
+      font-size: 0.9rem;
+      color: #8e8e8e;
+      margin-top: 0.4rem;
+    }
+
+    /* GRID / CARDS */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+      gap: 2.5rem;
+      align-items: flex-start;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .card {
+      background: #151515;
+      border-radius: 16px;
+      border: 1px solid #262626;
+      padding: 1.5rem;
+    }
+
+    .card h3 {
+      font-size: 1rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .card p {
+      font-size: 0.88rem;
+      color: #c4c4c4;
+    }
+
+    /* FORM */
+    .form-wrapper {
+      background: #151515;
+      border-radius: 18px;
+      border: 1px solid #262626;
+      padding: 1.75rem 1.5rem 1.9rem;
+    }
+
+    form {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem 1.5rem;
+    }
+
+    .form-full {
+      grid-column: 1 / -1;
+    }
+
+    label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 500;
+      margin-bottom: 0.35rem;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      padding: 0.7rem 0.8rem;
+      border-radius: 10px;
+      border: 1px solid #333;
+      background: #0e0e0e;
+      color: #EDE7D9;
+      font-size: 0.9rem;
+      font-family: inherit;
+      outline: none;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+      color: #666;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: #C5A572;
+      box-shadow: 0 0 0 1px rgba(197,165,114,0.2);
+      background: #111;
+    }
+
+    textarea {
+      min-height: 140px;
+      resize: vertical;
+    }
+
+    .helper-text {
+      font-size: 0.78rem;
+      color: #8e8e8e;
+      margin-top: 0.25rem;
+    }
+
+    .form-actions {
+      grid-column: 1 / -1;
+      margin-top: 0.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .disclaimer {
+      font-size: 0.78rem;
+      color: #8e8e8e;
+    }
+
+    /* SIDEBAR */
+    .sidebar-block {
+      margin-bottom: 1.5rem;
+    }
+
+    .sidebar-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+    }
+
+    .sidebar-text {
+      font-size: 0.86rem;
+      color: #c4c4c4;
+    }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.5rem;
+    }
+
+    .tag-pill {
+      font-size: 0.78rem;
+      padding: 0.35rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid #333;
+      color: #d0d0d0;
+    }
+
+    .sidebar-email {
+      font-size: 0.86rem;
+      color: #C5A572;
+      margin-top: 0.4rem;
+      display: inline-block;
+      word-break: break-all;
+    }
+
+    /* CALENDLY */
+    .calendly-wrapper {
+      background: #151515;
+      border-radius: 18px;
+      border: 1px solid #262626;
+      padding: 1.25rem 1.25rem 1.4rem;
+      margin-top: 1rem;
+    }
+
+    .calendly-wrapper h3 {
+      font-size: 0.98rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .calendly-wrapper p {
+      font-size: 0.84rem;
+      color: #c4c4c4;
+      margin-bottom: 0.6rem;
+    }
+
+    .calendly-inline-frame {
+      border-radius: 12px;
+      border: 1px solid #262626;
+      overflow: hidden;
+    }
+
+    .calendly-inline-frame iframe {
+      width: 100%;
+      height: 420px;
+      border: none;
+    }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid #1c1c1c;
+      padding: 1.5rem 10%;
+      max-width: 1100px;
+      margin: 0 auto 1rem;
+      font-size: 0.8rem;
+      color: #8e8e8e;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    footer a {
+      color: #C5A572;
+    }
+
+    .footer-social {
+      font-size: 0.8rem;
+    }
+
+    .footer-social a {
+      margin-left: 0.4rem;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .grid-2 {
+        grid-template-columns: 1fr;
+      }
+
+      form {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .nav-inner {
+        padding-inline: 6%;
+      }
+
+      .hero,
+      .section,
+      .section-narrow {
+        padding-inline: 6%;
+      }
+
+      nav {
+        display: none; /* simple mobile nav for now */
+      }
+
+      .hero {
+        padding-top: 120px;
+      }
+    }
+  </style>
 </head>
 <body>
-
-<!-- HEADER -->
-<header>
-  <h1>Markel Media & Management</h1>
-  <nav>
-    <a href="about.html">About</a>
-    <a href="realestate.html">Real Estate</a>
-    <a href="videography.html">Videography</a>
-    <a href="eventmedia.html">Events</a>
-    <a href="workshops.html">Workshops</a>
-    <a href="contact.html">Contact</a>
-  </nav>
-</header>
-
-<!-- CONTACT SECTION -->
-<section class="contact-section">
-  <div class="contact-container">
-    <!-- CONTACT FORM -->
-    <div class="contact-form">
-      <h2>Send a Message</h2>
-      <form action="https://formspree.io/f/mzzvgnvq" method="POST">
-        <input type="text" name="name" placeholder="Your Name" required>
-        <input type="email" name="email" placeholder="Your Email" required>
-        <textarea name="message" placeholder="Your Message" rows="6" required></textarea>
-        <button type="submit">Send Message</button>
-      </form>
+  <!-- HEADER -->
+  <header>
+    <div class="nav-inner">
+      <div class="brand">
+        Markel Media <span>&amp; Management</span>
+      </div>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="real-estate.html">Real Estate</a>
+        <a href="event-media.html">Events</a>
+        <a href="videography.html">Videography</a>
+        <a href="workshops.html">Workshops</a>
+        <a href="theintegratededge.html">Conference</a>
+        <a href="wiwgu.html">Podcast</a>
+        <a href="about.html">About</a>
+        <a href="contact.html" class="active">Contact</a>
+      </nav>
     </div>
+  </header>
 
-    <!-- CALENDLY -->
-    <div class="calendly-container">
-      <h2>Book a 30-Min Meeting</h2>
-      <iframe src="https://calendly.com/isaiah-lesley/30min?month=2025-10"></iframe>
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <span class="pill-label">Contact</span>
+      <h1>Tell Me What You’re Building.</h1>
+      <p class="lead" style="max-width:620px;">
+        Whether you’re ready to book a shoot, host a workshop, bring The Integrated Edge to your
+        city, or explore a collaboration, this is where it starts. Share a few details and we’ll
+        follow up with next steps.
+      </p>
+      <p class="hero-meta">
+        For media, WIWGU, and speaking inquiries, you can also mention the lane you’re reaching out from in the subject line.
+      </p>
+    </section>
+
+    <!-- FORM + SIDEBAR -->
+    <section class="section">
+      <div class="grid-2">
+        <!-- FORM COLUMN -->
+        <div>
+          <div class="form-wrapper">
+            <!-- 
+              NOTE:
+              If you want a working hosted form, you can plug in a provider like Formspree:
+              <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+              For now this is set to mailto so it works on static hosting.
+            -->
+            <form action="mailto:isaiah@pearsonrealtygroup.com" method="POST" enctype="text/plain">
+              <div>
+                <label for="name">Name *</label>
+                <input type="text" id="name" name="Name" placeholder="Your full name" required>
+              </div>
+
+              <div>
+                <label for="email">Email *</label>
+                <input type="email" id="email" name="Email" placeholder="you@example.com" required>
+              </div>
+
+              <div>
+                <label for="phone">Phone (optional)</label>
+                <input type="tel" id="phone" name="Phone" placeholder="Best number to reach you">
+              </div>
+
+              <div>
+                <label for="interest">What are you reaching out about? *</label>
+                <select id="interest" name="Inquiry Type" required>
+                  <option value="" disabled selected>Select an option</option>
+                  <option value="Real Estate Media">Real Estate Media (photo/video)</option>
+                  <option value="Event Coverage">Event Media &amp; Coverage</option>
+                  <option value="Videography Project">Videography / Brand Video</option>
+                  <option value="Workshop">Shoot • Post • Close Workshop</option>
+                  <option value="The Integrated Edge">The Integrated Edge (hosting, speaking, partnership)</option>
+                  <option value="WIWGU">WIWGU Podcast (collab, guest, live recording)</option>
+                  <option value="Consulting/Strategy">Consulting / Strategy Session</option>
+                  <option value="Other">Something Else</option>
+                </select>
+              </div>
+
+              <div>
+                <label for="budget">Approximate budget (USD)</label>
+                <select id="budget" name="Budget">
+                  <option value="" selected>No specific range</option>
+                  <option value="Under 500">Under $500</option>
+                  <option value="500-1500">$500 – $1,500</option>
+                  <option value="1500-3500">$1,500 – $3,500</option>
+                  <option value="3500-7500">$3,500 – $7,500</option>
+                  <option value="7500-plus">$7,500+</option>
+                </select>
+              </div>
+
+              <div>
+                <label for="timeline">Ideal timeline</label>
+                <select id="timeline" name="Timeline">
+                  <option value="" selected>Flexible / Not sure</option>
+                  <option value="ASAP">ASAP (next 2–4 weeks)</option>
+                  <option value="1-3 months">1–3 months</option>
+                  <option value="3-6 months">3–6 months</option>
+                  <option value="6-plus-months">6+ months out</option>
+                </select>
+              </div>
+
+              <div class="form-full">
+                <label for="message">Tell me more about what you need. *</label>
+                <textarea id="message" name="Message" placeholder="Share context, links, dates, and anything else that helps me understand the project." required></textarea>
+                <p class="helper-text">
+                  You can also drop links to listings, decks, or inspiration so I can get a feel for your world.
+                </p>
+              </div>
+
+              <div class="form-actions">
+                <button type="submit" class="btn btn-primary">Submit Inquiry</button>
+                <p class="disclaimer">
+                  By submitting, you agree to be contacted by email (and phone if provided) about this project or collaboration.
+                </p>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <!-- SIDEBAR COLUMN -->
+        <div>
+          <div class="sidebar-block">
+            <div class="sidebar-title">Quick Ways To Frame Your Inquiry</div>
+            <p class="sidebar-text">
+              Most messages fall into one of these lanes. If you’re not sure where you fit, just
+              pick the closest one in the dropdown and explain in your own words.
+            </p>
+            <div class="tag-row">
+              <span class="tag-pill">Real Estate Media</span>
+              <span class="tag-pill">Events &amp; Conferences</span>
+              <span class="tag-pill">Brand Video</span>
+              <span class="tag-pill">Workshops</span>
+              <span class="tag-pill">The Integrated Edge</span>
+              <span class="tag-pill">WIWGU</span>
+              <span class="tag-pill">Consulting</span>
+            </div>
+          </div>
+
+          <div class="sidebar-block">
+            <div class="sidebar-title">Email Directly</div>
+            <p class="sidebar-text">
+              Prefer to write your own email thread or send attachments first?
+            </p>
+            <a href="mailto:isaiah@markelmgmt.com" class="sidebar-email">
+              isaiah@markelmgmt.com
+            </a>
+          </div>
+
+          <div class="calendly-wrapper">
+            <h3>Book A 30-Min Call</h3>
+            <p>
+              If you'd rather talk it through live, grab a spot on my calendar. Use this for
+              alignment calls, scope checks, or collaboration conversations.
+            </p>
+            <div class="calendly-inline-frame">
+              <iframe src="https://calendly.com/isaiah-lesley/30min" title="Schedule time with Isaiah"></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div>© <span id="year"></span> Markel Media &amp; Management. All rights reserved.</div>
+    <div class="footer-social">
+      Connect:
+      <a href="https://www.instagram.com/markelmediamgmt/" target="_blank" rel="noopener">Instagram</a> |
+      <a href="https://www.youtube.com/@Isaiahml" target="_blank" rel="noopener">YouTube</a> |
+      <a href="https://x.com/markelmediamgmt" target="_blank" rel="noopener">X / Twitter</a> |
+      <a href="https://www.linkedin.com/in/isaiah-m-lesley-a2b909196/" target="_blank" rel="noopener">LinkedIn</a>
     </div>
-  </div>
-</section>
+  </footer>
 
-<!-- FOOTER -->
-<footer>
-  <p>&copy; 2025 Isaiah Lesley. Chicago, IL.</p>
-  <div class="socials">
-    <a href="https://www.instagram.com/isaiahmarkellesley/" target="_blank">Instagram</a> |
-    <a href="https://www.tiktok.com/@isaiah.markel" target="_blank">TikTok</a> |
-    <a href="https://x.com/theisaiahml" target="_blank">X/Twitter</a> |
-    <a href="https://www.youtube.com/c/Isaiahml" target="_blank">YouTube</a>
-  </div>
-</footer>
-
-<script>
-// GSAP fade-in for sections
-gsap.utils.toArray('.contact-section').forEach(section => {
-  gsap.from(section, { opacity:0, y:50, duration:1, scrollTrigger:{ trigger: section, start:'top 85%' } });
-});
-</script>
-
+  <script>
+    // Set current year in footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
