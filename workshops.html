@@ -1,231 +1,657 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Workshops | Markel Management</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Workshops &amp; Training | Markel Media &amp; Management | Shoot • Post • Close</title>
+
+  <!-- SEO -->
+  <meta name="description" content="Chicago-based content workshops and media training for real estate agents, teams, and creatives. Markel Media & Management leads on-site Shoot • Post • Close workshops that turn your people into consistent content machines." />
+  <meta name="robots" content="index,follow" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Workshops & Training | Markel Media & Management" />
+  <meta property="og:description" content="Shoot • Post • Close workshops and live media training for agents, teams, and creatives in Chicago and beyond." />
+  <meta property="og:type" content="website" />
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
+
   <style>
-    :root {
-      --bg: #0e0e10;
-      --fg: #f9f9f9;
-      --accent: #5a97b9;
-      --muted: #999;
-      --card-bg: #1c1c1f;
+    /* RESET */
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
-```
-* { margin:0; padding:0; box-sizing:border-box; font-family:'Inter', sans-serif; }
-body { background: var(--bg); color: var(--fg); line-height:1.6; }
-header { background:#111; padding:1.5rem 2rem; display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid #222; position:sticky; top:0; z-index:50; }
-header h1 { font-size:1.5rem; font-weight:800; }
-nav a { color: var(--fg); margin-left:1.5rem; text-decoration:none; font-weight:600; transition:color 0.2s; }
-nav a:hover { color: var(--accent); }
+    html, body {
+      scroll-behavior: smooth;
+    }
 
-.hero {
-  padding:6rem 2rem 3rem;
-  text-align:center;
-  background: linear-gradient(to bottom, rgba(14,14,16,0.85), rgba(14,14,16,0.85)), url('assets/images/WSPFlyer.jpg') center/cover no-repeat;
-  border-bottom:1px solid #222;
-}
-.hero h2 { font-size:2.5rem; font-weight:800; margin-bottom:1rem; }
-.hero p { font-size:1.1rem; color: var(--muted); }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #0e0e0e;
+      color: #EDE7D9;
+      line-height: 1.6;
+    }
 
-.section { max-width:1000px; margin:auto; padding:4rem 2rem; }
-.section h3 { font-size:2rem; font-weight:700; margin-bottom:1.5rem; }
-.section p, li { color: var(--muted); font-size:1.05rem; margin-bottom:1rem; }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
 
-.card { background: var(--card-bg); border:1px solid #222; border-radius:12px; padding:2rem; margin-bottom:2rem; box-shadow:0 5px 15px rgba(0,0,0,0.3); }
-.card h4 { color: var(--accent); margin-bottom:1rem; }
-.card ul { list-style: disc; margin-left:1.5rem; }
+    img, video {
+      max-width: 100%;
+      display: block;
+    }
 
-.flyer { display:block; max-width:700px; margin:2rem auto; border-radius:12px; box-shadow:0 5px 20px rgba(0,0,0,0.4); }
+    /* LAYOUT HELPERS */
+    .section {
+      padding: 80px 10%;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
 
-.carousel { display:flex; overflow-x:auto; gap:1rem; scroll-snap-type:x mandatory; padding-bottom:1rem; }
-.carousel img { scroll-snap-align:start; flex:0 0 auto; width:300px; border-radius:12px; box-shadow:0 5px 15px rgba(0,0,0,0.3); border:1px solid #222; }
+    .section-narrow {
+      padding: 60px 10%;
+      max-width: 800px;
+      margin: 0 auto;
+    }
 
-.mini-contact-form { max-width:500px; margin:3rem auto; padding:1.5rem; background: var(--card-bg); border:1px solid #333; border-radius:12px; }
-.mini-contact-form form { display:flex; flex-direction:column; gap:1rem; }
-.mini-contact-form input, .mini-contact-form textarea { background:#0e0e10; border:1px solid #444; border-radius:8px; padding:0.75rem 1rem; color:#f9f9f9; font-size:1rem; width:100%; }
-.mini-contact-form textarea { resize:vertical; min-height:100px; }
-.mini-contact-form button { background-color: var(--accent); color:#fff; padding:0.75rem; border:none; border-radius:8px; font-weight:bold; cursor:pointer; transition:background 0.3s; }
-.mini-contact-form button:hover { background:#46749a; }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.4rem;
+      margin-bottom: 1.5rem;
+      letter-spacing: 0.5px;
+    }
 
-footer { padding:2rem; text-align:center; font-size:0.9rem; color: var(--muted); border-top:1px solid #222; }
-.socials a { color: var(--fg); text-decoration:none; margin:0 0.5rem; }
-.socials a:hover { color: var(--accent); }
+    /* HEADER / NAV */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: rgba(10,10,10,0.9);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid #1f1f1f;
+    }
 
-@media(max-width:768px){
-  .carousel img { width:80%; }
-}
-```
+    .nav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 1rem 10%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
 
+    .brand {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .brand span {
+      color: #C5A572;
+    }
+
+    nav a {
+      margin-left: 1.5rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #EDE7D9;
+      opacity: 0.9;
+      transition: color 0.2s ease, opacity 0.2s ease;
+    }
+
+    nav a:hover,
+    nav a.active {
+      color: #C5A572;
+      opacity: 1;
+    }
+
+    /* BUTTONS */
+    .btn {
+      display: inline-block;
+      padding: 0.85rem 2.4rem;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      border: 2px solid transparent;
+      transition: all 0.25s ease;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #C5A572, #b69249);
+      color: #0e0e0e;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      border-color: #C5A572;
+      color: #C5A572;
+      background: transparent;
+    }
+
+    .btn-outline:hover {
+      background: #C5A572;
+      color: #0e0e0e;
+      transform: translateY(-2px);
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 70vh;
+      padding: 140px 10% 80px;
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .hero-copy h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.8rem;
+      line-height: 1.1;
+      margin-bottom: 1rem;
+    }
+
+    .hero-kicker {
+      font-size: 0.9rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #C5A572;
+      margin-bottom: 0.65rem;
+    }
+
+    .hero-subtitle {
+      font-size: 1rem;
+      color: #d2c7b2;
+      max-width: 520px;
+      margin-bottom: 1.75rem;
+    }
+
+    .hero-tags {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: #8e8e8e;
+      margin-bottom: 1.75rem;
+    }
+
+    .hero-media {
+      position: relative;
+    }
+
+    .hero-media img {
+      border-radius: 22px;
+      border: 1px solid #262626;
+      box-shadow: 0 22px 60px rgba(0,0,0,0.7);
+    }
+
+    .hero-label {
+      position: absolute;
+      left: 1.5rem;
+      bottom: 1.5rem;
+      background: rgba(5,5,5,0.9);
+      border-radius: 999px;
+      padding: 0.4rem 1rem;
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      border: 1px solid #333;
+      color: #C5A572;
+    }
+
+    /* GRIDS & CARDS */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.75rem;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.75rem;
+    }
+
+    .card {
+      background: #151515;
+      border-radius: 16px;
+      border: 1px solid #262626;
+      padding: 1.5rem;
+    }
+
+    /* GALLERY STRIP */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.25rem;
+    }
+
+    .gallery-item img {
+      border-radius: 14px;
+      border: 1px solid #262626;
+    }
+
+    .gallery-item p {
+      font-size: 0.9rem;
+      color: #b4b4b4;
+      margin-top: 0.6rem;
+    }
+
+    /* CASE STUDY TEXT */
+    .case-header {
+      font-size: 0.9rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #C5A572;
+      margin-bottom: 0.4rem;
+    }
+
+    .case-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.7rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .case-body {
+      font-size: 0.95rem;
+      color: #c4c4c4;
+      margin-bottom: 1rem;
+    }
+
+    .case-meta {
+      font-size: 0.85rem;
+      color: #8e8e8e;
+    }
+
+    /* PACKAGES */
+    .package-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.75rem;
+      margin-top: 1.5rem;
+    }
+
+    .package-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .package-price {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #C5A572;
+      margin-bottom: 0.75rem;
+    }
+
+    .package-card ul {
+      list-style: none;
+      margin-top: 0.5rem;
+    }
+
+    .package-card li {
+      font-size: 0.9rem;
+      color: #c4c4c4;
+      margin-bottom: 0.4rem;
+    }
+
+    .package-note {
+      font-size: 0.8rem;
+      color: #8e8e8e;
+      margin-top: 0.65rem;
+    }
+
+    /* FAQ */
+    .faq {
+      margin-top: 1.75rem;
+    }
+
+    .faq-item {
+      margin-bottom: 1.1rem;
+    }
+
+    .faq-item h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+
+    .faq-item p {
+      font-size: 0.9rem;
+      color: #c4c4c4;
+    }
+
+    /* CTA */
+    .cta {
+      text-align: center;
+    }
+
+    .cta p {
+      color: #c4c4c4;
+      max-width: 520px;
+      margin: 0.75rem auto 2rem;
+    }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid #1c1c1c;
+      padding: 1.5rem 10%;
+      max-width: 1100px;
+      margin: 0 auto 1rem;
+      font-size: 0.8rem;
+      color: #8e8e8e;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    footer a {
+      color: #C5A572;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: 1fr;
+        padding-inline: 10%;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .nav-inner {
+        padding-inline: 6%;
+      }
+
+      .hero,
+      .section,
+      .section-narrow {
+        padding-inline: 6%;
+      }
+
+      nav {
+        display: none; /* simple mobile treatment for now */
+      }
+
+      .hero {
+        padding-top: 120px;
+      }
+    }
   </style>
 </head>
 <body>
+  <!-- HEADER -->
   <header>
-    <h1>Markel Management</h1>
-    <nav>
-      <a href="about.html">About</a>
-      <a href="real-estate.html">Real Estate</a>
-      <a href="videography.html">Videography</a>
-      <a href="event-media.html">Events</a>
-      <a href="workshops.html">Workshops</a>
-      <a href="contact.html">Contact</a>
-    </nav>
+    <div class="nav-inner">
+      <div class="brand">
+        Markel Media <span>&amp; Management</span>
+      </div>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="real-estate.html">Real Estate</a>
+        <a href="event-media.html">Events</a>
+        <a href="videography.html">Videography</a>
+        <a href="workshops.html" class="active">Workshops</a>
+        <a href="theintegratededge.html">Conference</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
   </header>
 
-  <section class="hero">
-    <h2>Real Estate Video Workshop</h2>
-    <p>Hands-on training to empower agents to capture listings and personal brand content with ease.</p>
-  </section>
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-copy">
+        <div class="hero-kicker">Workshops &amp; Training</div>
+        <h1>Shoot • Post • Close — In Real Life.</h1>
+        <p class="hero-subtitle">
+          Markel Media &amp; Management leads live, hands-on workshops that teach your agents,
+          team, or community how to plan, shoot, and ship content that actually sells.
+        </p>
+        <div class="hero-tags">
+          On-Site Training &nbsp;•&nbsp; Content Systems &nbsp;•&nbsp; Real Estate &amp; Creatives
+        </div>
+        <a href="#packages" class="btn btn-primary">View Workshop Formats</a>
+      </div>
+      <div class="hero-media">
+        <img src="assets/images/WSPMedia1.jpg" alt="Workshop speaker presenting to a focused audience" />
+        <div class="hero-label">Shoot • Post • Close • Live Workshop</div>
+      </div>
+    </section>
 
-  <section class="section">
-    <h3>Workshop Flyer</h3>
-    <img src="assets/images/WSPFlyer.jpg" alt="Workshop Flyer" class="flyer">
+    <!-- WHAT THE WORKSHOP IS -->
+    <section class="section">
+      <h2 class="section-title">Workshops That Don’t Just Talk About Content.</h2>
+      <p style="color:#b4b4b4; max-width:620px; margin-bottom:1.5rem;">
+        The Shoot • Post • Close workshop is built for people who are tired of hearing about
+        “consistency” and “content” with no real game plan. In a few hours, we go from theory to
+        published posts, so your team leaves with muscle memory—not just notes.
+      </p>
 
-```
-<h3>Learning Outcomes</h3>
-<div class="card">
-  <ul>
-    <li>Confidently shoot high-quality video content with their phone.</li>
-    <li>Film listing tours, reels, and client updates that build trust & attract leads.</li>
-    <li>Edit & post quickly using simple, free/low-cost apps.</li>
-    <li>Re-purpose one video across multiple platforms (Instagram, TikTok, YouTube Shorts, LinkedIn).</li>
-    <li>Develop a consistent on-camera presence that boosts personal brand.</li>
-  </ul>
-</div>
+      <div class="grid-3">
+        <div class="card">
+          <h3 style="font-size:1.05rem; margin-bottom:0.5rem;">Designed For Doers</h3>
+          <p style="font-size:0.9rem;">
+            We work with real estate agents, small teams, and creatives who are already in motion
+            but need a structure that fits real life and real deadlines.
+          </p>
+        </div>
+        <div class="card">
+          <h3 style="font-size:1.05rem; margin-bottom:0.5rem;">Built Around Your Industry</h3>
+          <p style="font-size:0.9rem;">
+            Every example, prompt, and flow is tailored to your world—listings, showings, client
+            work, events, or launches—not generic “influencer” advice.
+          </p>
+        </div>
+        <div class="card">
+          <h3 style="font-size:1.05rem; margin-bottom:0.5rem;">From Ideas To Posted Content</h3>
+          <p style="font-size:0.9rem;">
+            We don’t end at frameworks. We carve out time for your team to shoot, edit, and post at
+            least one real piece of content before we wrap.
+          </p>
+        </div>
+      </div>
+    </section>
 
-<h3>Agenda</h3>
-<div class="card">
-  <h4>Hour 1 – Phone Video Basics</h4>
-  <ul>
-    <li>Phone Video Basics → framing, lighting, steady shots.</li>
-    <li>Using natural daylight, angles, and steady shots.</li>
-    <li>Best phone settings for quality.</li>
-    <li>Why video sells in real estate.</li>
-  </ul>
-</div>
-<div class="card">
-  <h4>Hour 2 – Hands-On at a Listing</h4>
-  <ul>
-    <li>Hands-On at a Listing → agents film real content</li>
-    <li>Live demo: capturing exteriors, interiors, and agent intros.</li>
-    <li>Each agent films clips with guided coaching.</li>
-    <li>Instant playback + feedback.</li>
-  </ul>
-</div>
-<div class="card">
-  <h4>Hour 3 – Quick Editing & Posting</h4>
-  <ul>
-    <li>Editing Made Easy → quick workflows with free apps</li>
-    <li>Fast editing on phone (CapCut / InShot).</li>
-    <li>Adding captions & music.</li>
-    <li>Posting workflow: IG, TikTok, YouTube Shorts.</li>
-  </ul>
-</div>
-<div class="card">
-  <h4>Hour 4 – Multiply Your Content</h4>
-  <ul>
-    <li>Content Multiplication → 1 listing = 5+ posts</li>
-    <li>Turn one listing video into 5+ posts.</li>
-    <li>Personal branding tips for consistency.</li>
-    <li>Q&A + wrap-up.</li>
-  </ul>
-</div>
+    <!-- GALLERY: WORKSHOPS IN ACTION -->
+    <section class="section">
+      <h2 class="section-title">Workshops In Action</h2>
+      <p style="color:#b4b4b4; max-width:520px; margin-bottom:1.25rem;">
+        The room matters just as much as the curriculum. We design the flow so your people actually
+        feel safe to experiment, ask questions, and hit publish—even if they’ve been camera-shy or
+        overwhelmed in the past.
+      </p>
 
-<h3>Pitch Deck Slides</h3>
-<div class="carousel">
-  <img src="assets/images/WSPMedia1.jpg" alt="Slide 1">
-  <img src="assets/images/WSPMedia2.jpg" alt="Slide 2">
-  <img src="assets/images/WSPMedia3.jpg" alt="Slide 3">
-  <img src="assets/images/WSPMedia4.jpg" alt="Slide 4">
-  <img src="assets/images/WSPMedia5.jpg" alt="Slide 5">
-  <img src="assets/images/WSPMedia6.jpg" alt="Slide 6">
-  <img src="assets/images/WSPMedia7.jpg" alt="Slide 7">
-  <img src="assets/images/WSPMedia8.jpg" alt="Slide 8">
-  <img src="assets/images/WSPMedia9.jpg" alt="Slide 9">
-  <img src="assets/images/WSPMedia10.jpg" alt="Slide 10">
-</div>
+      <div class="gallery-grid">
+        <div class="gallery-item">
+          <img src="assets/images/WSPMedia2.jpg" alt="Workshop attendees engaged and taking notes" />
+          <p>Live teaching moments with space for real-time Q&amp;A.</p>
+        </div>
+        <div class="gallery-item">
+          <img src="assets/images/WSPMedia3.jpg" alt="Interactive workshop with participants collaborating" />
+          <p>Hands-on collaboration and feedback instead of passive slides.</p>
+        </div>
+        <div class="gallery-item">
+          <img src="assets/images/WSPMedia4.jpg" alt="Instructor demonstrating content setup" />
+          <p>On-the-spot demonstrations for content setups your team will actually use.</p>
+        </div>
+      </div>
+    </section>
 
-<!-- Non-Real Estate Workshop Section -->
-<h3>NON-REAL ESTATE Small Business Workshop: “Shoot – Post – Sell: Empower Your Team, Multiply Your Revenue”</h3>
-<div class="card">
-  <p><strong>Duration:</strong> 3–4 hours | <strong>Format:</strong> In-person, hands-on | <strong>Audience:</strong> Small business owners, retail/hospitality teams, chamber members, SBDC clients, or association members</p>
+    <!-- CASE STUDY STRIP -->
+    <section class="section">
+      <div class="grid-2">
+        <div>
+          <div class="case-header">Case Study</div>
+          <div class="case-title">From “I Should Post More” To “I Know Exactly What To Do.”</div>
+          <p class="case-body">
+            In our workshop series, we’ve worked with agents and creatives who were stuck in the
+            “I know I need content, but I don’t know where to start” loop. By the end of a single
+            session, they leave with a repeatable system for planning topics, capturing footage,
+            and getting posts live in minutes—not hours.
+          </p>
+          <p class="case-body">
+            We focus on what you can execute with the gear you already have: your phone, natural
+            light, and a few smart setups. That way, the system survives the workshop and shows up
+            in your feed the next day.
+          </p>
+          <div class="case-meta">
+            Ideal for: real estate teams, small agencies, creative collectives, and community
+            organizations ready to turn their rooms into content engines.
+          </div>
+        </div>
+        <div>
+          <div class="card" style="margin-bottom:1.25rem;">
+            <img src="assets/images/WSPFlyer.jpg" alt="Shoot Post Close workshop promotional flyer" />
+            <p style="font-size:0.9rem; color:#b4b4b4; margin-top:0.75rem;">
+              Shoot • Post • Close flyer used across email, social, and partner promo.
+            </p>
+          </div>
+          <div class="card">
+            <img src="assets/images/WSPMedia10.jpg" alt="Behind the scenes content capture during workshop" />
+            <p style="font-size:0.9rem; color:#b4b4b4; margin-top:0.75rem;">
+              Behind-the-scenes media that doubles as promo for your next event or cohort.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  <h4>Market-Differentiating Value Proposition</h4>
-  <ul>
-    <li>Turn every team member into a content creator → multiply reach and engagement.</li>
-    <li>Reduce dependency on external media companies → save money and increase agility.</li>
-    <li>Build a human brand that AI and generic listings can’t replicate → stand out in a saturated market.</li>
-    <li>Immediate revenue impact: more engagement, more leads, faster conversions.</li>
-  </ul>
+    <!-- PACKAGES / FORMATS -->
+    <section class="section" id="packages">
+      <h2 class="section-title">Workshop Formats</h2>
+      <p style="color:#b4b4b4; max-width:520px; margin-bottom:1.5rem;">
+        Every workshop includes a discovery call beforehand so we can tune the content to your
+        people, your market, and your goals. Here are a few starting points that we can customize
+        to fit your team.
+      </p>
 
-  <h4>Workshop Goals</h4>
-  <ul>
-    <li>Equip participants to produce video content for products, services, or promotions.</li>
-    <li>Create postable, revenue-driving videos immediately.</li>
-    <li>Show how internal content creation scales marketing and builds brand authority.</li>
-  </ul>
+      <div class="package-grid">
+        <!-- Brokerage Intensive -->
+        <div class="card package-card">
+          <h3>Brokerage Intensive</h3>
+          <div class="package-price">From $1,250 (3–4 hours)</div>
+          <ul>
+            <li>On-site training for your real estate office or team</li>
+            <li>Frameworks for listing content, market updates, and personal brand</li>
+            <li>Live shooting lab—agents leave with at least one published post</li>
+          </ul>
+          <p class="package-note">
+            Ideal for brokerages and teams looking to uplevel their media without outsourcing every listing.
+          </p>
+        </div>
 
-  <h4>Workshop Flow</h4>
-  <ul>
-    <li>0:00 – 0:15 | Breaking the Gatekeeping Myth</li>
-    <li>0:15 – 0:45 | The New Marketing Reality</li>
-    <li>0:45 – 1:30 | Hands-On Shooting</li>
-    <li>1:30 – 2:15 | Editing That’s Fast and Simple</li>
-    <li>2:15 – 2:45 | Repurpose & Multiply Across Platforms</li>
-    <li>2:45 – 3:00 | Immediate Deliverables & Wrap-Up</li>
-  </ul>
+        <!-- Creator / Small Team Lab -->
+        <div class="card package-card">
+          <h3>Creator &amp; Small Team Lab</h3>
+          <div class="package-price">From $850 (2–3 hours)</div>
+          <ul>
+            <li>Up to 8 participants (creatives, founders, or staff)</li>
+            <li>Content pillars, batching strategy, and simple workflows</li>
+            <li>Hands-on prompts and accountability to get the first pieces live</li>
+          </ul>
+          <p class="package-note">
+            Best for studios, collectives, and organizations that want a shared language around content.
+          </p>
+        </div>
 
-  <h4>Deliverables</h4>
-  <ul>
-    <li>1–5 ready-to-post videos per participant</li>
-    <li>Content templates & posting schedule</li>
-    <li>Optional: recorded session for future training</li>
-    <li>Quick-start guide for ongoing DIY video creation</li>
-    <li>Full-service experience: catering, setup, teardown, post-production included</li>
-  </ul>
+        <!-- Custom Program -->
+        <div class="card package-card">
+          <h3>Custom Program</h3>
+          <div class="package-price">Custom, based on series length</div>
+          <ul>
+            <li>Multi-session training (virtual or in-person)</li>
+            <li>Optional 1:1 follow-up calls or office hours</li>
+            <li>Curriculum aligned with your existing marketing or sales strategy</li>
+          </ul>
+          <p class="package-note">
+            Ideal for organizations, nonprofits, and education programs building a longer-term media curriculum.
+          </p>
+        </div>
+      </div>
+    </section>
 
-  <h4>Optional Add-Ons / Upsells</h4>
-  <ul>
-    <li>Premium package: Fully edited videos delivered to participants.</li>
-    <li>Ongoing content service: Monthly retainers to produce videos for the business.</li>
-    <li>Advanced workshop: Storytelling, personal branding, or AI-enhanced video techniques.</li>
-  </ul>
+    <!-- FAQ -->
+    <section class="section-narrow">
+      <h2 class="section-title" style="font-size:2rem;">Workshop Logistics</h2>
 
-  <h4>Pricing</h4>
-  <ul>
-    <li>Flat fee (full team): $1,500–$3,000 → turnkey, covers catering, content, setup, cleanup.</li>
-    <li>Per-seat ticketed: $100–$250 per participant.</li>
-    <li>Hybrid: Association subsidizes + participants pay a small fee ($50–$100).</li>
-  </ul>
+      <div class="faq">
+        <div class="faq-item">
+          <h3>Where do you host workshops?</h3>
+          <p>
+            Most workshops are hosted on-site at your office, co-working space, or event venue in
+            the Chicago area and South Suburbs. Virtual options are available for teams outside
+            this radius.
+          </p>
+        </div>
 
-  <h4>Key Selling Points</h4>
-  <ul>
-    <li>Break the Gatekeeping: Every team member becomes a content creator.</li>
-    <li>Immediate Marketing ROI: Business leaves with postable content ready to drive sales.</li>
-    <li>Human + Authentic: Builds a brand that AI or generic agencies can’t replicate.</li>
-    <li>Hassle-Free: We provide catering, setup, cleanup, and deliverables—your team just shows up.</li>
-    <li>Revenue-Driven Training: Teaching skills that convert directly into engagement and leads.</li>
-  </ul>
-</div>
+        <div class="faq-item">
+          <h3>What gear do participants need?</h3>
+          <p>
+            At minimum, a smartphone and basic access to the platforms you’re posting on. If you
+            have cameras or studio space, we’ll incorporate them—but we build the system to work
+            even on your busiest day.
+          </p>
+        </div>
 
-<div class="mini-contact-form">
-  <form action="https://formspree.io/f/mzzvgnvq" method="POST">
-    <input type="text" name="name" placeholder="Name" required>
-    <input type="tel" name="phone" placeholder="Phone Number" required>
-    <input type="email" name="email" placeholder="Email" required>
-    <textarea name="message" placeholder="Your Message" required></textarea>
-    <button type="submit">Send</button>
-  </form>
-</div>
+        <div class="faq-item">
+          <h3>Can you tailor it for our niche?</h3>
+          <p>
+            Yes. Before we lock in a date, we’ll talk through your industry, audience, and goals so
+            the examples and prompts feel like your world—not generic social media advice.
+          </p>
+        </div>
 
-  </section>
+        <div class="faq-item">
+          <h3>Do you offer follow-up support?</h3>
+          <p>
+            We can add optional virtual office hours or a short follow-up series so your team has a
+            place to ask questions once they’ve tried the system on their own.
+          </p>
+        </div>
+      </div>
+    </section>
 
+    <!-- CTA -->
+    <section class="section-narrow cta">
+      <h2 class="section-title" style="text-align:center;">Ready To Bring Shoot • Post • Close To Your People?</h2>
+      <p>
+        Tell us about your team, your event date, and what “success” looks like—more listings, more
+        leads, better storytelling, or all of the above. We’ll follow up with a proposed format and
+        quote.
+      </p>
+      <a href="contact.html" class="btn btn-primary">Inquire About A Workshop</a>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
   <footer>
-    <p>&copy; 2025 Isaiah Markel. Chicago, IL. | @theisaiahml</p>
+    <div>© <span id="year"></span> Markel Media &amp; Management. All rights reserved.</div>
+    <div>Based in Chicago, IL &nbsp;•&nbsp; <a href="mailto:isaiah@pearsonrealtygroup.com">isaiah@pearsonrealtygroup.com</a></div>
   </footer>
+
+  <script>
+    // Set current year in footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
