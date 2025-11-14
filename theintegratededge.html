@@ -3,229 +3,726 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The Integrated Edge Conference — 2025</title>
+  <title>The Integrated Edge | Conference & Ecosystem | Markel Media &amp; Management</title>
+
+  <!-- SEO -->
+  <meta name="description" content="The Integrated Edge is a Chicago-born conference and ecosystem created by Isaiah Markel Lesley, connecting media, real estate, and strategy for agents, founders, and creatives who want their stories to actually sell." />
+  <meta name="robots" content="index,follow" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="The Integrated Edge | Conference & Ecosystem" />
+  <meta property="og:description" content="A live experience and media ecosystem for people building real businesses with real stories—designed by Markel Media & Management." />
+  <meta property="og:type" content="website" />
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
+
   <style>
-    body {
+    /* RESET */
+    *, *::before, *::after {
       margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background-color: #000;
-      color: #fff;
-      overflow-x: hidden;
+      padding: 0;
+      box-sizing: border-box;
     }
-    header {
-      height: 100vh;
-      background: url('hero-bg.mp4') center/cover no-repeat;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      background-color: rgba(0,0,0,0.5);
+
+    html, body {
+      scroll-behavior: smooth;
     }
-    header h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.8rem;
-      background: linear-gradient(90deg, #b1975a, #e0c98d);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      letter-spacing: 1px;
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #0e0e0e;
+      color: #EDE7D9;
+      line-height: 1.6;
     }
-    header p {
-      font-size: 1.2rem;
-      max-width: 600px;
-      margin: 1rem auto;
-    }
-    header a.button {
-      background: linear-gradient(90deg, #b1975a, #e0c98d);
-      color: black;
+
+    a {
       text-decoration: none;
-      padding: 0.75rem 1.5rem;
-      border-radius: 6px;
-      margin-top: 1.5rem;
-      font-weight: 600;
-      transition: all 0.3s ease;
+      color: inherit;
     }
-    header a.button:hover {
-      background: linear-gradient(90deg, #a68a54, #ccb97c);
-      transform: scale(1.05);
+
+    img {
+      max-width: 100%;
+      display: block;
     }
-    section {
-      padding: 100px 10%;
-      border-bottom: 1px solid rgba(255,255,255,0.1);
+
+    /* LAYOUT HELPERS */
+    .section {
+      padding: 80px 10%;
+      max-width: 1100px;
+      margin: 0 auto;
     }
-    section h2 {
-      background: linear-gradient(90deg, #b1975a, #e0c98d);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      font-family: 'Playfair Display', serif;
-      font-size: 2rem;
-      margin-bottom: 1rem;
-      text-align: center;
-    }
-    .vision {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 2rem;
-    }
-    .vision img {
-      width: 100%;
-      max-width: 500px;
-      border-radius: 12px;
-      box-shadow: 0 0 20px rgba(177,151,90,0.3);
-    }
-    .vision-text {
-      flex: 1;
-      font-size: 1.1rem;
-      line-height: 1.7;
-    }
-    .pillars {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 2rem;
-      margin-top: 2rem;
-    }
-    .pillar {
-      background-color: #111;
-      border: 1px solid rgba(177,151,90,0.3);
-      border-radius: 12px;
-      padding: 1.5rem;
-      transition: all 0.3s ease;
-    }
-    .pillar:hover {
-      transform: translateY(-5px);
-      border-color: #b1975a;
-    }
-    .event-timeline {
-      line-height: 1.7;
-      font-size: 1rem;
+
+    .section-narrow {
+      padding: 60px 10%;
       max-width: 800px;
       margin: 0 auto;
     }
-    .tiers {
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.4rem;
+      margin-bottom: 1.5rem;
+      letter-spacing: 0.5px;
+    }
+
+    /* HEADER / NAV */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: rgba(10,10,10,0.9);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid #1f1f1f;
+    }
+
+    .nav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 1rem 10%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .brand span {
+      color: #C5A572;
+    }
+
+    nav a {
+      margin-left: 1.5rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #EDE7D9;
+      opacity: 0.9;
+      transition: color 0.2s ease, opacity 0.2s ease;
+    }
+
+    nav a:hover,
+    nav a.active {
+      color: #C5A572;
+      opacity: 1;
+    }
+
+    /* BUTTONS */
+    .btn {
+      display: inline-block;
+      padding: 0.85rem 2.4rem;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      border: 2px solid transparent;
+      transition: all 0.25s ease;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #C5A572, #b69249);
+      color: #0e0e0e;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      border-color: #C5A572;
+      color: #C5A572;
+      background: transparent;
+    }
+
+    .btn-outline:hover {
+      background: #C5A572;
+      color: #0e0e0e;
+      transform: translateY(-2px);
+    }
+
+    .btn-ghost {
+      border-color: #444;
+      color: #d0d0d0;
+      background: transparent;
+      font-size: 0.85rem;
+      padding-inline: 1.9rem;
+    }
+
+    .btn-ghost:hover {
+      border-color: #C5A572;
+      color: #C5A572;
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 70vh;
+      padding: 140px 10% 80px;
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .hero-kicker {
+      font-size: 0.9rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #C5A572;
+      margin-bottom: 0.65rem;
+    }
+
+    .hero-copy h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.8rem;
+      line-height: 1.1;
+      margin-bottom: 1rem;
+    }
+
+    .hero-subtitle {
+      font-size: 1rem;
+      color: #d2c7b2;
+      max-width: 540px;
+      margin-bottom: 1.75rem;
+    }
+
+    .hero-meta {
+      font-size: 0.9rem;
+      color: #8e8e8e;
+      margin-bottom: 1.75rem;
+    }
+
+    .hero-buttons {
       display: flex;
       flex-wrap: wrap;
-      justify-content: center;
-      gap: 3rem;
-      margin-top: 4rem;
+      gap: 0.75rem;
+      margin-bottom: 1.25rem;
     }
-    .tier {
-      background-color: #111;
-      border: 1px solid rgba(177,151,90,0.3);
-      border-radius: 12px;
-      padding: 2rem;
-      width: 320px;
-      text-align: center;
-      transition: all 0.3s ease;
-      margin-bottom: 2rem;
+
+    .hero-note {
+      font-size: 0.85rem;
+      color: #8e8e8e;
     }
-    .tier:hover {
-      border-color: #b1975a;
-      transform: translateY(-8px);
+
+    .hero-media {
+      position: relative;
     }
-    .tier h3 {
-      background: linear-gradient(90deg, #b1975a, #e0c98d);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      font-family: 'Playfair Display', serif;
-      font-size: 1.4rem;
-      margin-bottom: 0.5rem;
+
+    .hero-media img {
+      border-radius: 22px;
+      border: 1px solid #262626;
+      box-shadow: 0 22px 60px rgba(0,0,0,0.7);
     }
-    .tier p {
-      font-size: 1rem;
-      line-height: 1.6;
+
+    .hero-label {
+      position: absolute;
+      left: 1.5rem;
+      bottom: 1.5rem;
+      background: rgba(5,5,5,0.9);
+      border-radius: 999px;
+      padding: 0.4rem 1rem;
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      border: 1px solid #333;
+      color: #C5A572;
     }
-    .tier a.button {
+
+    /* GRID & CARDS */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.75rem;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.75rem;
+    }
+
+    .card {
+      background: #151515;
+      border-radius: 16px;
+      border: 1px solid #262626;
+      padding: 1.5rem;
+    }
+
+    .pill-label {
       display: inline-block;
-      margin-top: 1rem;
-      background: linear-gradient(90deg, #b1975a, #e0c98d);
-      color: black;
-      text-decoration: none;
-      padding: 0.6rem 1.2rem;
-      border-radius: 6px;
-      font-weight: 600;
-      transition: all 0.3s ease;
+      font-size: 0.78rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #C5A572;
+      border-radius: 999px;
+      border: 1px solid #333;
+      padding: 0.35rem 0.9rem;
+      margin-bottom: 0.7rem;
     }
-    .tier a.button:hover {
-      background: linear-gradient(90deg, #a68a54, #ccb97c);
+
+    .lead {
+      color: #c4c4c4;
+      font-size: 0.98rem;
+      margin-bottom: 1rem;
     }
-    footer {
-      text-align: center;
-      padding: 40px 0;
+
+    /* BRAND VISUALS */
+    .brand-visuals {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.25rem;
+    }
+
+    .brand-visuals img {
+      border-radius: 18px;
+      border: 1px solid #262626;
+    }
+
+    .brand-visuals p {
+      font-size: 0.85rem;
+      color: #b4b4b4;
+      margin-top: 0.5rem;
+    }
+
+    /* EPISODE / PILLAR GRID */
+    .episode-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.25rem;
+    }
+
+    .episode-card {
+      background: #151515;
+      border-radius: 16px;
+      border: 1px solid #262626;
+      padding: 1rem 1rem 1.2rem;
+    }
+
+    .episode-card img {
+      border-radius: 12px;
+      border: 1px solid #333;
+      margin-bottom: 0.7rem;
+    }
+
+    .episode-card h3 {
+      font-size: 0.98rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .episode-card p {
+      font-size: 0.86rem;
+      color: #c4c4c4;
+    }
+
+    /* WHO IT'S FOR */
+    .audience-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.4rem;
+    }
+
+    .audience-card {
+      background: #151515;
+      border-radius: 16px;
+      border: 1px solid #262626;
+      padding: 1.5rem;
+    }
+
+    .audience-card h3 {
+      font-size: 1.05rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .audience-card p {
       font-size: 0.9rem;
-      color: rgba(255,255,255,0.6);
+      color: #c4c4c4;
+    }
+
+    /* CASE STUDY / FLYER */
+    .case-meta {
+      font-size: 0.85rem;
+      color: #8e8e8e;
+      margin-top: 0.5rem;
+    }
+
+    /* LOGISTICS STRIP */
+    .logistics-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .log-card h3 {
+      font-size: 1rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .log-card p {
+      font-size: 0.9rem;
+      color: #c4c4c4;
+    }
+
+    /* CTA */
+    .cta {
+      text-align: center;
+    }
+
+    .cta p {
+      color: #c4c4c4;
+      max-width: 520px;
+      margin: 0.75rem auto 2rem;
+    }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid #1c1c1c;
+      padding: 1.5rem 10%;
+      max-width: 1100px;
+      margin: 0 auto 1rem;
+      font-size: 0.8rem;
+      color: #8e8e8e;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    footer a {
+      color: #C5A572;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: 1fr;
+        padding-inline: 10%;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .nav-inner {
+        padding-inline: 6%;
+      }
+
+      .hero,
+      .section,
+      .section-narrow {
+        padding-inline: 6%;
+      }
+
+      nav {
+        display: none; /* simple mobile for now */
+      }
+
+      .hero {
+        padding-top: 120px;
+      }
     }
   </style>
 </head>
 <body>
+  <!-- HEADER -->
   <header>
-    <h1>The Integrated Edge Conference — Sunday, November 23, 2025</h1>
-    <p>Where Media, Marketing, and Real Estate Collide<br>Presented by Markel Media & Management</p>
-    <a class="button" href="https://www.eventbrite.com/e/the-integrated-edge-conference-2025-tickets-1861755754579?utm-campaign=social&utm-content=attendeeshare&utm-medium=discovery&utm-term=listing&utm-source=cp&aff=ebdsshcopyurl" target="_blank">Reserve on Eventbrite</a>
+    <div class="nav-inner">
+      <div class="brand">
+        Markel Media <span>&amp; Management</span>
+      </div>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="real-estate.html">Real Estate</a>
+        <a href="event-media.html">Events</a>
+        <a href="videography.html">Videography</a>
+        <a href="workshops.html">Workshops</a>
+        <a href="theintegratededge.html" class="active">Conference</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
   </header>
 
-  <section class="vision">
-    <img src="assets/images/TIE Conference Flyer.jpg" alt="The Integrated Edge Conference Vision" />
-    <div class="vision-text">
-      <h2>🖤 The Vision</h2>
-      <p>Before the world slows down for the holidays, a select group of creators, developers, and industry leaders will gather in Chicago for a cinematic one-day experience — built to ignite momentum going into 2026.</p>
-      <p>The Integrated Edge Conference merges media, marketing, PR, and real estate innovation into a single strategy: the integrated system for influence. It’s not theory — it’s execution, designed to help attendees attract clients, amplify visibility, and scale their brand.</p>
-    </div>
-  </section>
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-copy">
+        <div class="hero-kicker">The Integrated Edge</div>
+        <h1>Where Story, Strategy &amp; Deal Flow Finally Match.</h1>
+        <p class="hero-subtitle">
+          The Integrated Edge is a live experience and media ecosystem designed by Isaiah Markel
+          Lesley for people who want their content, strategy, and real-life results to line up—
+          not live in separate folders.
+        </p>
+        <div class="hero-meta">
+          Chicago-born. Built for agents, founders, and creatives who are done playing small with
+          their story and their systems.
+        </div>
+        <div class="hero-buttons">
+          <a href="contact.html" class="btn btn-primary">Inquire About The Conference</a>
+          <a href="#pillars" class="btn btn-outline">Explore The Pillars</a>
+          <a href="assets/images/TIE Conference Flyer.pdf" class="btn btn-ghost" target="_blank" rel="noopener">View One-Pager (PDF)</a>
+        </div>
+        <div class="hero-note">
+          Looking to bring The Integrated Edge to your city, brokerage, or organization?
+          Use the contact form and mention “TIE” in your message.
+        </div>
+      </div>
+      <div class="hero-media">
+        <img src="assets/images/TIE Conference Flyer.jpg" alt="The Integrated Edge conference flyer design" />
+        <div class="hero-label">The Integrated Edge • Concept Conference Flyer</div>
+      </div>
+    </section>
 
-  <section>
-    <h2>🎥 The Four Pillars of The Integrated Edge</h2>
-    <div class="pillars">
-      <div class="pillar">
-        <h3>Media: Cinematic Storytelling for Business Growth</h3>
-        <p>Every brand is now a media company — the ones that master storytelling win. Learn to design video content that sells stories, not specs.</p>
+    <!-- WHAT IS TIE -->
+    <section class="section">
+      <span class="pill-label">The Concept</span>
+      <h2 class="section-title" style="margin-top:0.4rem;">What Is The Integrated Edge?</h2>
+      <p class="lead">
+        Most people treat their business like three separate lives: the brand they talk about online,
+        the operation they run behind the scenes, and the person they’re trying to become. The
+        Integrated Edge is about collapsing those into one honest, powerful story that can actually
+        sell, scale, and sustain you.
+      </p>
+      <div class="grid-2" style="margin-top:1.5rem;">
+        <div>
+          <p class="lead">
+            The conference sits at the intersection of
+            <strong>media, real estate, entrepreneurship, and healing</strong>. It’s where we talk
+            about funnels and feelings in the same room—because your strategy can’t be sustainable
+            if you’re ignoring the human behind it.
+          </p>
+          <p class="lead">
+            Every session, panel, and lab is built with a simple filter:
+            <strong>Will this help someone tell the truth about their story and turn it into something
+            that pays them back?</strong>
+          </p>
+        </div>
+        <div>
+          <div class="card">
+            <h3 style="font-size:1.05rem; margin-bottom:0.5rem;">Three Lanes, One Room.</h3>
+            <p style="font-size:0.9rem; color:#c4c4c4;">
+              We pull from three worlds you know well:
+            </p>
+            <ul style="list-style:none; margin-top:0.6rem; font-size:0.9rem; color:#c4c4c4;">
+              <li>• Media &amp; storytelling (video, brand, content)</li>
+              <li>• Real estate &amp; deal-making (agents, investors, housing)</li>
+              <li>• Identity &amp; healing (mental health, faith, creativity)</li>
+            </ul>
+            <p class="case-meta">
+              The Integrated Edge lives at the center—where those three finally talk to each other.
+            </p>
+          </div>
+        </div>
       </div>
-      <div class="pillar">
-        <h3>Marketing: Systems That Scale Visibility and Retainers</h3>
-        <p>Attention without structure is chaos. Build repeatable campaign pipelines that attract high-ticket clients and scale your visibility.</p>
-      </div>
-      <div class="pillar">
-        <h3>PR: Turning Press & Placements Into ROI</h3>
-        <p>Visibility is power — but only if you know how to leverage it. Secure press, repurpose earned media, and track real ROI from coverage.</p>
-      </div>
-      <div class="pillar">
-        <h3>Real Estate Innovation: Brand, Space & Scale</h3>
-        <p>The intersection of media and property development is transforming how deals close and communities are built.</p>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <section>
-    <h2>✨ Event Structure (Full-Day)</h2>
-    <div class="event-timeline">
-      <p><strong>Morning — 9:00 AM to 12:30 PM</strong><br>Welcome Brunch & Networking Mixer<br>Keynote: The Future Belongs to Integrated Brands<br>Session 1: Media & Storytelling<br>Session 2: PR & Placement</p>
-      <p><strong>Afternoon — 1:30 PM to 5:30 PM</strong><br>Lunch & Partner Showcase<br>Session 3: Marketing in Motion<br>Session 4: Real Estate Innovation<br>Fireside Chat: Integration Is the Future<br>Closing Keynote: Building the Edge: The System Behind the System<br>VIP Mixer & Filming Hour</p>
-    </div>
-  </section>
+    <!-- BRAND VISUALS -->
+    <section class="section">
+      <h2 class="section-title">A Visual Language For The Work.</h2>
+      <p class="lead" style="max-width:620px;">
+        The visuals for The Integrated Edge are designed to feel like blueprints and billboards at
+        the same time—honoring the inner work and the outer execution.
+      </p>
 
-  <section>
-    <h2>🎟️ Experience Tiers</h2>
-    <div class="tiers">
-      <div class="tier">
-        <h3>General Admission – $99</h3>
-        <p>Access to sessions, networking, and replay access.<br>🖤 Perfect for solo entrepreneurs & creatives.</p>
-        <a class="button" href="https://www.eventbrite.com/e/the-integrated-edge-conference-2025-tickets-1861755754579?utm-campaign=social&utm-content=attendeeshare&utm-medium=discovery&utm-term=listing&utm-source=cp&aff=ebdsshcopyurl" target="_blank">Reserve Seat</a>
+      <div class="brand-visuals">
+        <div>
+          <img src="assets/images/Main Graphic.jpg" alt="Main graphic branding for The Integrated Edge" />
+          <p>Main graphic representing the core identity of The Integrated Edge ecosystem.</p>
+        </div>
+        <div>
+          <img src="assets/images/Ground Floor Graphic.jpg" alt="Ground Floor graphic concept for The Integrated Edge" />
+          <p>
+            Ground Floor graphic, reminding us that every empire started as a conversation and a
+            single brave decision.
+          </p>
+        </div>
       </div>
-      <div class="tier">
-        <h3>VIP – $249</h3>
-        <p>Includes The Integrated Edge book, exclusive Q&A, and early access to recordings.<br>✨ For leaders ready to integrate media and marketing into their brand.</p>
-        <a class="button" href="https://www.eventbrite.com/e/the-integrated-edge-conference-2025-tickets-1861755754579?utm-campaign=social&utm-content=attendeeshare&utm-medium=discovery&utm-term=listing&utm-source=cp&aff=ebdsshcopyurl" target="_blank">Reserve VIP Seat</a>
-      </div>
-      <div class="tier">
-        <h3>Partner Access – $499</h3>
-        <p>For up to 3 team members, on-site business spotlight, and brand feature in media recap.<br>🏙️ Ideal for brokerages, developers, or creative teams ready to expand influence.</p>
-        <a class="button" href="https://www.eventbrite.com/e/the-integrated-edge-conference-2025-tickets-1861755754579?utm-campaign=social&utm-content=attendeeshare&utm-medium=discovery&utm-term=listing&utm-source=cp&aff=ebdsshcopyurl" target="_blank">Apply for Partnership</a>
-      </div>
-    </div>
-  </section>
+    </section>
 
+    <!-- PILLARS / EPISODES -->
+    <section class="section" id="pillars">
+      <span class="pill-label">Pillars</span>
+      <h2 class="section-title" style="margin-top:0.4rem;">The Episodes That Shape The Experience.</h2>
+      <p class="lead" style="max-width:640px;">
+        The Integrated Edge moves like a limited series: each “episode” is a pillar that you can
+        walk through in order or step into based on where you’re at. Together, they form the arc
+        from survival mode to integrated, sustainable impact.
+      </p>
+
+      <div class="episode-grid">
+        <div class="episode-card">
+          <img src="assets/images/Episode 1 Graphic.jpg" alt="Episode 1 graphic artwork" />
+          <h3>Episode 1: Ground Floor</h3>
+          <p>
+            Naming where you actually are—financially, emotionally, spiritually—without performance.
+            You can’t build a brand on a lie.
+          </p>
+        </div>
+
+        <div class="episode-card">
+          <img src="assets/images/Episode 2 Graphic.jpg" alt="Episode 2 graphic artwork" />
+          <h3>Episode 2: The Story Under The Strategy</h3>
+          <p>
+            Unpacking the origin stories, timelines, and turning points that make your work matter,
+            then translating them into offers and content.
+          </p>
+        </div>
+
+        <div class="episode-card">
+          <img src="assets/images/Episode 3 Graphic.jpg" alt="Episode 3 graphic artwork" />
+          <h3>Episode 3: Media That Moves People</h3>
+          <p>
+            How to use video, photo, and language in ways that respect your nervous system and your
+            audience’s attention.
+          </p>
+        </div>
+
+        <div class="episode-card">
+          <img src="assets/images/Episode 4 Graphic.jpg" alt="Episode 4 graphic artwork" />
+          <h3>Episode 4: Deals, Doors &amp; Decisions</h3>
+          <p>
+            Applying integrated thinking to real estate, business models, and the deals that will
+            actually move the needle for you.
+          </p>
+        </div>
+
+        <div class="episode-card">
+          <img src="assets/images/Episode 5 Graphic.jpg" alt="Episode 5 graphic artwork" />
+          <h3>Episode 5: Legacy &amp; Long Game</h3>
+          <p>
+            Designing systems, support, and community so your future self doesn’t have to rebuild
+            from scratch every year.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHO IT'S FOR -->
+    <section class="section">
+      <h2 class="section-title">Who The Integrated Edge Is For.</h2>
+      <p class="lead" style="max-width:620px;">
+        This isn’t a vague “motivation” event. It’s built for people who are actively in the work
+        and need a room that understands the layers: race, class, faith, queerness, housing, and
+        hustle—all at the same time.
+      </p>
+
+      <div class="audience-grid">
+        <div class="audience-card">
+          <h3>Real Estate Professionals</h3>
+          <p>
+            Agents, investors, and housing advocates who want their media and messaging to actually
+            reflect the communities they serve—and still close deals.
+          </p>
+        </div>
+        <div class="audience-card">
+          <h3>Founders &amp; Creatives</h3>
+          <p>
+            Creators, studio owners, and small business leaders who are tired of abstract branding
+            advice and want frameworks rooted in reality.
+          </p>
+        </div>
+        <div class="audience-card">
+          <h3>Organizers, Educators &amp; Faith Leaders</h3>
+          <p>
+            People building something bigger than themselves—programs, ministries, nonprofits—who
+            want media that honors both the mission and the people in the room.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CASE STUDY / FLYER & FORMAT -->
+    <section class="section">
+      <div class="grid-2">
+        <div>
+          <span class="pill-label">Format</span>
+          <h2 class="section-title" style="margin-top:0.4rem; font-size:2.1rem;">
+            Conference, Lab, Or Partnership.
+          </h2>
+          <p class="lead">
+            The Integrated Edge can live as a flagship conference, a one-day intensive, or a
+            collaborative experience with existing events, schools, brokerages, or faith
+            communities.
+          </p>
+          <div class="logistics-grid">
+            <div class="log-card">
+              <h3>Flagship Conference</h3>
+              <p>
+                Multi-session experience with keynotes, panels, and live labs. Ideal for cities and
+                organizations ready to host a bold, integrated conversation.
+              </p>
+            </div>
+            <div class="log-card">
+              <h3>One-Day Intensive</h3>
+              <p>
+                Condensed version focused on one or two pillars—perfect for brokerages, studios,
+                and universities.
+              </p>
+            </div>
+            <div class="log-card">
+              <h3>Partner Integration</h3>
+              <p>
+                Bring The Integrated Edge into your existing conference, retreat, or program as a
+                track, keynote, or series.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="card">
+            <img src="assets/images/TIE Conference Flyer.jpg" alt="Conceptual flyer for The Integrated Edge event" />
+            <p style="font-size:0.9rem; color:#c4c4c4; margin-top:0.75rem;">
+              Concept flyer for The Integrated Edge. Final dates, host partners, and locations
+              will be announced to the interest list first.
+            </p>
+            <p class="case-meta">
+              Want to explore hosting, sponsoring, or speaking? Use the contact page and mention
+              “The Integrated Edge” with your role and city.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section-narrow cta">
+      <h2 class="section-title" style="text-align:center;">Want To Be In The Room?</h2>
+      <p>
+        If The Integrated Edge sounds like the kind of space you’ve been craving—for yourself, your
+        team, or your city—I’d love to hear from you. Share who you are, what you’re building, and
+        how you’d like to be involved: attendee, host, sponsor, or collaborator.
+      </p>
+      <a href="contact.html" class="btn btn-primary">Inquire About The Integrated Edge</a>
+      <p style="font-size:0.85rem; color:#8e8e8e; margin-top:1rem;">
+        For media, press, and partnership inquiries, please include “TIE” in your subject line or
+        message.
+      </p>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
   <footer>
-    <p>© 2025 Markel Media & Management. All Rights Reserved.</p>
+    <div>© <span id="year"></span> Markel Media &amp; Management. All rights reserved.</div>
+    <div>Based in Chicago, IL &nbsp;•&nbsp; <a href="mailto:isaiah@pearsonrealtygroup.com">isaiah@pearsonrealtygroup.com</a></div>
   </footer>
+
+  <script>
+    // Set current year in footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
