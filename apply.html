@@ -401,7 +401,112 @@
         and scope at a strategic level.
       </p>
     </section>
+<section class="section" style="padding-top:40px;">
+  <div class="tag-row">
+    <button class="btn btn-primary" onclick="showSection('sponsor')">Brand & Sponsorship</button>
+    <button class="btn" onclick="showSection('careers')" style="border:1px solid #333;">Join the Team</button>
+  </div>
+  <div class="card" style="margin-bottom:2rem;">
+  <span class="pill-label">Lunch With a Realtor</span>
+  <h3 style="margin-bottom:0.6rem;">Sponsor the Series</h3>
+  <p class="sidebar-text">
+    A weekday editorial real estate series spotlighting real conversations, real deals,
+    and real people across Chicagoland. Sponsors receive integrated placement,
+    verbal acknowledgment, and branded visibility.
+  </p>
 
+  <div class="tag-row" style="margin-top:1rem;">
+    <a href="https://buy.stripe.com/cNi14odeq620g3i0XSds401" class="btn btn-primary">
+      Daily Sponsor — $250
+    </a>
+
+    <a href="https://buy.stripe.com/00w00k7U6dus04k6icds402" class="btn btn-primary">
+      Weekly Sponsor (5 Episodes) — $500
+    </a>
+
+    <a href="https://buy.stripe.com/6oUfZib6ibmkcR6eOIds403" class="btn btn-primary">
+      Series Underwriter — $1,250
+    </a>
+  </div>
+
+  <p class="helper-text" style="margin-top:0.6rem;">
+    Sponsors who purchase here will be contacted within 24 hours for onboarding.
+  </p>
+</div>
+</section>
+    <section id="careers" class="section" style="display:none;">
+  <div class="grid-2">
+    <div class="form-wrapper">
+      <span class="pill-label">Careers & Collaborators</span>
+      <h3 style="margin-bottom:0.6rem;">Apply to Work With Markel Media</h3>
+      <p class="lead">
+        We’re building a lean, high-trust creative team across media, real estate,
+        production, and operations.
+      </p>
+
+      <form action="mailto:isaiah@pearsonrealtygroup.com" method="POST" enctype="text/plain">
+        <div>
+          <label>Full Name *</label>
+          <input type="text" name="Name" required>
+        </div>
+
+        <div>
+          <label>Email *</label>
+          <input type="email" name="Email" required>
+        </div>
+
+        <div>
+          <label>Role You’re Applying For *</label>
+          <select name="Role" required>
+            <option disabled selected>Select one</option>
+            <option>Video Editor</option>
+            <option>Camera Operator</option>
+            <option>Production Assistant</option>
+            <option>Social Media Manager</option>
+            <option>Marketing / Partnerships</option>
+            <option>Intern / Apprentice</option>
+            <option>Other</option>
+          </select>
+        </div>
+
+        <div>
+          <label>Availability</label>
+          <select name="Availability">
+            <option>Freelance / Contract</option>
+            <option>Part-Time</option>
+            <option>Full-Time (Future)</option>
+          </select>
+        </div>
+
+        <div class="form-full">
+          <label>Portfolio / Work Samples *</label>
+          <input type="text" name="Portfolio" placeholder="Website, Google Drive, Vimeo, etc." required>
+        </div>
+
+        <div class="form-full">
+          <label>Why Do You Want to Work With Us?</label>
+          <textarea name="Why"></textarea>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary">Submit Application</button>
+          <p class="disclaimer">
+            This is an application only. Selected candidates will be contacted.
+          </p>
+        </div>
+      </form>
+    </div>
+
+    <div class="sidebar-block">
+      <div class="sidebar-title">What We Value</div>
+      <p class="sidebar-text">
+        Initiative. Taste. Reliability. Cultural awareness.  
+        We move fast, but we move with intention.
+      </p>
+    </div>
+  </div>
+</section>
+    <section id="sponsor" class="section">
     <!-- FORM + SIDEBAR -->
     <section class="section">
       <div class="grid-2">
@@ -579,7 +684,7 @@
       </div>
     </section>
   </main>
-
+</section>
   <!-- FOOTER -->
   <footer>
     <div>© <span id="year"></span> Markel Media &amp; Management. All rights reserved.</div>
@@ -596,5 +701,14 @@
     // Set current year in footer
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
+  <script>
+  function showSection(section) {
+    document.getElementById('sponsor').style.display =
+      section === 'sponsor' ? 'block' : 'none';
+
+    document.getElementById('careers').style.display =
+      section === 'careers' ? 'block' : 'none';
+  }
+</script>
 </body>
 </html>
