@@ -3,655 +3,278 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Workshops &amp; Training | Markel Media &amp; Management | Shoot • Post • Close</title>
+  <title>Buying a Home in Illinois — Today | Public Workshop</title>
 
   <!-- SEO -->
-  <meta name="description" content="Chicago-based content workshops and media training for real estate agents, teams, and creatives. Markel Media & Management leads on-site Shoot • Post • Close workshops that turn your people into consistent content machines." />
+  <meta name="description" content="A free, in-person educational workshop designed to help first-time buyers understand the Illinois home-buying process — without pressure, hype, or sales tactics." />
   <meta name="robots" content="index,follow" />
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="Workshops & Training | Markel Media & Management" />
-  <meta property="og:description" content="Shoot • Post • Close workshops and live media training for agents, teams, and creatives in Chicago and beyond." />
-  <meta property="og:type" content="website" />
-
   <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet" />
 
+  <!-- Inline CSS (Luxury / Institutional) -->
   <style>
-    /* RESET */
-    *, *::before, *::after {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html, body {
-      scroll-behavior: smooth;
-    }
-
+    * { margin:0; padding:0; box-sizing:border-box; }
     body {
-      font-family: 'Inter', sans-serif;
-      background: #0e0e0e;
-      color: #EDE7D9;
-      line-height: 1.6;
+      font-family:'Inter', sans-serif;
+      background:#0e0e0e;
+      color:#EDE7D9;
+      line-height:1.7;
     }
+    a { color:inherit; text-decoration:none; }
+    img { max-width:100%; display:block; }
 
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    img, video {
-      max-width: 100%;
-      display: block;
-    }
-
-    /* LAYOUT HELPERS */
-    .section {
-      padding: 80px 10%;
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-
-    .section-narrow {
-      padding: 60px 10%;
-      max-width: 800px;
-      margin: 0 auto;
-    }
-
-    .section-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.4rem;
-      margin-bottom: 1.5rem;
-      letter-spacing: 0.5px;
-    }
-
-    /* HEADER / NAV */
     header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 100;
-      background: rgba(10,10,10,0.9);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid #1f1f1f;
+      position:fixed;
+      top:0; left:0; right:0;
+      background:rgba(10,10,10,0.9);
+      backdrop-filter:blur(10px);
+      border-bottom:1px solid #1f1f1f;
+      z-index:100;
     }
-
     .nav-inner {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 1rem 10%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+      max-width:1100px;
+      margin:0 auto;
+      padding:1rem 10%;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
     }
-
     .brand {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.1rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
+      font-family:'Playfair Display', serif;
+      font-size:1.05rem;
+      letter-spacing:0.08em;
+      text-transform:uppercase;
     }
-
-    .brand span {
-      color: #C5A572;
-    }
-
+    .brand span { color:#C5A572; }
     nav a {
-      margin-left: 1.5rem;
-      font-size: 0.9rem;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: #EDE7D9;
-      opacity: 0.9;
-      transition: color 0.2s ease, opacity 0.2s ease;
+      margin-left:1.5rem;
+      font-size:0.8rem;
+      letter-spacing:0.12em;
+      text-transform:uppercase;
+      opacity:0.85;
+    }
+    nav a.active, nav a:hover { color:#C5A572; }
+
+    main { padding-top:120px; }
+
+    .section {
+      max-width:900px;
+      margin:0 auto;
+      padding:80px 10%;
+    }
+    .section-narrow {
+      max-width:720px;
+      margin:0 auto;
+      padding:70px 10%;
     }
 
-    nav a:hover,
-    nav a.active {
-      color: #C5A572;
-      opacity: 1;
+    h1, h2 {
+      font-family:'Playfair Display', serif;
+      font-weight:600;
     }
+    h1 { font-size:2.8rem; line-height:1.1; }
+    h2 { font-size:2.1rem; margin-bottom:1rem; }
 
-    /* BUTTONS */
-    .btn {
-      display: inline-block;
-      padding: 0.85rem 2.4rem;
-      border-radius: 999px;
-      font-size: 0.9rem;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      border: 2px solid transparent;
-      transition: all 0.25s ease;
-      cursor: pointer;
-    }
+    p { color:#c9c2b3; font-size:0.95rem; }
 
-    .btn-primary {
-      background: linear-gradient(135deg, #C5A572, #b69249);
-      color: #0e0e0e;
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-2px);
-    }
-
-    .btn-outline {
-      border-color: #C5A572;
-      color: #C5A572;
-      background: transparent;
-    }
-
-    .btn-outline:hover {
-      background: #C5A572;
-      color: #0e0e0e;
-      transform: translateY(-2px);
-    }
-
-    /* HERO */
     .hero {
-      min-height: 70vh;
-      padding: 140px 10% 80px;
-      max-width: 1100px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
-      gap: 3rem;
-      align-items: center;
+      display:grid;
+      grid-template-columns:1.1fr 1fr;
+      gap:3rem;
+      align-items:center;
+    }
+    .hero img {
+      border-radius:22px;
+      border:1px solid #262626;
+      box-shadow:0 20px 60px rgba(0,0,0,0.7);
     }
 
-    .hero-copy h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.8rem;
-      line-height: 1.1;
-      margin-bottom: 1rem;
+    .kicker {
+      color:#C5A572;
+      font-size:0.75rem;
+      letter-spacing:0.18em;
+      text-transform:uppercase;
+      margin-bottom:0.75rem;
     }
 
-    .hero-kicker {
-      font-size: 0.9rem;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: #C5A572;
-      margin-bottom: 0.65rem;
+    .btn {
+      display:inline-block;
+      margin-top:2rem;
+      padding:0.85rem 2.5rem;
+      border-radius:999px;
+      font-size:0.8rem;
+      letter-spacing:0.14em;
+      text-transform:uppercase;
+      background:linear-gradient(135deg,#C5A572,#b69249);
+      color:#0e0e0e;
+      font-weight:600;
     }
 
-    .hero-subtitle {
-      font-size: 1rem;
-      color: #d2c7b2;
-      max-width: 520px;
-      margin-bottom: 1.75rem;
+    ul { margin-top:1.2rem; }
+    li {
+      list-style:none;
+      margin-bottom:0.6rem;
+      color:#c4c4c4;
+      font-size:0.9rem;
     }
 
-    .hero-tags {
-      font-size: 0.85rem;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      color: #8e8e8e;
-      margin-bottom: 1.75rem;
+    .venue-box {
+      border:1px solid #262626;
+      border-radius:18px;
+      padding:2rem;
+      background:#111;
     }
 
-    .hero-media {
-      position: relative;
-    }
-
-    .hero-media img {
-      border-radius: 22px;
-      border: 1px solid #262626;
-      box-shadow: 0 22px 60px rgba(0,0,0,0.7);
-    }
-
-    .hero-label {
-      position: absolute;
-      left: 1.5rem;
-      bottom: 1.5rem;
-      background: rgba(5,5,5,0.9);
-      border-radius: 999px;
-      padding: 0.4rem 1rem;
-      font-size: 0.78rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      border: 1px solid #333;
-      color: #C5A572;
-    }
-
-    /* GRIDS & CARDS */
-    .grid-2 {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1.75rem;
-    }
-
-    .grid-3 {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1.75rem;
-    }
-
-    .card {
-      background: #151515;
-      border-radius: 16px;
-      border: 1px solid #262626;
-      padding: 1.5rem;
-    }
-
-    /* GALLERY STRIP */
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1.5rem;
-      margin-top: 1.25rem;
-    }
-
-    .gallery-item img {
-      border-radius: 14px;
-      border: 1px solid #262626;
-    }
-
-    .gallery-item p {
-      font-size: 0.9rem;
-      color: #b4b4b4;
-      margin-top: 0.6rem;
-    }
-
-    /* CASE STUDY TEXT */
-    .case-header {
-      font-size: 0.9rem;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: #C5A572;
-      margin-bottom: 0.4rem;
-    }
-
-    .case-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.7rem;
-      margin-bottom: 0.75rem;
-    }
-
-    .case-body {
-      font-size: 0.95rem;
-      color: #c4c4c4;
-      margin-bottom: 1rem;
-    }
-
-    .case-meta {
-      font-size: 0.85rem;
-      color: #8e8e8e;
-    }
-
-    /* PACKAGES */
-    .package-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1.75rem;
-      margin-top: 1.5rem;
-    }
-
-    .package-card h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.3rem;
-      margin-bottom: 0.4rem;
-    }
-
-    .package-price {
-      font-size: 0.95rem;
-      font-weight: 600;
-      color: #C5A572;
-      margin-bottom: 0.75rem;
-    }
-
-    .package-card ul {
-      list-style: none;
-      margin-top: 0.5rem;
-    }
-
-    .package-card li {
-      font-size: 0.9rem;
-      color: #c4c4c4;
-      margin-bottom: 0.4rem;
-    }
-
-    .package-note {
-      font-size: 0.8rem;
-      color: #8e8e8e;
-      margin-top: 0.65rem;
-    }
-
-    /* FAQ */
-    .faq {
-      margin-top: 1.75rem;
-    }
-
-    .faq-item {
-      margin-bottom: 1.1rem;
-    }
-
-    .faq-item h3 {
-      font-size: 1rem;
-      font-weight: 600;
-      margin-bottom: 0.25rem;
-    }
-
-    .faq-item p {
-      font-size: 0.9rem;
-      color: #c4c4c4;
-    }
-
-    /* CTA */
-    .cta {
-      text-align: center;
-    }
-
-    .cta p {
-      color: #c4c4c4;
-      max-width: 520px;
-      margin: 0.75rem auto 2rem;
-    }
-
-    /* FOOTER */
     footer {
-      border-top: 1px solid #1c1c1c;
-      padding: 1.5rem 10%;
-      max-width: 1100px;
-      margin: 0 auto 1rem;
-      font-size: 0.8rem;
-      color: #8e8e8e;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 1rem;
+      border-top:1px solid #1c1c1c;
+      padding:1.5rem 10%;
+      max-width:1100px;
+      margin:0 auto;
+      font-size:0.75rem;
+      color:#8e8e8e;
+      display:flex;
+      justify-content:space-between;
     }
 
-    footer a {
-      color: #C5A572;
-    }
-
-    /* RESPONSIVE */
-    @media (max-width: 900px) {
-      .hero {
-        grid-template-columns: 1fr;
-        padding-inline: 10%;
-      }
-    }
-
-    @media (max-width: 640px) {
-      .nav-inner {
-        padding-inline: 6%;
-      }
-
-      .hero,
-      .section,
-      .section-narrow {
-        padding-inline: 6%;
-      }
-
-      nav {
-        display: none; /* simple mobile treatment for now */
-      }
-
-      .hero {
-        padding-top: 120px;
-      }
+    @media(max-width:900px){
+      .hero { grid-template-columns:1fr; }
     }
   </style>
 </head>
+
 <body>
-  <!-- HEADER -->
-  <header>
-    <div class="nav-inner">
-      <div class="brand">
-        Markel Media <span>&amp; Management</span>
-      </div>
-      <nav>
-        <a href="index.html">Home</a>
-        <a href="real-estate.html">Real Estate</a>
-        <a href="event-media.html">Events</a>
-        <a href="videography.html">Videography</a>
-        <a href="workshops.html" class="active">Workshops</a>
-        <a href="theintegratededge.html">Conference</a>
-        <a href="contact.html">Contact</a>
-      </nav>
-    </div>
-  </header>
 
-  <main>
-    <!-- HERO -->
-    <section class="hero">
-      <div class="hero-copy">
-        <div class="hero-kicker">Workshops &amp; Training</div>
-        <h1>Shoot • Post • Close — In Real Life.</h1>
-        <p class="hero-subtitle">
-          Markel Media &amp; Management leads live, hands-on workshops that teach your agents,
-          team, or community how to plan, shoot, and ship content that actually sells.
-        </p>
-        <div class="hero-tags">
-          On-Site Training &nbsp;•&nbsp; Content Systems &nbsp;•&nbsp; Real Estate &amp; Creatives
-        </div>
-        <a href="#packages" class="btn btn-primary">View Workshop Formats</a>
-      </div>
-      <div class="hero-media">
-        <img src="assets/images/WSPMedia1.jpg" alt="Workshop speaker presenting to a focused audience" />
-        <div class="hero-label">Shoot • Post • Close • Live Workshop</div>
-      </div>
-    </section>
+<header>
+  <div class="nav-inner">
+    <div class="brand">Markel <span>Media</span></div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="real-estate.html">Real Estate</a>
+      <a href="workshops.html" class="active">Workshops</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
 
-    <!-- WHAT THE WORKSHOP IS -->
-    <section class="section">
-      <h2 class="section-title">Workshops That Don’t Just Talk About Content.</h2>
-      <p style="color:#b4b4b4; max-width:620px; margin-bottom:1.5rem;">
-        The Shoot • Post • Close workshop is built for people who are tired of hearing about
-        “consistency” and “content” with no real game plan. In a few hours, we go from theory to
-        published posts, so your team leaves with muscle memory—not just notes.
-      </p>
+<main>
 
-      <div class="grid-3">
-        <div class="card">
-          <h3 style="font-size:1.05rem; margin-bottom:0.5rem;">Designed For Doers</h3>
-          <p style="font-size:0.9rem;">
-            We work with real estate agents, small teams, and creatives who are already in motion
-            but need a structure that fits real life and real deadlines.
-          </p>
-        </div>
-        <div class="card">
-          <h3 style="font-size:1.05rem; margin-bottom:0.5rem;">Built Around Your Industry</h3>
-          <p style="font-size:0.9rem;">
-            Every example, prompt, and flow is tailored to your world—listings, showings, client
-            work, events, or launches—not generic “influencer” advice.
-          </p>
-        </div>
-        <div class="card">
-          <h3 style="font-size:1.05rem; margin-bottom:0.5rem;">From Ideas To Posted Content</h3>
-          <p style="font-size:0.9rem;">
-            We don’t end at frameworks. We carve out time for your team to shoot, edit, and post at
-            least one real piece of content before we wrap.
-          </p>
-        </div>
-      </div>
-    </section>
+<!-- HERO -->
+<section class="section hero">
+  <div>
+    <div class="kicker">Public Education Workshop</div>
+    <h1>Buying a Home in Illinois — Today</h1>
+    <p style="margin-top:1.2rem;">
+      A free, in-person educational workshop designed to replace confusion with clarity —
+      without pressure, hype, or sales tactics.
+    </p>
+    <a class="btn" href="https://buy.stripe.com/28E5kE7U62PO18o9uods404">Reserve a Seat</a>
+  </div>
+  <img src="assets/images/WorkshopGraphic1.jpg" alt="Homebuyer education workshop graphic">
+</section>
 
-    <!-- GALLERY: WORKSHOPS IN ACTION -->
-    <section class="section">
-      <h2 class="section-title">Workshops In Action</h2>
-      <p style="color:#b4b4b4; max-width:520px; margin-bottom:1.25rem;">
-        The room matters just as much as the curriculum. We design the flow so your people actually
-        feel safe to experiment, ask questions, and hit publish—even if they’ve been camera-shy or
-        overwhelmed in the past.
-      </p>
+<!-- WHAT THIS IS -->
+<section class="section-narrow">
+  <h2>What This Is (And Isn’t)</h2>
+  <p>
+    This is a calm, structured walk-through of how buying a home in Illinois actually works —
+    costs, timelines, credit, and decision points — explained in sequence, not fragments.
+  </p>
+  <ul>
+    <li>• Not a sales seminar</li>
+    <li>• Not a lender pitch</li>
+    <li>• No urgency tactics or pressure</li>
+  </ul>
+</section>
 
-      <div class="gallery-grid">
-        <div class="gallery-item">
-          <img src="assets/images/WSPMedia2.jpg" alt="Workshop attendees engaged and taking notes" />
-          <p>Live teaching moments with space for real-time Q&amp;A.</p>
-        </div>
-        <div class="gallery-item">
-          <img src="assets/images/WSPMedia3.jpg" alt="Interactive workshop with participants collaborating" />
-          <p>Hands-on collaboration and feedback instead of passive slides.</p>
-        </div>
-        <div class="gallery-item">
-          <img src="assets/images/WSPMedia4.jpg" alt="Instructor demonstrating content setup" />
-          <p>On-the-spot demonstrations for content setups your team will actually use.</p>
-        </div>
-      </div>
-    </section>
+<!-- WHAT YOU'LL LEARN -->
+<section class="section-narrow">
+  <h2>What You’ll Learn</h2>
+  <ul>
+    <li>• How the Illinois home-buying process actually unfolds</li>
+    <li>• The four costs buyers commonly confuse</li>
+    <li>• How cash-to-close is calculated</li>
+    <li>• How credit and debt-to-income function mechanically</li>
+    <li>• Where deals stall — and why</li>
+  </ul>
+</section>
 
-    <!-- CASE STUDY STRIP -->
-    <section class="section">
-      <div class="grid-2">
-        <div>
-          <div class="case-header">Case Study</div>
-          <div class="case-title">From “I Should Post More” To “I Know Exactly What To Do.”</div>
-          <p class="case-body">
-            In our workshop series, we’ve worked with agents and creatives who were stuck in the
-            “I know I need content, but I don’t know where to start” loop. By the end of a single
-            session, they leave with a repeatable system for planning topics, capturing footage,
-            and getting posts live in minutes—not hours.
-          </p>
-          <p class="case-body">
-            We focus on what you can execute with the gear you already have: your phone, natural
-            light, and a few smart setups. That way, the system survives the workshop and shows up
-            in your feed the next day.
-          </p>
-          <div class="case-meta">
-            Ideal for: real estate teams, small agencies, creative collectives, and community
-            organizations ready to turn their rooms into content engines.
-          </div>
-        </div>
-        <div>
-          <div class="card" style="margin-bottom:1.25rem;">
-            <img src="assets/images/WSPFlyer.jpg" alt="Shoot Post Close workshop promotional flyer" />
-            <p style="font-size:0.9rem; color:#b4b4b4; margin-top:0.75rem;">
-              Shoot • Post • Close flyer used across email, social, and partner promo.
-            </p>
-          </div>
-          <div class="card">
-            <img src="assets/images/WSPMedia10.jpg" alt="Behind the scenes content capture during workshop" />
-            <p style="font-size:0.9rem; color:#b4b4b4; margin-top:0.75rem;">
-              Behind-the-scenes media that doubles as promo for your next event or cohort.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
+<!-- FORMAT -->
+<section class="section-narrow">
+  <h2>Format & Materials</h2>
+  <p>
+    This is a two-hour, seated, discussion-friendly session supported by professionally
+    designed materials.
+  </p>
+  <ul>
+    <li>• Workshop packet</li>
+    <li>• Decision diagnostic</li>
+    <li>• Glossary card</li>
+    <li>• Complimentary ebook</li>
+  </ul>
+</section>
 
-    <!-- PACKAGES / FORMATS -->
-    <section class="section" id="packages">
-      <h2 class="section-title">Workshop Formats</h2>
-      <p style="color:#b4b4b4; max-width:520px; margin-bottom:1.5rem;">
-        Every workshop includes a discovery call beforehand so we can tune the content to your
-        people, your market, and your goals. Here are a few starting points that we can customize
-        to fit your team.
-      </p>
+<!-- VENUE SECTION -->
+<section class="section-narrow">
+  <h2>Venues & Hosting Spaces</h2>
+  <div class="venue-box">
+    <p>
+      This workshop is hosted in partnership with libraries, college campuses,
+      park districts, and civic spaces across Illinois.
+    </p>
+    <p style="margin-top:1rem;">
+      Each venue is selected intentionally to preserve a quiet, focused,
+      educational environment — not a sales or networking atmosphere.
+    </p>
+    <ul style="margin-top:1.5rem;">
+      <li>• Public libraries and community learning spaces</li>
+      <li>• College and university campuses</li>
+      <li>• Park district and civic education rooms</li>
+    </ul>
+    <p style="margin-top:1rem; font-size:0.85rem; color:#9d9687;">
+      Venue location details are shared after registration.
+    </p>
+  </div>
+</section>
 
-      <div class="package-grid">
-        <!-- Brokerage Intensive -->
-        <div class="card package-card">
-          <h3>Brokerage Intensive</h3>
-          <div class="package-price">From $1,250 (3–4 hours)</div>
-          <ul>
-            <li>On-site training for your real estate office or team</li>
-            <li>Frameworks for listing content, market updates, and personal brand</li>
-            <li>Live shooting lab—agents leave with at least one published post</li>
-          </ul>
-          <p class="package-note">
-            Ideal for brokerages and teams looking to uplevel their media without outsourcing every listing.
-          </p>
-        </div>
+<!-- FACILITATOR -->
+<section class="section-narrow">
+  <h2>About the Facilitator</h2>
+  <p>
+    Isaiah Lesley is a Columbia College Chicago alum (BFA, Television, Class of 2022)
+    and a licensed Illinois real estate professional.
+  </p>
+  <p style="margin-top:1rem;">
+    His work sits at the intersection of media, negotiation, and housing education —
+    translating complex systems into understandable frameworks so people can make
+    informed decisions without pressure.
+  </p>
+</section>
 
-        <!-- Creator / Small Team Lab -->
-        <div class="card package-card">
-          <h3>Creator &amp; Small Team Lab</h3>
-          <div class="package-price">From $850 (2–3 hours)</div>
-          <ul>
-            <li>Up to 8 participants (creatives, founders, or staff)</li>
-            <li>Content pillars, batching strategy, and simple workflows</li>
-            <li>Hands-on prompts and accountability to get the first pieces live</li>
-          </ul>
-          <p class="package-note">
-            Best for studios, collectives, and organizations that want a shared language around content.
-          </p>
-        </div>
+<!-- LOGISTICS -->
+<section class="section-narrow">
+  <h2>Logistics</h2>
+  <ul>
+    <li>• Free to attend (registration required)</li>
+    <li>• Limited seating to preserve discussion quality</li>
+    <li>• Location shared after registration</li>
+  </ul>
+</section>
 
-        <!-- Custom Program -->
-        <div class="card package-card">
-          <h3>Custom Program</h3>
-          <div class="package-price">Custom, based on series length</div>
-          <ul>
-            <li>Multi-session training (virtual or in-person)</li>
-            <li>Optional 1:1 follow-up calls or office hours</li>
-            <li>Curriculum aligned with your existing marketing or sales strategy</li>
-          </ul>
-          <p class="package-note">
-            Ideal for organizations, nonprofits, and education programs building a longer-term media curriculum.
-          </p>
-        </div>
-      </div>
-    </section>
+<!-- CTA -->
+<section class="section-narrow" style="text-align:center;">
+  <a class="btn" href="https://buy.stripe.com/28E5kE7U62PO18o9uods404">Reserve a Seat</a>
+  <p style="font-size:0.75rem; margin-top:1rem; color:#8e8e8e;">
+    Educational program. No products or services sold.
+  </p>
+</section>
 
-    <!-- FAQ -->
-    <section class="section-narrow">
-      <h2 class="section-title" style="font-size:2rem;">Workshop Logistics</h2>
+</main>
 
-      <div class="faq">
-        <div class="faq-item">
-          <h3>Where do you host workshops?</h3>
-          <p>
-            Most workshops are hosted on-site at your office, co-working space, or event venue in
-            the Chicago area and South Suburbs. Virtual options are available for teams outside
-            this radius.
-          </p>
-        </div>
+<footer>
+  <div>© Markel Media & Management</div>
+  <div>Public Educational Programming</div>
+</footer>
 
-        <div class="faq-item">
-          <h3>What gear do participants need?</h3>
-          <p>
-            At minimum, a smartphone and basic access to the platforms you’re posting on. If you
-            have cameras or studio space, we’ll incorporate them—but we build the system to work
-            even on your busiest day.
-          </p>
-        </div>
-
-        <div class="faq-item">
-          <h3>Can you tailor it for our niche?</h3>
-          <p>
-            Yes. Before we lock in a date, we’ll talk through your industry, audience, and goals so
-            the examples and prompts feel like your world—not generic social media advice.
-          </p>
-        </div>
-
-        <div class="faq-item">
-          <h3>Do you offer follow-up support?</h3>
-          <p>
-            We can add optional virtual office hours or a short follow-up series so your team has a
-            place to ask questions once they’ve tried the system on their own.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- CTA -->
-    <section class="section-narrow cta">
-      <h2 class="section-title" style="text-align:center;">Ready To Bring Shoot • Post • Close To Your People?</h2>
-      <p>
-        Tell us about your team, your event date, and what “success” looks like—more listings, more
-        leads, better storytelling, or all of the above. We’ll follow up with a proposed format and
-        quote.
-      </p>
-      <a href="contact.html" class="btn btn-primary">Inquire About A Workshop</a>
-    </section>
-  </main>
-
-  <!-- FOOTER -->
-  <footer>
-    <div>© <span id="year"></span> Markel Media &amp; Management. All rights reserved.</div>
-    <div>Based in Chicago, IL &nbsp;•&nbsp; <a href="mailto:isaiah@markelmgmt.com">isaiah@markelmgmt.com</a></div>
-  </footer>
-
-  <script>
-    // Set current year in footer
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
 </body>
 </html>
